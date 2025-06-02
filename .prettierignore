@@ -1,0 +1,14 @@
+# Ignore artifacts:
+.next/
+dist
+public
+
+
+# Ignore specific files:
+package.lock.json
+pnpm-lock.yaml
+README.md
+
+node_modules
+.next
+public
