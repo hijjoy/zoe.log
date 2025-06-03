@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/globals.css";
 import ThemeProvider from "@/theme/theme-provider";
-import Navbar from "@/components/common/navbar";
+import Navbar from "./(home)/_components/navbar";
+import Footer from "./(home)/_components/footer";
 
 export const metadata: Metadata = {
   title: "zoe.log",
@@ -27,6 +28,7 @@ export default function RootLayout({
         >
           <Navbar />
           <main className="py-10">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

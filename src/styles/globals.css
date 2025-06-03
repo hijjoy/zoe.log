@@ -75,4 +75,39 @@
   * {
     @apply box-border border-border;
   }
+
+  /* scrollbar */
+  * {
+    --scrollbar-size: 16px;
+    --scrollbar-size-min: 40px;
+    --scrollbar-color: var(--gray-200);
+    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-width: thin; /* firefox */
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-width: var(--scrollbar-size-min);
+    min-height: var(--scrollbar-size-min);
+    background-color: var(--scrollbar-color);
+    background-clip: padding-box;
+    border: 5px solid transparent;
+    border-radius: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    --scrollbar-color: var(--gray-300);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    --scrollbar-color: var(--gray-300);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
 }

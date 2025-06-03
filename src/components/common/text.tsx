@@ -8,7 +8,7 @@ interface TextProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Text({ children, className, ...props }: TextProps) {
   return (
-    <div className={cn("leading-tight text-gray-900", className)} {...props}>
+    <div className={cn("text-gray-700", className)} {...props}>
       {children}
     </div>
   );
