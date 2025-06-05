@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.10",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0",
     "next": "15.3.3",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@prisma/client": "^6.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -30,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "postcss": "^8.4.35",
+    "prisma": "^6.9.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

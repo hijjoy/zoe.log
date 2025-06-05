@@ -12,3 +12,5 @@ README.md
 node_modules
 .next
 public
+prisma
+generated
