@@ -5,7 +5,7 @@ import Navbar from "./(home)/_components/navbar";
 import Footer from "./(home)/_components/footer";
 
 export const metadata: Metadata = {
-  title: "zoe.log",
+  title: "hijjoy",
   description: "개발자 조이 블로그",
   icons: {
     icon: [{ url: "/favicon.ico" }],

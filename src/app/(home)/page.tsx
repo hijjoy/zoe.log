@@ -1,6 +1,7 @@
 import RotatingTitle from "@/components/common/rotating-title";
 import Text from "@/components/common/text";
 import Playground from "./_components/playground";
+import RecentPostList from "@/components/posts/recent-list";
 
 export default function Home() {
   return (
@@ -14,15 +15,11 @@ export default function Home() {
           className="sm:text-[3rem] text-[4rem] tracking-tighter  whitespace-pre-wrap text-gray-900"
         />
       </div>
+
       <Playground />
 
       {/* 최근 posts */}
-      <div className="flex flex-col gap-1">
-        <Text className="text-2xl font-semibold">Recent Posts</Text>
-        <Text className="text-sm text-gray-400">
-          준비중 입니다 ... 조금만 wait ~
-        </Text>
-      </div>
+      <RecentPostList />
     </div>
   );
 }

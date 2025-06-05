@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { VscDebugStart, VscDebugRestart } from "react-icons/vsc";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/libs/cn";
 
 const code = `
 export default function Zoelog() {
@@ -26,29 +27,24 @@ export default function Playground() {
 
   return (
     <MotionOpacity>
-      <Image
-        src="/images/쪼이.svg"
-        alt="logo"
-        width={330}
-        height={330}
-        className="absolute right-0 sm:size-72"
-      />
-      {isImageVisible && (
-        <MotionOpacity>
-          <Image
-            src="/images/code.webp"
-            alt="logo"
-            width={100}
-            height={100}
-            className="absolute right-0 sm:hidden"
-          />
-        </MotionOpacity>
-      )}
+      <div className="absolute right-0 sm:size-60 sm:translate-y-full">
+        <Image src="/images/쪼이.svg" alt="logo" width={330} height={330} />
+        <Image
+          src="/images/code.webp"
+          alt="logo"
+          width={100}
+          height={100}
+          className={cn(
+            "absolute top-0 right-0 transition-all duration-300",
+            isImageVisible ? "opacity-100" : "opacity-0"
+          )}
+        />
+      </div>
       <div className="flex flex-col p-4 mt-6">
         {/* 버튼 아이콘 */}
         <button
           onClick={() => setIsImageVisible(!isImageVisible)}
-          className="py-1 transition-all duration-300 w-fit hover:scale-110 sm:hidden"
+          className="py-1 transition-all duration-300 w-fit hover:scale-110"
         >
           <AnimatePresence mode="wait">
             {isImageVisible ? (
@@ -76,7 +72,7 @@ export default function Playground() {
         </button>
 
         {/* 코드 블럭 */}
-        <CodeBlockBox code={code} className="sm:hidden" />
+        <CodeBlockBox code={code} className="" />
       </div>
     </MotionOpacity>
   );

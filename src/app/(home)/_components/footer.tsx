@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="flex justify-end py-8 w-full">
       <Text className="text-xs text-gray-500">
-        © Powered by
+        © Powered by{" "}
         <Link
           href="https://github.com/hijjoy"
           className="hover:text-gray-600"
