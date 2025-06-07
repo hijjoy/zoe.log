@@ -9,36 +9,38 @@ interface Props {
 }
 
 export default function PostCard({ post }: Props) {
-  console.log(post.thumbnail);
   return (
     <Link href={`/posts/${post.id}`} className="group">
-      <article className="flex justify-between gap-10">
+      <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">
         <div>
           <Categories categories={post.categories} />
-          <Text className="mb-2 text-xl font-semibold group-hover:text-main transition-all duration-300">
+          <Text className="mb-2 text-xl sm:text-lg font-semibold group-hover:text-main transition-all duration-300 break-keep">
             {post.title}
           </Text>
 
           {post.description && (
-            <Text className="mb-4 text-gray-500 text-sm">
+            <Text className="mb-4 text-gray-500 text-sm break-keep">
               {post.description}
             </Text>
           )}
 
           <time className="text-sm text-gray-400">
-            {new Date(post.createdAt).toLocaleDateString()}
+            {new Date(post.createdAt).toLocaleDateString("ko-KR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </time>
         </div>
         {post.thumbnail && (
-          <span className="block relative w-full max-w-[150px] rounded-lg overflow-hidden">
+          <div className="relative w-full max-w-[150px] sm:max-w-[100px] max-h-[120px] aspect-[5/4] rounded-xl overflow-hidden group">
             <Image
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
               src={post.thumbnail}
               alt={`${post.title} thumbnail`}
-              width={150}
-              height={120}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
             />
-          </span>
+          </div>
         )}
       </article>
     </Link>

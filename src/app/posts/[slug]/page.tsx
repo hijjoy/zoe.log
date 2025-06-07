@@ -1,3 +1,3 @@
 export default function PostDetailPage() {
-  return <div>PostDetailPage</div>;
+  return <div className="min-h-screen">PostDetailPage</div>;
 }

@@ -27,7 +27,7 @@ export default function Playground() {
 
   return (
     <MotionOpacity className="min-h-[330px] sm:min-h-[340px]">
-      <div className="absolute right-0 sm:size-60 sm:translate-y-full">
+      <div className="absolute right-0 sm:size-60 sm:translate-y-[95%] ">
         <Image src="/images/쪼이.svg" alt="logo" width={330} height={330} />
         <Image
           src="/images/code.webp"

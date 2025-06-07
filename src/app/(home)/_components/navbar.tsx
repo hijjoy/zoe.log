@@ -6,7 +6,7 @@ export default function Navbar() {
     <header className="flex sticky top-0 z-20 justify-between items-center py-4 w-full backdrop-blur-sm">
       <Link
         href="/"
-        className="text-lg font-semibold transition-all duration-400 active:scale-95 hover:text-gray-500"
+        className="text-lg font-semibold transition-all duration-400 active:scale-95 hover:text-main"
       >
         zoe.log
       </Link>
