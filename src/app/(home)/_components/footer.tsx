@@ -11,6 +11,7 @@ export default function Footer() {
           href="https://github.com/hijjoy"
           className="hover:text-gray-600"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Hyewon
         </Link>

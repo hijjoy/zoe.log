@@ -30,6 +30,7 @@ export default function Navbar() {
         <Link
           href="https://github.com/hijjoy"
           target="_blank"
+          rel="noopener noreferrer"
           className="rounded-md p-1.5 hover:bg-gray-200 transition-all duration-500"
         >
           <FaGithub />
