@@ -5,7 +5,10 @@ import Image from "next/image";
 import Categories from "./categories";
 
 interface Props {
-  post: Post;
+  post: Pick<
+    Post,
+    "slug" | "title" | "description" | "thumbnail" | "categories" | "createdAt"
+  >;
 }
 
 export default function PostCard({ post }: Props) {

@@ -27,6 +27,14 @@ export default async function CategoryPage({ params }: Props) {
         has: mappedCategory,
       },
     },
+    select: {
+      slug: true,
+      title: true,
+      description: true,
+      thumbnail: true,
+      createdAt: true,
+      categories: true,
+    },
   });
 
   if (posts.length === 0) {
@@ -37,7 +45,7 @@ export default async function CategoryPage({ params }: Props) {
     <Suspense fallback={<div />}>
       <div className="grid gap-6">
         {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
+          <PostCard key={post.slug} post={post} />
         ))}
       </div>
     </Suspense>

@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { customComponents } from "@/components/posts/custom_mdx";
 import Image from "next/image";
 import Text from "@/components/common/text";
+import { Post } from "@/types/post";
 
 export default async function PostDetailPage({
   params,
@@ -24,22 +25,25 @@ export default async function PostDetailPage({
 
   return (
     <div className="min-h-screen px-4">
-      <div className="flex justify-center items-center mb-16 mt-4 relative">
-        <Image
-          src={post.thumbnail}
-          alt={post.title}
-          width={500}
-          height={500}
-          className="rounded-xl aspect-[5/4] w-full h-[250px] object-cover"
-        />
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[5px] rounded-xl" />
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-white">
-          <h1 className="text-3xl font-bold">{post.title}</h1>
-          <Text className="text-white">{post.description}</Text>
-        </div>
-      </div>
+      <HeaderSection post={post} />
       <MDXRemote source={post.content} components={customComponents} />
     </div>
   );
 }
+
+const HeaderSection = ({ post }: { post: Post }) => (
+  <div className="flex justify-center items-center mb-16 mt-4 relative">
+    <Image
+      src={post.thumbnail}
+      alt={post.title}
+      width={500}
+      height={500}
+      className="rounded-xl aspect-[5/4] w-full h-[250px] object-cover"
+    />
+    <div className="absolute inset-0 bg-black/30 backdrop-blur-[5px] rounded-xl" />
+    <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-white">
+      <h1 className="text-3xl font-bold">{post.title}</h1>
+      <Text className="text-white">{post.description}</Text>
+    </div>
+  </div>
+);
