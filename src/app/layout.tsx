@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className="mx-auto max-w-[768px] px-4">
+      <body className="mx-auto max-w-[768px] px-4 vsc-initialized">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
