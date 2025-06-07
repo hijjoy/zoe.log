@@ -2,10 +2,30 @@ import NoContent from "@/components/common/no-content";
 import PostCard from "@/components/posts/card";
 import { prisma } from "@/libs/prisma";
 
-export default async function PostsPage() {
+const CATEGORY_MAPPING = {
+  development: "개발",
+  review: "회고",
+} as const;
+
+interface Props {
+  params: {
+    category: string;
+  };
+}
+
+export default async function PostsPage({ params }: Props) {
+  const { category } = params;
+  const mappedCategory =
+    CATEGORY_MAPPING[category as keyof typeof CATEGORY_MAPPING];
+
   const posts = await prisma.post.findMany({
     orderBy: {
       createdAt: "desc",
+    },
+    where: {
+      categories: {
+        has: mappedCategory,
+      },
     },
   });
 
