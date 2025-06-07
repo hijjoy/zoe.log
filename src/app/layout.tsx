@@ -10,6 +10,19 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/favicon.ico" }],
   },
+  openGraph: {
+    url: "https://hijjoy.com",
+    title: "hijjoy",
+    description: "웹 프론트엔드 개발자 조이입니다",
+    images: [
+      {
+        url: "/images/openGraph.png",
+        width: 1200,
+        height: 638,
+        alt: "블로그 대표 이미지",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
