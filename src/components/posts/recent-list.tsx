@@ -11,7 +11,7 @@ export default async function RecentPostList() {
   });
 
   return (
-    <div className="flex flex-col gap-1 sm:mt-20">
+    <div className="flex flex-col gap-1 sm:mt-20 px-4">
       <Text className="text-sm mb-4 text-gray-600 font-semibold">
         Recent Posts
       </Text>

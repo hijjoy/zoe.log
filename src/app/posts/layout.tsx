@@ -6,7 +6,7 @@ export default function PostsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto min-h-screen">
+    <div className="mx-auto min-h-screen px-4">
       <PostsMenu />
       {children}
     </div>

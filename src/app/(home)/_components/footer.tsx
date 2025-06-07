@@ -4,7 +4,7 @@ import Text from "@/components/common/text";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-end py-8 w-full">
+    <footer className="flex justify-end py-8 w-full px-4">
       <Text className="text-xs text-gray-500">
         © Powered by{" "}
         <Link
