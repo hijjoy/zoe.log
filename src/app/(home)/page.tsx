@@ -1,7 +1,7 @@
 import RotatingTitle from "@/components/common/rotating-title";
 import RecentPostList from "@/components/posts/recent-list";
-import { AnimatedText } from "@/components/common/animated-text";
 import Blob from "./_components/blob";
+import AnimatedText from "@/components/common/animated-text";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
           <AnimatedText
             text="안녕하세요! 조이, 정혜원입니다"
             className="text-gray-600 pl-1 sm:text-sm"
+            as="h1"
           />
         </div>
 
