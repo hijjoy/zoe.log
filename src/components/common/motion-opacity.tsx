@@ -1,24 +1,29 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, MotionProps } from "framer-motion";
+import { ReactNode } from "react";
+import { cn } from "@/libs/cn";
 
-interface Props {
-  children: React.ReactNode;
-  duration?: number;
+interface Props extends MotionProps {
+  children: ReactNode;
   className?: string;
 }
 
 export default function MotionOpacity({
   children,
-  duration = 0.45,
   className,
+  initial = { opacity: 0, scale: 0.95 },
+  animate = { opacity: 1, scale: 1 },
+  transition = { duration: 0.45, ease: "easeInOut" },
+  ...rest
 }: Props) {
   return (
     <motion.div
-      className={className}
-      initial={{ opacity: 0, scale: 0.98, y: 10 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration, ease: "easeInOut" }}
+      className={cn(className)}
+      initial={initial}
+      animate={animate}
+      transition={transition}
+      {...rest}
     >
       {children}
     </motion.div>

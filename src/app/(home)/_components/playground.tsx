@@ -26,7 +26,7 @@ export default function Playground() {
   const [isImageVisible, setIsImageVisible] = useState(false);
 
   return (
-    <MotionOpacity>
+    <MotionOpacity className="min-h-[320px] sm:min-h-[340px]">
       <div className="absolute right-0 sm:size-60 sm:translate-y-full">
         <Image src="/images/쪼이.svg" alt="logo" width={330} height={330} />
         <Image
@@ -40,7 +40,7 @@ export default function Playground() {
           )}
         />
       </div>
-      <div className="flex flex-col p-4 mt-6">
+      <div className="flex flex-col  mt-6">
         {/* 버튼 아이콘 */}
         <button
           onClick={() => setIsImageVisible(!isImageVisible)}

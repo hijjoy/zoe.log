@@ -4,11 +4,11 @@ import { prisma } from "@/libs/prisma";
 export default async function PostsPage() {
   const posts = await prisma.post.findMany({
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: "desc",
+    },
   });
 
-  if(posts.length === 0) {
+  if (posts.length === 0) {
     return <NoContent />;
   }
 

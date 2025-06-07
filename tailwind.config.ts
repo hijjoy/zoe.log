@@ -51,6 +51,32 @@ export default {
         page: "var(--page-background)",
         border: "var(--gray-200)",
       },
+      keyframes: {
+        "fade-in": {
+          "0%": { 
+            opacity: "0",
+            transform: "scale(0.95)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "scale(1)"
+          },
+        },
+        "slide-in": {
+          "0%": { 
+            opacity: "0",
+            transform: "translateY(20px) scale(0.95)"
+          },
+          "100%": { 
+            opacity: "1",
+            transform: "translateY(0) scale(1)"
+          },
+        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+        "slide-in": "slide-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards",
+      },
     },
   },
   plugins: [],
