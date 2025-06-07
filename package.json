@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.0",
     "@react-three/fiber": "^9.1.2",
     "@supabase/supabase-js": "^2.49.10",
     "@types/three": "^0.177.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.15.0",
     "next": "15.3.3",
+    "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

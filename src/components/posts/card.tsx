@@ -10,7 +10,7 @@ interface Props {
 
 export default function PostCard({ post }: Props) {
   return (
-    <Link href={`/article/${post.id}`} className="group">
+    <Link href={`/article/${post.slug}`} className="group">
       <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">
         <div>
           <Categories categories={post.categories} />
@@ -32,16 +32,15 @@ export default function PostCard({ post }: Props) {
             })}
           </time>
         </div>
-        {post.thumbnail && (
-          <div className="relative w-full max-w-[150px] sm:max-w-[100px] max-h-[120px] aspect-[5/4] rounded-xl overflow-hidden group">
-            <Image
-              src={post.thumbnail}
-              alt={`${post.title} thumbnail`}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-          </div>
-        )}
+
+        <div className="relative w-full max-w-[150px] sm:max-w-[100px] max-h-[120px] aspect-[5/4] rounded-xl overflow-hidden group">
+          <Image
+            src={post.thumbnail}
+            alt={`${post.title} thumbnail`}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
       </article>
     </Link>
   );
