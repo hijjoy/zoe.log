@@ -10,7 +10,7 @@ interface Props {
 
 export default function PostCard({ post }: Props) {
   return (
-    <Link href={`/posts/${post.id}`} className="group">
+    <Link href={`/article/${post.id}`} className="group">
       <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">
         <div>
           <Categories categories={post.categories} />
