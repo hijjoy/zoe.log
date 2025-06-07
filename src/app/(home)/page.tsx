@@ -1,5 +1,4 @@
 import RotatingTitle from "@/components/common/rotating-title";
-import Text from "@/components/common/text";
 import Playground from "./_components/playground";
 import RecentPostList from "@/components/posts/recent-list";
 import { AnimatedText } from "@/components/common/animated-text";

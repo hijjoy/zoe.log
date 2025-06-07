@@ -50,26 +50,27 @@ export default {
         second: "var(--text-second)",
         page: "var(--page-background)",
         border: "var(--gray-200)",
+        main: "var(--main)",
       },
       keyframes: {
         "fade-in": {
-          "0%": { 
+          "0%": {
             opacity: "0",
-            transform: "scale(0.95)"
+            transform: "scale(0.95)",
           },
-          "100%": { 
+          "100%": {
             opacity: "1",
-            transform: "scale(1)"
+            transform: "scale(1)",
           },
         },
         "slide-in": {
-          "0%": { 
+          "0%": {
             opacity: "0",
-            transform: "translateY(20px) scale(0.95)"
+            transform: "translateY(20px) scale(0.95)",
           },
-          "100%": { 
+          "100%": {
             opacity: "1",
-            transform: "translateY(0) scale(1)"
+            transform: "translateY(0) scale(1)",
           },
         },
       },

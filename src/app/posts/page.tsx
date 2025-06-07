@@ -1,4 +1,5 @@
 import NoContent from "@/components/common/no-content";
+import PostCard from "@/components/posts/card";
 import { prisma } from "@/libs/prisma";
 
 export default async function PostsPage() {
@@ -13,29 +14,10 @@ export default async function PostsPage() {
   }
 
   return (
-    <div className="container px-4 py-8 mx-auto">
-      <h1 className="mb-6 text-3xl font-bold">Posts</h1>
+    <div className="container px-4 py-8 mx-auto min-h-screen">
       <div className="grid gap-6">
         {posts.map((post) => (
-          <article key={post.id} className="p-6 rounded-lg border">
-            <h2 className="mb-2 text-2xl font-semibold">{post.title}</h2>
-            {post.description && (
-              <p className="mb-4 text-gray-600">{post.description}</p>
-            )}
-            <div className="flex gap-2 mb-4">
-              {post.categories.map((category) => (
-                <span
-                  key={category}
-                  className="px-3 py-1 text-sm text-gray-800 bg-gray-100 rounded-full"
-                >
-                  {category}
-                </span>
-              ))}
-            </div>
-            <time className="text-sm text-gray-500">
-              {new Date(post.createdAt).toLocaleDateString()}
-            </time>
-          </article>
+          <PostCard key={post.id} post={post} />
         ))}
       </div>
     </div>
