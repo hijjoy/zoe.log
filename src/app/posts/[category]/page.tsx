@@ -8,15 +8,14 @@ const CATEGORY_MAPPING = {
 } as const;
 
 interface Props {
-  params: {
-    category: string;
-  };
+  params: Promise<{
+    category: keyof typeof CATEGORY_MAPPING;
+  }>;
 }
 
-export default async function PostsPage({ params }: Props) {
-  const { category } = params;
-  const mappedCategory =
-    CATEGORY_MAPPING[category as keyof typeof CATEGORY_MAPPING];
+export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+  const mappedCategory = CATEGORY_MAPPING[category];
 
   const posts = await prisma.post.findMany({
     orderBy: {
