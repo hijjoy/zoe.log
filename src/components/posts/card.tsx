@@ -12,7 +12,7 @@ export default function PostCard({ post }: Props) {
   console.log(post.thumbnail);
   return (
     <Link href={`/posts/${post.id}`} className="group">
-      <article className="flex justify-between">
+      <article className="flex justify-between gap-10">
         <div>
           <Categories categories={post.categories} />
           <Text className="mb-2 text-xl font-semibold group-hover:text-main transition-all duration-300">
@@ -30,13 +30,13 @@ export default function PostCard({ post }: Props) {
           </time>
         </div>
         {post.thumbnail && (
-          <span className="w-[150px] h-[120px] rounded-lg overflow-hidden">
+          <span className="block relative w-full max-w-[150px] rounded-lg overflow-hidden">
             <Image
-              className="group-hover:scale-110 transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
               src={post.thumbnail}
               alt={`${post.title} thumbnail`}
               width={150}
-              height={100}
+              height={120}
             />
           </span>
         )}
