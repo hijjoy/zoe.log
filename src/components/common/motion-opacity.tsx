@@ -12,9 +12,9 @@ interface Props extends MotionProps {
 export default function MotionOpacity({
   children,
   className,
-  initial = { opacity: 0, scale: 0.95 },
+  initial = { opacity: 0, scale: 0.995 },
   animate = { opacity: 1, scale: 1 },
-  transition = { duration: 0.45, ease: "easeInOut" },
+  transition = { duration: 0.6, ease: "easeInOut" },
   ...rest
 }: Props) {
   return (

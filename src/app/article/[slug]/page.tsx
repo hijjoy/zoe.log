@@ -5,6 +5,8 @@ import { customComponents } from "@/components/posts/custom_mdx";
 import Image from "next/image";
 import Text from "@/components/common/text";
 import { Post } from "@/types/post";
+import { Suspense } from "react";
+import MotionOpacity from "@/components/common/motion-opacity";
 
 export default async function PostDetailPage({
   params,
@@ -24,10 +26,12 @@ export default async function PostDetailPage({
   }
 
   return (
-    <div className="min-h-screen px-4">
-      <HeaderSection post={post} />
-      <MDXRemote source={post.content} components={customComponents} />
-    </div>
+    <Suspense fallback={<div className='min-h-screen'/>}>
+      <MotionOpacity className="min-h-screen px-4">
+        <HeaderSection post={post} />
+        <MDXRemote source={post.content} components={customComponents} />
+      </MotionOpacity>
+    </Suspense>
   );
 }
 
@@ -42,8 +46,12 @@ const HeaderSection = ({ post }: { post: Post }) => (
     />
     <div className="absolute inset-0 bg-black/30 backdrop-blur-[5px] rounded-xl" />
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-white">
-      <h1 className="text-3xl font-bold">{post.title}</h1>
-      <Text className="text-white">{post.description}</Text>
+      <h1 className="text-3xl sm:text-xl font-bold break-keep text-center px-2">
+        {post.title}
+      </h1>
+      <Text className="text-white break-keep text-center sm:text-sm px-2">
+        {post.description}
+      </Text>
     </div>
   </div>
 );

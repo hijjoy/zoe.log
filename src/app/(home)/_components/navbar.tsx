@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Navbar() {
   return (
-    <header className="flex sticky top-0 z-20 justify-between items-center py-4 w-full backdrop-blur-sm px-4">
+    <header className="flex sticky top-0 z-20 justify-between items-center py-4 w-full backdrop-blur-sm sm:backdrop-blur-none px-4">
       <div className="flex gap-4 items-center text-gray-600 text-sm">
         <Link
           href="/"

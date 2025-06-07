@@ -2,10 +2,11 @@ import RotatingTitle from "@/components/common/rotating-title";
 import RecentPostList from "@/components/posts/recent-list";
 import Blob from "./_components/blob";
 import AnimatedText from "@/components/common/animated-text";
+import MotionOpacity from "@/components/common/motion-opacity";
 
 export default function Home() {
   return (
-    <div className="flex relative flex-col gap-10 min-h-screen">
+    <MotionOpacity className="flex relative flex-col gap-10 min-h-screen">
       <div className="flex relative min-h-[450px] overflow-hidden px-4">
         <div className="flex z-10 flex-col gap-8 sm:gap-6">
           <RotatingTitle
@@ -24,6 +25,6 @@ export default function Home() {
 
       {/* 최근 posts */}
       <RecentPostList />
-    </div>
+    </MotionOpacity>
   );
 }
