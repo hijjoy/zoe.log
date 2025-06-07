@@ -12,7 +12,9 @@ export default async function RecentPostList() {
 
   return (
     <div className="flex flex-col gap-1 sm:mt-20">
-      <Text className="text-2xl font-semibold mb-6 sm:mb-2">Recent Posts</Text>
+      <Text className="text-sm mb-4 text-gray-600 font-semibold">
+        Recent Posts
+      </Text>
       {posts.map((post) => (
         <PostCard key={post.id} post={post} />
       ))}

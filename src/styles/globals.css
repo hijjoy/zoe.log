@@ -41,7 +41,7 @@
     --gray-800: #272729;
     --gray-900: #121212;
 
-    --page-background: var(--gray-50);
+    --page-background: var(#fff);
     --text-body: var(--gray-800);
     --text-second: var(--gray-600);
     --main: #af88b9;
