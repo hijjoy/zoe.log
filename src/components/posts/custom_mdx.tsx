@@ -16,10 +16,15 @@ export const customComponents = {
   ),
 
   p: (props: any) => (
-    <p {...props} className="leading-loose mb-4 text-gray-700" />
+    <p {...props} className="leading-loose mb-4 text-gray-600" />
   ),
 
-  hr: (props: any) => <hr {...props} className="my-10" />,
+  hr: (props: any) => (
+    <hr
+      {...props}
+      className="relative block border-none h-10 my-14 before:content-['*_*_*'] before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-gray-300 before:text-xl before:font-normal"
+    />
+  ),
 
   img: (props: any) => (
     <Image
@@ -28,6 +33,13 @@ export const customComponents = {
       width={800}
       height={500}
       className="rounded-xl mx-auto my-4"
+    />
+  ),
+
+  strong: (props: any) => (
+    <strong
+      {...props}
+      className="text-gray-700 px-1 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)] font-semibold"
     />
   ),
 
@@ -44,7 +56,7 @@ export const customComponents = {
   code: (props: any) => (
     <code
       {...props}
-      className="bg-gray-100 dark:bg-gray-200 px-1 py-0.5 rounded text-sm text-main"
+      className="bg-gray-50 dark:bg-gray-200 px-1 py-0.5 rounded text-sm text-main border border-gray-100"
     />
   ),
 
@@ -54,7 +66,11 @@ export const customComponents = {
     return <CodeBlockBox code={code} className="my-4" />;
   },
 
-  ul: (props: any) => <ul {...props} className="list-disc pl-6 my-4" />,
-  ol: (props: any) => <ol {...props} className="list-decimal pl-6 my-4" />,
-  li: (props: any) => <li {...props} className="mb-1" />,
+  ul: (props: any) => (
+    <ul {...props} className="list-disc pl-8 my-4 text-gray-600" />
+  ),
+  ol: (props: any) => (
+    <ol {...props} className="list-decimal pl-8 my-4 text-gray-600" />
+  ),
+  li: (props: any) => <li {...props} className="mb-1 text-gray-600" />,
 };

@@ -13,13 +13,14 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
     cache: true,
-    cacheLocation: '.eslintcache',
-    ignorePatterns: ['node_modules/', '.next/', 'out/'],
+    cacheLocation: ".eslintcache",
+    ignorePatterns: ["node_modules/", ".next/", "out/"],
     rules: {
-      'import/no-cycle': 'off',
-      'import/no-named-as-default': 'off'
-    }
-  }
+      "import/no-cycle": "off",
+      "import/no-named-as-default": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
 ];
 
 export default eslintConfig;

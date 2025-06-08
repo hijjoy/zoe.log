@@ -3,7 +3,10 @@
 import { cn } from "@/libs/cn";
 import { useTheme } from "next-themes";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
+import {
+  oneLight,
+  tomorrow,
+} from "react-syntax-highlighter/dist/esm/styles/prism";
 import { useEffect, useState } from "react";
 
 interface Props {
@@ -28,9 +31,9 @@ export default function CodeBlockBox({ code, className }: Props) {
     <div className={cn("overflow-x-auto", className)}>
       <pre className="font-mono text-sm leading-relaxed text-gray-800">
         <SyntaxHighlighter
-          language="jsx"
+          language="tsx"
           className="rounded-xl"
-          style={theme === "dark" ? tomorrow : undefined}
+          style={theme === "dark" ? tomorrow : oneLight}
         >
           {code}
         </SyntaxHighlighter>
