@@ -2,25 +2,26 @@ import NoContent from "@/shared/components/no-content";
 import PostCard from "@/domains/post/components/card";
 import { prisma } from "@/libs/prisma";
 import { Suspense } from "react";
-
-const CATEGORY_MAPPING = {
-  development: "개발",
-  review: "회고",
-} as const;
-
-type Category = keyof typeof CATEGORY_MAPPING;
+import { CATEGORY, Category } from "@/domains/post/constants";
+import { notFound } from "next/navigation";
 
 interface Props {
-  params: {
+  params: Promise<{
     category: Category;
-  };
+  }>;
 }
 
 export default async function CategoryPage({ params }: Props) {
+  const { category } = await params;
+
+  if (!(category in CATEGORY)) {
+    notFound();
+  }
+
   const posts = await prisma.post.findMany({
     where: {
       categories: {
-        has: CATEGORY_MAPPING[params.category],
+        has: CATEGORY[category],
       },
     },
     orderBy: {
