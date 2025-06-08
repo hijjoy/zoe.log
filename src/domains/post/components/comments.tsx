@@ -1,6 +1,7 @@
 "use client";
 
 import Giscus from "@giscus/react";
+import { useTheme } from "next-themes";
 
 const GISCUS_CONFIG = {
   id: "comments",
@@ -19,5 +20,12 @@ const GISCUS_CONFIG = {
 } as const;
 
 export default function Comments() {
-  return <Giscus {...GISCUS_CONFIG} />;
+  const { theme } = useTheme();
+
+  return (
+    <Giscus
+      {...GISCUS_CONFIG}
+      theme={theme === "dark" ? "transparent_dark" : "light"}
+    />
+  );
 }
