@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Text from "@/components/common/text";
+import Text from "@/shared/components/text";
 
 export default function Footer() {
   return (

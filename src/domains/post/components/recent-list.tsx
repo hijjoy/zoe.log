@@ -1,6 +1,6 @@
 import { prisma } from "@/libs/prisma";
-import Text from "../common/text";
 import PostCard from "./card";
+import Text from "@/shared/components/text";
 
 export default async function RecentPostList() {
   const posts = await prisma.post.findMany({

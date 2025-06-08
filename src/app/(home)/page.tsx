@@ -1,8 +1,8 @@
-import RotatingTitle from "@/components/common/rotating-title";
-import RecentPostList from "@/components/posts/recent-list";
-import Blob from "./_components/blob";
-import AnimatedText from "@/components/common/animated-text";
-import MotionOpacity from "@/components/common/motion-opacity";
+import RotatingTitle from "@/shared/components/rotating-title";
+import RecentPostList from "@/domains/post/components/recent-list";
+import Blob from "@/domains/home/components/blob";
+import AnimatedText from "@/shared/components/animated-text";
+import MotionOpacity from "@/shared/components/motion-opacity";
 
 export default function Home() {
   return (

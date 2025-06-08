@@ -1,4 +1,4 @@
-import ThemeToggle from "@/theme/theme-toggle";
+import ThemeToggle from "@/shared/components/theme-toggle";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 

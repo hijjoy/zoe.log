@@ -18,6 +18,7 @@ export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
     ></path>
   </svg>
 );
+
 export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     role="graphics-symbol"

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import MotionOpacity from "@/components/common/motion-opacity";
+import MotionOpacity from "@/shared/components/motion-opacity";
 
 export default function NotFound() {
   return (

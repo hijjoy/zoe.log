@@ -1,8 +1,8 @@
 import { Post } from "@/types/post";
 import Link from "next/link";
-import Text from "../common/text";
 import Image from "next/image";
 import Categories from "./categories";
+import Text from "@/shared/components/text";
 
 interface Props {
   post: Pick<

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import "@/styles/globals.css";
-import ThemeProvider from "@/theme/theme-provider";
-import Navbar from "./(home)/_components/navbar";
-import Footer from "./(home)/_components/footer";
+import "@/shared/styles/globals.css";
+import Footer from "@/domains/home/components/footer";
+import Navbar from "@/domains/home/components/navbar";
+import ThemeProvider from "@/shared/contexts/theme-provider";
 
 export const metadata: Metadata = {
   title: "hijjoy",

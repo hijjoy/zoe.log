@@ -1,5 +1,5 @@
-import NoContent from "@/components/common/no-content";
-import PostCard from "@/components/posts/card";
+import NoContent from "@/shared/components/no-content";
+import PostCard from "@/domains/post/components/card";
 import { prisma } from "@/libs/prisma";
 import { Suspense } from "react";
 

@@ -1,9 +1,9 @@
 "use client";
 
-import { SunIcon, MoonIcon } from "@/app/(home)/_components/icon";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import MotionOpacity from "@/components/common/motion-opacity";
+import MotionOpacity from "@/shared/components/motion-opacity";
+import { MoonIcon, SunIcon } from "@/domains/home/components/icon";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();

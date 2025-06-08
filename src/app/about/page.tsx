@@ -1,4 +1,4 @@
-import NoContent from "@/components/common/no-content";
+import NoContent from "@/shared/components/no-content";
 
 export default function About() {
   return (

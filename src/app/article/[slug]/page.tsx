@@ -1,13 +1,13 @@
-import { prisma } from "@/libs/prisma";
 import { notFound } from "next/navigation";
+import { customComponents } from "@/domains/post/components/custom_mdx";
+import { prisma } from "@/libs/prisma";
+import Text from "@/shared/components/text";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { customComponents } from "@/components/posts/custom_mdx";
+import MotionOpacity from "@/shared/components/motion-opacity";
+import Comments from "@/domains/post/components/comments";
 import Image from "next/image";
-import Text from "@/components/common/text";
 import { Post } from "@/types/post";
 import { Suspense } from "react";
-import MotionOpacity from "@/components/common/motion-opacity";
-import Comments from "@/components/common/comments";
 
 export default async function PostDetailPage({
   params,

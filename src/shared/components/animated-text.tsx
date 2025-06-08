@@ -12,6 +12,32 @@ import { cn } from "@/libs/cn";
 type Unit = "character" | "word" | "line";
 type Preset = "fade" | "slide";
 
+const AnimationStyles = () => (
+  <style jsx global>{`
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+  `}</style>
+);
+
 type AnimatedTextBaseProps = {
   text: string;
   preset?: Preset;
@@ -72,30 +98,7 @@ function withAnimatedText() {
             {part}
           </span>
         ))}
-
-        <style jsx global>{`
-          @keyframes fadeIn {
-            0% {
-              opacity: 0;
-              transform: scale(0.95);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
-          }
-
-          @keyframes slideIn {
-            0% {
-              opacity: 0;
-              transform: translateY(20px) scale(0.95);
-            }
-            100% {
-              opacity: 1;
-              transform: translateY(0) scale(1);
-            }
-          }
-        `}</style>
+        <AnimationStyles />
       </Component>
     );
   };

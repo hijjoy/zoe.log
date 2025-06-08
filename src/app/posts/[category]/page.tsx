@@ -1,5 +1,5 @@
-import NoContent from "@/components/common/no-content";
-import PostCard from "@/components/posts/card";
+import NoContent from "@/shared/components/no-content";
+import PostCard from "@/domains/post/components/card";
 import { prisma } from "@/libs/prisma";
 import { Suspense } from "react";
 
@@ -8,24 +8,23 @@ const CATEGORY_MAPPING = {
   review: "회고",
 } as const;
 
+type Category = keyof typeof CATEGORY_MAPPING;
+
 interface Props {
-  params: Promise<{
-    category: keyof typeof CATEGORY_MAPPING;
-  }>;
+  params: {
+    category: Category;
+  };
 }
 
 export default async function CategoryPage({ params }: Props) {
-  const { category } = await params;
-  const mappedCategory = CATEGORY_MAPPING[category];
-
   const posts = await prisma.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
     where: {
       categories: {
-        has: mappedCategory,
+        has: CATEGORY_MAPPING[params.category],
       },
+    },
+    orderBy: {
+      createdAt: "desc",
     },
     select: {
       slug: true,

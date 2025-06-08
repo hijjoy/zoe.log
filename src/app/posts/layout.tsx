@@ -1,4 +1,4 @@
-import PostsMenu from "@/components/posts/menu";
+import PostsMenu from "@/domains/post/components/menu";
 
 export default function PostsLayout({
   children,
