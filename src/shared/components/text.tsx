@@ -1,15 +1,24 @@
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@/libs/cn";
-import { HTMLAttributes, ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
 
-interface TextProps extends HTMLAttributes<HTMLDivElement> {
+interface TextProps extends ComponentProps<"p"> {
+  asChild?: boolean;
   children: ReactNode;
   className?: string;
 }
 
-export default function Text({ children, className, ...props }: TextProps) {
+export default function Text({
+  asChild,
+  children,
+  className,
+  ...props
+}: TextProps) {
+  const Comp = asChild ? Slot : "p";
+
   return (
-    <div className={cn("text-gray-700", className)} {...props}>
+    <Comp className={cn("text-gray-700", className)} {...props}>
       {children}
-    </div>
+    </Comp>
   );
 }

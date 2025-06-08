@@ -12,8 +12,6 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    cache: true,
-    cacheLocation: ".eslintcache",
     ignorePatterns: ["node_modules/", ".next/", "out/"],
     rules: {
       "import/no-cycle": "off",

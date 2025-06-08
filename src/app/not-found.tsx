@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import MotionOpacity from "@/shared/components/motion-opacity";
+import { Button } from "@/shared/components/button";
 
 export default function NotFound() {
   return (
@@ -17,12 +18,9 @@ export default function NotFound() {
         height={260}
         className="sm:size-40"
       />
-      <Link
-        href="/"
-        className="px-4 py-2 my-10 text-sm text-gray-500 bg-gray-100 rounded-xl transition-all duration-300 sm:my-0 hover:bg-gray-200 sm:mb-4 active:scale-95"
-      >
-        홈으로 돌아가기
-      </Link>
+      <Button asChild>
+        <Link href="/">홈으로 돌아가기</Link>
+      </Button>
       <Image src="/images/쪼이.svg" alt="logo" width={400} height={400} />
     </MotionOpacity>
   );
