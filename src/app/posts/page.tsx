@@ -1,22 +1,10 @@
 import NoContent from "@/shared/components/no-content";
 import PostCard from "@/domains/post/components/card";
-import { prisma } from "@/libs/prisma";
 import { Suspense } from "react";
+import { getPosts } from "@/domains/post/services/get-posts";
 
 export default async function PostsPage() {
-  const posts = await prisma.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    select: {
-      slug: true,
-      title: true,
-      description: true,
-      thumbnail: true,
-      createdAt: true,
-      categories: true,
-    },
-  });
+  const posts = await getPosts();
 
   if (posts.length === 0) {
     return <NoContent />;

@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { customComponents } from "@/domains/post/components/custom_mdx";
-import { prisma } from "@/libs/prisma";
 import Text from "@/shared/components/text";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import MotionOpacity from "@/shared/components/motion-opacity";
@@ -8,6 +7,7 @@ import Comments from "@/domains/post/components/comments";
 import Image from "next/image";
 import { Post } from "@/types/post";
 import { Suspense } from "react";
+import { getDetailPost } from "@/domains/post/services/get-posts";
 
 export default async function PostDetailPage({
   params,
@@ -16,11 +16,7 @@ export default async function PostDetailPage({
 }) {
   const { slug } = await params;
 
-  const post = await prisma.post.findUnique({
-    where: {
-      slug,
-    },
-  });
+  const post = await getDetailPost(slug);
 
   if (!post) {
     return notFound();
