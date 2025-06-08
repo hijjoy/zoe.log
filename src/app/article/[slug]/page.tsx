@@ -7,6 +7,7 @@ import Text from "@/components/common/text";
 import { Post } from "@/types/post";
 import { Suspense } from "react";
 import MotionOpacity from "@/components/common/motion-opacity";
+import Comments from "@/components/common/comments";
 
 export default async function PostDetailPage({
   params,
@@ -30,6 +31,9 @@ export default async function PostDetailPage({
       <MotionOpacity className="min-h-screen px-4 sm:px-6">
         <HeaderSection post={post} />
         <MDXRemote source={post.content} components={customComponents} />
+        <div className="mt-16">
+          <Comments />
+        </div>
       </MotionOpacity>
     </Suspense>
   );

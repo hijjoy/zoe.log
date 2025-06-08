@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@react-three/fiber": "^9.1.2",
     "@supabase/supabase-js": "^2.49.10",
