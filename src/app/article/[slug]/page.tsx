@@ -6,7 +6,6 @@ import MotionOpacity from "@/shared/components/motion-opacity";
 import Comments from "@/domains/post/components/comments";
 import Image from "next/image";
 import { Post } from "@/types/post";
-import { Suspense } from "react";
 import { getDetailPost } from "@/domains/post/services/get-posts";
 
 export default async function PostDetailPage({
@@ -23,15 +22,13 @@ export default async function PostDetailPage({
   }
 
   return (
-    <Suspense fallback={<div className="min-h-screen" />}>
-      <MotionOpacity className="min-h-screen px-4 sm:px-6">
-        <HeaderSection post={post} />
-        <MDXRemote source={post.content} components={customComponents} />
-        <div className="mt-16">
-          <Comments />
-        </div>
-      </MotionOpacity>
-    </Suspense>
+    <MotionOpacity className="min-h-screen px-4 sm:px-6">
+      <HeaderSection post={post} />
+      <MDXRemote source={post.content} components={customComponents} />
+      <div className="mt-16">
+        <Comments />
+      </div>
+    </MotionOpacity>
   );
 }
 

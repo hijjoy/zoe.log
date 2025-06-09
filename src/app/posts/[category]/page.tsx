@@ -1,6 +1,5 @@
 import NoContent from "@/shared/components/no-content";
 import PostCard from "@/domains/post/components/card";
-import { Suspense } from "react";
 import { CATEGORY, Category } from "@/domains/post/constants";
 import { notFound } from "next/navigation";
 import { getPosts } from "@/domains/post/services/get-posts";
@@ -25,12 +24,10 @@ export default async function CategoryPage({ params }: Props) {
   }
 
   return (
-    <Suspense fallback={<div />}>
-      <div className="grid gap-6">
-        {posts.map((post) => (
-          <PostCard key={post.slug} post={post} />
-        ))}
-      </div>
-    </Suspense>
+    <div className="grid gap-6">
+      {posts.map((post) => (
+        <PostCard key={post.slug} post={post} />
+      ))}
+    </div>
   );
 }
