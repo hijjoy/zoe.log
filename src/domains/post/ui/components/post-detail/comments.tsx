@@ -23,9 +23,11 @@ export default function Comments() {
   const { theme } = useTheme();
 
   return (
-    <Giscus
-      {...GISCUS_CONFIG}
-      theme={theme === "dark" ? "transparent_dark" : "light"}
-    />
+    <div className="mt-16">
+      <Giscus
+        {...GISCUS_CONFIG}
+        theme={theme === "dark" ? "transparent_dark" : "light"}
+      />
+    </div>
   );
 }
