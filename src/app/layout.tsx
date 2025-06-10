@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "@/shared/styles/globals.css";
-import Footer from "@/domains/home/components/footer";
-import Navbar from "@/domains/home/components/navbar";
-import ThemeProvider from "@/shared/contexts/theme-provider";
+import RootLayout from "@/shared/layouts/root-layout";
 
 export const metadata: Metadata = {
   title: "hijjoy",
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -33,16 +31,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className="mx-auto max-w-[768px] vsc-initialized">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <main className="py-10">{children}</main>
-          <Footer />
-        </ThemeProvider>
+        <RootLayout>{children}</RootLayout>
       </body>
     </html>
   );

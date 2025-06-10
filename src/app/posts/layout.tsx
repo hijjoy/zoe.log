@@ -1,14 +1,9 @@
-import PostsMenu from "@/domains/post/components/menu";
+import CategoryLayout from "@/domains/post/ui/layouts/categroy-layout";
 
-export default function PostsLayout({
-  children,
-}: {
+interface Props {
   children: React.ReactNode;
-}) {
-  return (
-    <div className="mx-auto min-h-screen px-4">
-      <PostsMenu />
-      {children}
-    </div>
-  );
+}
+
+export default function PostsLayout({ children }: Props) {
+  return <CategoryLayout>{children}</CategoryLayout>;
 }

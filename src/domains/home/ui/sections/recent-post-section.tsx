@@ -1,9 +1,8 @@
-import { prisma } from "@/libs/prisma";
-import PostCard from "./card";
+import { getRecentPosts } from "@/domains/post/services/get-posts";
+import PostCard from "@/domains/post/ui/components/card";
 import Text from "@/shared/components/text";
-import { getRecentPosts } from "../services/get-posts";
 
-export default async function RecentPostList() {
+export default async function RecentPostSection() {
   const posts = await getRecentPosts(3);
 
   return (

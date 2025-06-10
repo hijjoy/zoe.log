@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import MotionOpacity from "@/shared/components/motion-opacity";
-import { MoonIcon, SunIcon } from "@/domains/home/components/icon";
+import { MoonIcon, SunIcon } from "./icon";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -18,7 +18,6 @@ export default function ThemeToggle() {
     <button
       type="button"
       className="cursor-pointer size-[30px] rounded-md p-1.5 hover:bg-gray-200 group transition-all duration-500"
-      title="Toggle theme"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       disabled={!mounted}

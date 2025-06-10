@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { cn } from "@/libs/cn";
-import { MENU_ITEMS } from "../constants";
+import { MENU_ITEMS } from "../../constants";
 
 export default function PostsMenu() {
   const pathname = usePathname();

@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@/shared/components/button";
+import MotionOpacity from "@/shared/components/motion-opacity";
 import Image from "next/image";
 import Link from "next/link";
-import MotionOpacity from "@/shared/components/motion-opacity";
-import { Button } from "@/shared/components/button";
 
 export default function NotFound() {
   return (
