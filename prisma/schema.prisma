@@ -9,12 +9,27 @@ datasource db {
 }
 
 model Post {
-  id          Int      @id @default(autoincrement())
-  slug        String   @unique @db.VarChar(255)
-  title       String   @db.VarChar(255)
-  description String?  @db.VarChar(255)
-  categories  String[]
-  createdAt   DateTime @default(now())
-  content     String
-  thumbnail   String   @db.VarChar(255)
+  id             Int              @id @default(autoincrement())
+  slug           String           @unique @db.VarChar(255)
+  title          String           @db.VarChar(255)
+  description    String?          @db.VarChar(255)
+  createdAt      DateTime         @default(now())
+  content        String
+  thumbnail      String           @db.VarChar(255)
+  postCategories PostCategories[]
+}
+
+model Categories {
+  id             Int              @id @default(autoincrement())
+  name           String           @unique @db.VarChar(100)
+  postCategories PostCategories[]
+}
+
+model PostCategories {
+  post_id     Int
+  category_id Int
+  categories  Categories @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  post        Post       @relation(fields: [post_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@id([post_id, category_id])
 }

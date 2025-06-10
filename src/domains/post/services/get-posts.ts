@@ -4,8 +4,12 @@ import { CATEGORY, Category } from "../constants";
 export async function getPosts(category?: Category) {
   const whereClause = category
     ? {
-        categories: {
-          has: CATEGORY[category],
+        postCategories: {
+          some: {
+            categories: {
+              name: CATEGORY[category],
+            },
+          },
         },
       }
     : {};
@@ -21,7 +25,27 @@ export async function getPosts(category?: Category) {
       description: true,
       thumbnail: true,
       createdAt: true,
-      categories: true,
+      postCategories: {
+        include: {
+          categories: true,
+        },
+      },
+    },
+  });
+}
+
+export async function getRecentPosts(take: number) {
+  return prisma.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    take,
+    include: {
+      postCategories: {
+        include: {
+          categories: true,
+        },
+      },
     },
   });
 }

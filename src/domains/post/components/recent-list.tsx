@@ -1,14 +1,10 @@
 import { prisma } from "@/libs/prisma";
 import PostCard from "./card";
 import Text from "@/shared/components/text";
+import { getRecentPosts } from "../services/get-posts";
 
 export default async function RecentPostList() {
-  const posts = await prisma.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    take: 3,
-  });
+  const posts = await getRecentPosts(3);
 
   return (
     <div className="flex flex-col gap-1 sm:mt-20 px-4">

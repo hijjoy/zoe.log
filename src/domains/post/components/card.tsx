@@ -1,4 +1,4 @@
-import { Post } from "@/types/post";
+import { Post, PostCategory } from "@/types/post";
 import Link from "next/link";
 import Image from "next/image";
 import Categories from "./categories";
@@ -7,8 +7,10 @@ import Text from "@/shared/components/text";
 interface Props {
   post: Pick<
     Post,
-    "slug" | "title" | "description" | "thumbnail" | "categories" | "createdAt"
-  >;
+    "slug" | "title" | "description" | "thumbnail" | "createdAt"
+  > & {
+    postCategories: PostCategory[];
+  };
 }
 
 export default function PostCard({ post }: Props) {
@@ -16,7 +18,9 @@ export default function PostCard({ post }: Props) {
     <Link href={`/article/${post.slug}`} className="group">
       <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">
         <div>
-          <Categories categories={post.categories} />
+          <Categories
+            categories={post.postCategories.map((e) => e.categories.name)}
+          />
           <Text className="mb-2 text-xl sm:text-lg font-semibold group-hover:text-main transition-all duration-300 break-keep">
             {post.title}
           </Text>
