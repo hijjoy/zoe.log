@@ -14,12 +14,16 @@ interface Props {
 }
 
 export default function PostCard({ post }: Props) {
+  console.log(post);
+
   return (
     <Link href={`/article/${post.slug}`} className="group">
       <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">
         <div>
           <Categories
-            categories={post.postCategories.map((e) => e.categories.name)}
+            categories={
+              post.postCategories?.map((e) => e.categories.name) ?? []
+            }
           />
           <Text className="mb-2 text-xl sm:text-lg font-semibold group-hover:text-main transition-all duration-300 break-keep">
             {post.title}
