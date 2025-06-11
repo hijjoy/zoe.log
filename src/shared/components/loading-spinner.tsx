@@ -11,7 +11,7 @@ export default function LoadingSpinner({ delay = 200 }: { delay?: number }) {
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [delay]);
 
   if (!show) return <div className="min-h-screen" />;
 

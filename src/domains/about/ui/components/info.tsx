@@ -9,8 +9,10 @@ export default function Info() {
       <div className="relative">
         <Image src="/images/zoe.png" alt="logo" width={50} height={50} className="absolute -top-4 left-[105px] rotate-12" />
         <div className="mb-10 flex flex-col">
-          <AnimatedText text="Hyewon, Jung" className="text-lg font-bold text-gray-800" />
-          <AnimatedText unit="word" preset="fade" text="Frontend Developer based in Seoul, South Korea" className="text-sm text-gray-400 dark:text-gray-500" />
+          <AnimatedText className="text-lg font-bold text-gray-800">Hyewon, Jung</AnimatedText>
+          <AnimatedText unit="word" preset="fade" className="text-sm text-gray-400 dark:text-gray-500">
+            Frontend Developer based in Seoul, South Korea
+          </AnimatedText>
         </div>
       </div>
 

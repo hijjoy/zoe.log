@@ -48,7 +48,7 @@ export const customComponents = {
 
   code: (props: CodeProps) => <code {...props} className="rounded border border-gray-100 bg-gray-50 px-1 py-0.5 text-sm text-main dark:bg-gray-200" />,
 
-  pre: ({ children, ...props }: PreProps) => {
+  pre: ({ children }: PreProps) => {
     const code = children?.props?.children || '';
     return <CodeBlockBox code={code} className="my-4" />;
   },

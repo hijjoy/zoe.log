@@ -9,7 +9,11 @@ export default function BlogTitle() {
         items={['Zoe.log', '개발자 조이', '디자이너 조이']}
         className="mt-10 whitespace-pre-wrap text-[4rem] tracking-tighter text-gray-900 sm:text-[3rem]"
       />
-      <AnimatedText text="안녕하세요! 조이, 정혜원입니다" className="pl-1 text-gray-600 sm:text-sm" as="h1" />
+      <h1 className="pl-1 text-gray-600 sm:text-sm">
+        <AnimatedText className="pl-1 text-gray-600 sm:text-sm" asChild>
+          <h1>안녕하세요! 조이, 정혜원입니다</h1>
+        </AnimatedText>
+      </h1>
     </div>
   );
 }

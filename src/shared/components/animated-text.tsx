@@ -1,10 +1,20 @@
 'use client';
 
-import React, { useEffect, useState, ElementType, ComponentPropsWithoutRef, JSX } from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { cn } from '@/libs/cn';
 
 type Unit = 'character' | 'word' | 'line';
 type Preset = 'fade' | 'slide';
+
+type AnimatedTextProps = {
+  children: ReactNode;
+  preset?: Preset;
+  unit?: Unit;
+  className?: string;
+  delay?: number;
+  asChild?: boolean;
+} & React.HTMLAttributes<HTMLElement>;
 
 const AnimationStyles = () => (
   <style jsx global>{`
@@ -32,61 +42,11 @@ const AnimationStyles = () => (
   `}</style>
 );
 
-type AnimatedTextBaseProps = {
-  text: string;
-  preset?: Preset;
-  unit?: Unit;
-  className?: string;
-  delay?: number;
+const splitter = {
+  character: (txt: string) => txt.split('').map((char) => (char === ' ' ? '\u00A0' : char)),
+  word: (txt: string) => txt.split(/(\s+)/).map((part) => (part.trim() === '' ? '\u00A0' : part)),
+  line: (txt: string) => txt.split(/\n/),
 };
-
-type PolymorphicComponentProps<T extends ElementType, Props = {}> = Props & {
-  as?: T;
-} & Omit<ComponentPropsWithoutRef<T>, keyof Props | 'as' | 'children'>;
-
-type AnimatedTextProps<T extends ElementType> = PolymorphicComponentProps<T, AnimatedTextBaseProps>;
-
-function withAnimatedText() {
-  return function AnimatedText<T extends ElementType = 'span'>({
-    text,
-    preset = 'fade',
-    unit = 'character',
-    as,
-    className,
-    delay = 0.05,
-    ...rest
-  }: AnimatedTextProps<T>): JSX.Element {
-    const Component = as || 'span';
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-      setIsVisible(true);
-    }, []);
-
-    const splitter = {
-      character: (txt: string) => txt.split('').map((char) => (char === ' ' ? '\u00A0' : char)),
-      word: (txt: string) => txt.split(/(\s+)/).map((part) => (part.trim() === '' ? '\u00A0' : part)),
-      line: (txt: string) => txt.split(/\n/),
-    };
-
-    const pieces = splitter[unit](text);
-
-    return (
-      <Component className={cn('inline-block font-pretendard text-base text-gray-700', className, unit === 'line' && 'whitespace-pre-line')} {...(rest as any)}>
-        {pieces.map((part, i) => (
-          <span key={i} style={getAnimationStyle(preset, i * delay)}>
-            {part}
-          </span>
-        ))}
-        <AnimationStyles />
-      </Component>
-    );
-  };
-}
-
-const AnimatedText = withAnimatedText();
-
-export default AnimatedText;
 
 const getAnimationStyle = (preset: Preset, delay: number) => ({
   display: 'inline-block',
@@ -94,3 +54,45 @@ const getAnimationStyle = (preset: Preset, delay: number) => ({
   animation: `${preset === 'fade' ? 'fadeIn' : 'slideIn'} 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
   animationDelay: `${delay}s`,
 });
+
+export default function AnimatedText({ children, preset = 'fade', unit = 'character', className, delay = 0.05, asChild = false, ...props }: AnimatedTextProps) {
+  const Comp = asChild ? Slot : 'span';
+  const [_, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const text = extractText(children);
+  const pieces = splitter[unit](text);
+
+  const content = (
+    <span>
+      {pieces.map((part, i) => (
+        <span key={i} style={getAnimationStyle(preset, i * delay)}>
+          {part}
+        </span>
+      ))}
+      <AnimationStyles />
+    </span>
+  );
+
+  return (
+    <Comp className={cn('text-gray-700', className)} {...props}>
+      {content}
+    </Comp>
+  );
+}
+
+function extractText(children: ReactNode): string {
+  if (typeof children === 'string') return children;
+
+  if (React.isValidElement(children)) {
+    const childProps = children.props as { children?: unknown };
+    if (typeof childProps.children === 'string') {
+      return childProps.children;
+    }
+  }
+
+  return '';
+}
