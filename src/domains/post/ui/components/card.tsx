@@ -14,8 +14,6 @@ interface Props {
 }
 
 export default function PostCard({ post }: Props) {
-  console.log(post);
-
   return (
     <Link href={`/article/${post.slug}`} className="group">
       <article className="flex justify-between gap-10 sm:gap-6 sm:items-center">

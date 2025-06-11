@@ -1,4 +1,4 @@
-import { getRecentPosts } from "@/domains/post/services/get-posts";
+import { getRecentPosts } from "@/domains/post/queries/get-posts";
 import PostCard from "@/domains/post/ui/components/card";
 import Text from "@/shared/components/text";
 

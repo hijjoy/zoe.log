@@ -1,6 +1,6 @@
 import NoContent from "@/shared/components/no-content";
 import { Category } from "../../constants";
-import { getPosts } from "../../services/get-posts";
+import { getPosts } from "../../queries/get-posts";
 import PostCard from "../components/card";
 
 interface Props {

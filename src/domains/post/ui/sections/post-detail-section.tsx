@@ -1,4 +1,4 @@
-import { getDetailPost } from "@/domains/post/services/get-posts";
+import { getDetailPost } from "@/domains/post/queries/get-posts";
 import { notFound } from "next/navigation";
 import { customComponents } from "../components/post-detail/custom_mdx";
 import PostHeader from "../components/post-detail/post-header";

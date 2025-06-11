@@ -1,6 +1,6 @@
 import NoContent from "@/shared/components/no-content";
 import React from "react";
-import { getPosts } from "../../services/get-posts";
+import { getPosts } from "../../queries/get-posts";
 import PostCard from "../components/card";
 
 export default async function PostSection() {

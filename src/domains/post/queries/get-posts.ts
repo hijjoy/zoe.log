@@ -55,3 +55,14 @@ export async function getDetailPost(slug: string) {
     where: { slug },
   });
 }
+
+export async function getPostMeta(slug: string) {
+  return prisma.post.findUnique({
+    where: { slug },
+    select: {
+      title: true,
+      description: true,
+      thumbnail: true,
+    },
+  });
+}
