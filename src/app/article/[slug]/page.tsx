@@ -1,10 +1,12 @@
-import { getPostMeta } from '@/domains/post/queries/get-posts';
+import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
 import PostDetailView from '@/domains/post/ui/views/post-detail-view';
 import { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export async function generateMetadata({ params }: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
-  const post = await getPostMeta(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }, parent: ResolvingMetadata): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostDetailWithCache(slug);
+
   const previousImages = (await parent).openGraph?.images || [];
   if (!post) return notFound();
 

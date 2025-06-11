@@ -1,5 +1,6 @@
 import { prisma } from '@/libs/prisma';
 import { CATEGORY, Category } from '../constants';
+import { cache } from 'react';
 
 export async function getPosts(category?: Category) {
   const whereClause = category
@@ -56,13 +57,7 @@ export async function getDetailPost(slug: string) {
   });
 }
 
-export async function getPostMeta(slug: string) {
-  return prisma.post.findUnique({
-    where: { slug },
-    select: {
-      title: true,
-      description: true,
-      thumbnail: true,
-    },
-  });
-}
+export const getPostDetailWithCache = cache(async (slug: string) => {
+  const post = await getDetailPost(slug);
+  return post;
+});

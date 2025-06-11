@@ -1,4 +1,4 @@
-import { getDetailPost } from '@/domains/post/queries/get-posts';
+import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
 import { notFound } from 'next/navigation';
 import { customComponents } from '../components/post-detail/custom_mdx';
 import PostHeader from '../components/post-detail/post-header';
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default async function PostDetailSection({ slug }: Props) {
-  const post = await getDetailPost(slug);
+  const post = await getPostDetailWithCache(slug);
 
   if (!post) {
     return notFound();
