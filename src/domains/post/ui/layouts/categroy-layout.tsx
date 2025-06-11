@@ -1,5 +1,5 @@
-import React from "react";
-import PostsMenu from "../components/menu";
+import React from 'react';
+import PostsMenu from '../components/menu';
 
 interface Props {
   children: React.ReactNode;

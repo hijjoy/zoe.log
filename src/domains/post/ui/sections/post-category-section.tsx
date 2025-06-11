@@ -1,7 +1,7 @@
-import NoContent from "@/shared/components/no-content";
-import { Category } from "../../constants";
-import { getPosts } from "../../queries/get-posts";
-import PostCard from "../components/card";
+import NoContent from '@/shared/components/no-content';
+import { Category } from '../../constants';
+import { getPosts } from '../../queries/get-posts';
+import PostCard from '../components/card';
 
 interface Props {
   category: Category;

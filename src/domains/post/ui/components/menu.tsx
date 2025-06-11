@@ -1,23 +1,18 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { cn } from "@/libs/cn";
-import { MENU_ITEMS } from "../../constants";
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/libs/cn';
+import { MENU_ITEMS } from '../../constants';
 
 export default function PostsMenu() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex gap-4 mb-10">
+    <ul className="mb-10 flex gap-4">
       {MENU_ITEMS.map((item, index) => (
-        <MenuItem
-          key={item.name}
-          item={item}
-          index={index}
-          pathname={pathname}
-        />
+        <MenuItem key={item.name} item={item} index={index} pathname={pathname} />
       ))}
     </ul>
   );
@@ -39,23 +34,17 @@ const MenuItem = ({ item, index, pathname }: MenuItemProps) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
     >
-      <Link
-        href={item.href}
-        className={cn(
-          "relative block py-2 hover:opacity-80",
-          pathname === item.href && "text-main"
-        )}
-      >
+      <Link href={item.href} className={cn('relative block py-2 hover:opacity-80', pathname === item.href && 'text-main')}>
         {item.name}
         <motion.div
-          className="absolute bottom-0 left-0 w-full h-[2px] bg-main"
+          className="absolute bottom-0 left-0 h-[2px] w-full bg-main"
           initial={false}
           animate={{
             scaleX: pathname === item.href ? 1 : 0,
             opacity: pathname === item.href ? 1 : 0,
           }}
           transition={{
-            type: "spring",
+            type: 'spring',
             stiffness: 300,
             damping: 30,
           }}

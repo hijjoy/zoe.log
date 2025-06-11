@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function LoadingSpinner({ delay = 200 }: { delay?: number }) {
   const [show, setShow] = useState(false);
@@ -16,8 +16,8 @@ export default function LoadingSpinner({ delay = 200 }: { delay?: number }) {
   if (!show) return <div className="min-h-screen" />;
 
   return (
-    <div className="min-h-screen flex pt-40 justify-center">
-      <div className="w-12 h-12 border-4 border-gray-100 border-t-main rounded-full animate-spin" />
+    <div className="flex min-h-screen justify-center pt-40">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-100 border-t-main" />
     </div>
   );
 }

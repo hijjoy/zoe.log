@@ -1,6 +1,6 @@
-import { CATEGORY, Category } from "@/domains/post/constants";
-import { notFound } from "next/navigation";
-import PostsWithCategoryView from "@/domains/post/ui/views/posts-with-category-view";
+import { CATEGORY, Category } from '@/domains/post/constants';
+import { notFound } from 'next/navigation';
+import PostsWithCategoryView from '@/domains/post/ui/views/posts-with-category-view';
 
 interface Props {
   params: Promise<{

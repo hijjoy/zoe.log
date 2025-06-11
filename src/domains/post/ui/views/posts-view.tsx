@@ -1,6 +1,6 @@
-import React, { Suspense } from "react";
-import PostSection from "../sections/post-section";
-import LoadingSpinner from "@/shared/components/loading-spinner";
+import React, { Suspense } from 'react';
+import PostSection from '../sections/post-section';
+import LoadingSpinner from '@/shared/components/loading-spinner';
 
 export default function PostsView() {
   return (

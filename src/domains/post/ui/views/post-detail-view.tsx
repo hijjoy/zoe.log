@@ -1,6 +1,6 @@
-import MotionOpacity from "@/shared/components/motion-opacity";
-import Comments from "../components/post-detail/comments";
-import PostDetailSection from "../sections/post-detail-section";
+import MotionOpacity from '@/shared/components/motion-opacity';
+import Comments from '../components/post-detail/comments';
+import PostDetailSection from '../sections/post-detail-section';
 
 export default async function PostDetailView({ slug }: { slug: string }) {
   return (

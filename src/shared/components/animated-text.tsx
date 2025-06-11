@@ -1,16 +1,10 @@
-"use client";
+'use client';
 
-import React, {
-  useEffect,
-  useState,
-  ElementType,
-  ComponentPropsWithoutRef,
-  JSX,
-} from "react";
-import { cn } from "@/libs/cn";
+import React, { useEffect, useState, ElementType, ComponentPropsWithoutRef, JSX } from 'react';
+import { cn } from '@/libs/cn';
 
-type Unit = "character" | "word" | "line";
-type Preset = "fade" | "slide";
+type Unit = 'character' | 'word' | 'line';
+type Preset = 'fade' | 'slide';
 
 const AnimationStyles = () => (
   <style jsx global>{`
@@ -48,24 +42,21 @@ type AnimatedTextBaseProps = {
 
 type PolymorphicComponentProps<T extends ElementType, Props = {}> = Props & {
   as?: T;
-} & Omit<ComponentPropsWithoutRef<T>, keyof Props | "as" | "children">;
+} & Omit<ComponentPropsWithoutRef<T>, keyof Props | 'as' | 'children'>;
 
-type AnimatedTextProps<T extends ElementType> = PolymorphicComponentProps<
-  T,
-  AnimatedTextBaseProps
->;
+type AnimatedTextProps<T extends ElementType> = PolymorphicComponentProps<T, AnimatedTextBaseProps>;
 
 function withAnimatedText() {
-  return function AnimatedText<T extends ElementType = "span">({
+  return function AnimatedText<T extends ElementType = 'span'>({
     text,
-    preset = "fade",
-    unit = "character",
+    preset = 'fade',
+    unit = 'character',
     as,
     className,
     delay = 0.05,
     ...rest
   }: AnimatedTextProps<T>): JSX.Element {
-    const Component = as || "span";
+    const Component = as || 'span';
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -73,26 +64,15 @@ function withAnimatedText() {
     }, []);
 
     const splitter = {
-      character: (txt: string) =>
-        txt.split("").map((char) => (char === " " ? "\u00A0" : char)),
-      word: (txt: string) =>
-        txt
-          .split(/(\s+)/)
-          .map((part) => (part.trim() === "" ? "\u00A0" : part)),
+      character: (txt: string) => txt.split('').map((char) => (char === ' ' ? '\u00A0' : char)),
+      word: (txt: string) => txt.split(/(\s+)/).map((part) => (part.trim() === '' ? '\u00A0' : part)),
       line: (txt: string) => txt.split(/\n/),
     };
 
     const pieces = splitter[unit](text);
 
     return (
-      <Component
-        className={cn(
-          "inline-block text-gray-700 font-pretendard text-base",
-          className,
-          unit === "line" && "whitespace-pre-line"
-        )}
-        {...(rest as any)}
-      >
+      <Component className={cn('inline-block font-pretendard text-base text-gray-700', className, unit === 'line' && 'whitespace-pre-line')} {...(rest as any)}>
         {pieces.map((part, i) => (
           <span key={i} style={getAnimationStyle(preset, i * delay)}>
             {part}
@@ -109,10 +89,8 @@ const AnimatedText = withAnimatedText();
 export default AnimatedText;
 
 const getAnimationStyle = (preset: Preset, delay: number) => ({
-  display: "inline-block",
+  display: 'inline-block',
   opacity: 0,
-  animation: `${
-    preset === "fade" ? "fadeIn" : "slideIn"
-  } 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
+  animation: `${preset === 'fade' ? 'fadeIn' : 'slideIn'} 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
   animationDelay: `${delay}s`,
 });

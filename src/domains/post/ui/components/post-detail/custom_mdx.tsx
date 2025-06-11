@@ -1,100 +1,61 @@
-import CodeBlockBox from "@/shared/components/code-box";
-import Image from "next/image";
-import { ComponentPropsWithoutRef } from "react";
+import CodeBlockBox from '@/shared/components/code-box';
+import Image from 'next/image';
+import { ComponentPropsWithoutRef } from 'react';
 
-type HeadingProps = ComponentPropsWithoutRef<"h1">;
-type ParagraphProps = ComponentPropsWithoutRef<"p">;
-type HRProps = ComponentPropsWithoutRef<"hr">;
+type HeadingProps = ComponentPropsWithoutRef<'h1'>;
+type ParagraphProps = ComponentPropsWithoutRef<'p'>;
+type HRProps = ComponentPropsWithoutRef<'hr'>;
 type ImageProps = {
   src: string;
   alt?: string;
 };
-type StrongProps = ComponentPropsWithoutRef<"strong">;
-type AnchorProps = ComponentPropsWithoutRef<"a">;
-type CodeProps = ComponentPropsWithoutRef<"code">;
-type PreProps = ComponentPropsWithoutRef<"pre"> & {
+type StrongProps = ComponentPropsWithoutRef<'strong'>;
+type AnchorProps = ComponentPropsWithoutRef<'a'>;
+type CodeProps = ComponentPropsWithoutRef<'code'>;
+type PreProps = ComponentPropsWithoutRef<'pre'> & {
   children?: {
     props: {
       children: string;
     };
   };
 };
-type ListProps = ComponentPropsWithoutRef<"ul">;
-type OrderedListProps = ComponentPropsWithoutRef<"ol">;
-type ListItemProps = ComponentPropsWithoutRef<"li">;
+type ListProps = ComponentPropsWithoutRef<'ul'>;
+type OrderedListProps = ComponentPropsWithoutRef<'ol'>;
+type ListItemProps = ComponentPropsWithoutRef<'li'>;
 
 export const customComponents = {
-  h1: (props: HeadingProps) => (
-    <h1 {...props} className="text-4xl font-bold mt-8 mb-4 text-gray-700" />
-  ),
-  h2: (props: HeadingProps) => (
-    <h2 {...props} className="text-3xl font-semibold mt-6 mb-3 text-gray-700" />
-  ),
-  h3: (props: HeadingProps) => (
-    <h3 {...props} className="text-2xl font-semibold mt-4 mb-2 text-gray-700" />
-  ),
-  h4: (props: HeadingProps) => (
-    <h4 {...props} className="text-xl font-medium mt-3 mb-1 text-gray-700" />
-  ),
+  h1: (props: HeadingProps) => <h1 {...props} className="mb-4 mt-8 text-4xl font-bold text-gray-700" />,
+  h2: (props: HeadingProps) => <h2 {...props} className="mb-3 mt-6 text-3xl font-semibold text-gray-700" />,
+  h3: (props: HeadingProps) => <h3 {...props} className="mb-2 mt-4 text-2xl font-semibold text-gray-700" />,
+  h4: (props: HeadingProps) => <h4 {...props} className="mb-1 mt-3 text-xl font-medium text-gray-700" />,
 
-  p: (props: ParagraphProps) => (
-    <p {...props} className="leading-loose mb-4 text-gray-600" />
-  ),
+  p: (props: ParagraphProps) => <p {...props} className="mb-4 leading-loose text-gray-600" />,
 
   hr: (props: HRProps) => (
     <hr
       {...props}
-      className="relative block border-none h-10 my-14 before:content-['*_*_*'] before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-gray-300 before:text-xl before:font-normal"
+      className="relative my-14 block h-10 border-none before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-xl before:font-normal before:text-gray-300 before:content-['*_*_*']"
     />
   ),
 
-  img: ({ src, alt = "image" }: ImageProps) => (
-    <Image
-      src={src}
-      alt={alt}
-      width={800}
-      height={500}
-      className="rounded-xl mx-auto my-4"
-    />
-  ),
+  img: ({ src, alt = 'image' }: ImageProps) => <Image src={src} alt={alt} width={800} height={500} className="mx-auto my-4 rounded-xl" />,
 
   strong: (props: StrongProps) => (
-    <strong
-      {...props}
-      className="text-gray-700 px-1 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)] font-semibold"
-    />
+    <strong {...props} className="px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]" />
   ),
 
-  a: (props: AnchorProps) => (
-    <a
-      {...props}
-      className="text-main underline hover:opacity-80"
-      target="_blank"
-      rel="noopener noreferrer"
-    />
-  ),
+  a: (props: AnchorProps) => <a {...props} className="text-main underline hover:opacity-80" target="_blank" rel="noopener noreferrer" />,
 
-  code: (props: CodeProps) => (
-    <code
-      {...props}
-      className="bg-gray-50 dark:bg-gray-200 px-1 py-0.5 rounded text-sm text-main border border-gray-100"
-    />
-  ),
+  code: (props: CodeProps) => <code {...props} className="rounded border border-gray-100 bg-gray-50 px-1 py-0.5 text-sm text-main dark:bg-gray-200" />,
 
   pre: ({ children, ...props }: PreProps) => {
-    const code = children?.props?.children || "";
+    const code = children?.props?.children || '';
     return <CodeBlockBox code={code} className="my-4" />;
   },
 
-  ul: (props: ListProps) => (
-    <ul {...props} className="list-disc pl-8 my-4 text-gray-600" />
-  ),
+  ul: (props: ListProps) => <ul {...props} className="my-4 list-disc pl-8 text-gray-600" />,
 
-  ol: (props: OrderedListProps) => (
-    <ol {...props} className="list-decimal pl-8 my-4 text-gray-600" />
-  ),
+  ol: (props: OrderedListProps) => <ol {...props} className="my-4 list-decimal pl-8 text-gray-600" />,
 
-  li: (props: ListItemProps) => (
-    <li {...props} className="mb-1 text-gray-600" />
-  ),
+  li: (props: ListItemProps) => <li {...props} className="mb-1 text-gray-600" />,
 };

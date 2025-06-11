@@ -1,5 +1,5 @@
-import { prisma } from "@/libs/prisma";
-import { CATEGORY, Category } from "../constants";
+import { prisma } from '@/libs/prisma';
+import { CATEGORY, Category } from '../constants';
 
 export async function getPosts(category?: Category) {
   const whereClause = category
@@ -17,7 +17,7 @@ export async function getPosts(category?: Category) {
   return prisma.post.findMany({
     where: whereClause,
     orderBy: {
-      createdAt: "desc",
+      createdAt: 'desc',
     },
     select: {
       slug: true,
@@ -37,7 +37,7 @@ export async function getPosts(category?: Category) {
 export async function getRecentPosts(take: number) {
   return prisma.post.findMany({
     orderBy: {
-      createdAt: "desc",
+      createdAt: 'desc',
     },
     take,
     include: {

@@ -1,4 +1,4 @@
-import CategoryLayout from "@/domains/post/ui/layouts/categroy-layout";
+import CategoryLayout from '@/domains/post/ui/layouts/categroy-layout';
 
 interface Props {
   children: React.ReactNode;

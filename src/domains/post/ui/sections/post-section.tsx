@@ -1,7 +1,7 @@
-import NoContent from "@/shared/components/no-content";
-import React from "react";
-import { getPosts } from "../../queries/get-posts";
-import PostCard from "../components/card";
+import NoContent from '@/shared/components/no-content';
+import React from 'react';
+import { getPosts } from '../../queries/get-posts';
+import PostCard from '../components/card';
 
 export default async function PostSection() {
   const posts = await getPosts();

@@ -4,7 +4,7 @@ interface Props {
 
 export default function Categories({ categories }: Props) {
   return (
-    <div className="flex gap-2 mb-2">
+    <div className="mb-2 flex gap-2">
       {categories.map((category) => (
         <Category key={category} category={category} />
       ))}

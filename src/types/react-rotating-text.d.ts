@@ -1,4 +1,4 @@
-declare module "react-rotating-text" {
+declare module 'react-rotating-text' {
   export interface ReactRotatingTextProps {
     items: string[];
     className?: string;

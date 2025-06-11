@@ -1,6 +1,6 @@
-import React from "react";
-import { Category } from "../../constants";
-import PostCategorySection from "../sections/post-category-section";
+import React from 'react';
+import { Category } from '../../constants';
+import PostCategorySection from '../sections/post-category-section';
 
 interface Props {
   category: Category;
