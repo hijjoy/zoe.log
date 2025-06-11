@@ -3,7 +3,11 @@ import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 
 export const metadata: Metadata = {
-  title: 'hijjoy',
+  metadataBase: new URL('https://hijjoy.com'),
+  title: {
+    default: 'hijjoy',
+    template: '%s | hijjoy',
+  },
   description: '개발자 조이 블로그',
   icons: {
     icon: [{ url: '/favicon.ico' }],
