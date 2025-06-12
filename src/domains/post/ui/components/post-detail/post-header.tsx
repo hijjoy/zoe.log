@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Text from '@/shared/components/text';
 import { Post } from '@/types/post';
+import { formatDate } from '@/libs/\bformat-date';
 
 export default function PostHeader({ post }: { post: Post }) {
   return (
@@ -13,13 +14,7 @@ export default function PostHeader({ post }: { post: Post }) {
           <Text className="break-keep px-10 text-center text-white sm:text-sm">{post.description}</Text>
         </div>
 
-        <Text className="absolute bottom-6 break-keep px-2 text-center text-xs text-gray-200 dark:text-gray-700">
-          {post.createdAt.toLocaleDateString('ko-KR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </Text>
+        <Text className="absolute bottom-6 break-keep px-2 text-center text-xs text-gray-200 dark:text-gray-700">{formatDate(post.createdAt)}</Text>
       </div>
     </div>
   );

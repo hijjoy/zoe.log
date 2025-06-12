@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Categories from './categories';
 import Text from '@/shared/components/text';
+import { formatDate } from '@/libs/\bformat-date';
 
 interface Props {
   post: Pick<Post, 'slug' | 'title' | 'description' | 'thumbnail' | 'createdAt'> & {
@@ -20,13 +21,7 @@ export default function PostCard({ post }: Props) {
 
           {post.description && <Text className="mb-4 break-keep text-sm text-gray-500">{post.description}</Text>}
 
-          <time className="text-sm text-gray-400">
-            {new Date(post.createdAt).toLocaleDateString('ko-KR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric',
-            })}
-          </time>
+          <time className="text-sm text-gray-400">{formatDate(post.createdAt)}</time>
         </div>
 
         <div className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[150px] overflow-hidden rounded-xl sm:max-w-[100px]">

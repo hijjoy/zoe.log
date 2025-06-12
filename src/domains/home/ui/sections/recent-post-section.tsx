@@ -1,9 +1,14 @@
-import { getRecentPosts } from '@/domains/post/queries/get-posts';
+'use client';
+
+import { postQueries } from '@/domains/post/queries/post-queries';
 import PostCard from '@/domains/post/ui/components/card';
 import Text from '@/shared/components/text';
+import { useSuspenseQuery } from '@tanstack/react-query';
 
-export default async function RecentPostSection() {
-  const posts = await getRecentPosts(3);
+export default function RecentPostSection() {
+  const { data: posts } = useSuspenseQuery(postQueries.recent(3));
+
+  if (!posts) return null;
 
   return (
     <div className="flex flex-col gap-1 px-4 sm:mt-20">
