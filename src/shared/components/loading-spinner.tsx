@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-export default function LoadingSpinner({ delay = 200 }: { delay?: number }) {
+const DEFAULT_DELAY = 300;
+
+export default function LoadingSpinner({ delay = DEFAULT_DELAY }: { delay?: number }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {

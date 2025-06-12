@@ -2,6 +2,7 @@ import NoContent from '@/shared/components/no-content';
 import React from 'react';
 import { getPosts } from '../../queries/get-posts';
 import PostCard from '../components/card';
+import MotionOpacity from '@/shared/components/motion-opacity';
 
 export default async function PostSection() {
   const posts = await getPosts();
@@ -12,8 +13,10 @@ export default async function PostSection() {
 
   return (
     <div className="grid gap-6">
-      {posts.map((post) => (
-        <PostCard key={post.slug} post={post} />
+      {posts.map((post, i) => (
+        <MotionOpacity key={post.slug} transition={{ delay: 0.1 * i, duration: 0.6 }} initial={{ opacity: 0.01 * i, scale: 0.95 }}>
+          <PostCard post={post} />
+        </MotionOpacity>
       ))}
     </div>
   );
