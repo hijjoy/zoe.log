@@ -12,6 +12,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.28.0",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.9.0",
     "@tanstack/eslint-plugin-query": "^5.78.0",
     "@types/node": "^24.0.1",
     "@types/react": "^19",
