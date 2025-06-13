@@ -1,9 +1,10 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env", "**/.env.*"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "node_modules/.prisma/**"]
+      "outputs": [".next/**", "dist/**", "node_modules/.prisma/**", "node_modules/@prisma/client/**"]
     },
     "dev": {
       "cache": false,
