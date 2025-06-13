@@ -19,3 +19,13 @@ export default function PostHeader({ post }: { post: Post }) {
     </div>
   );
 }
+
+const PostHeaderSkeleton = () => {
+  return (
+    <div className="relative mb-16 mt-4 flex w-full items-center justify-center">
+      <div className="aspect-[5/4] h-[250px] w-full animate-pulse rounded-xl bg-gray-100 dark:bg-gray-200" />
+    </div>
+  );
+};
+
+PostHeader.Skeleton = PostHeaderSkeleton;

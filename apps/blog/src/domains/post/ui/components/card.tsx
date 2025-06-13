@@ -31,3 +31,21 @@ export default function PostCard({ post }: Props) {
     </Link>
   );
 }
+
+const PostCardSkeleton = () => {
+  return (
+    <div className="flex w-full justify-between gap-10 sm:items-center sm:gap-6">
+      <div className="flex w-full flex-col justify-center">
+        <div className="mb-2 h-4 w-10 rounded-md bg-gray-100 dark:bg-gray-200" />
+        <div className="mb-2 h-8 w-1/2 rounded-md bg-gray-100 dark:bg-gray-200" />
+        <div className="mb-4 h-4 w-3/4 rounded-md bg-gray-100 dark:bg-gray-200" />
+        <div className="h-4 w-32 rounded-md bg-gray-100 dark:bg-gray-200" />
+      </div>
+      <div className="relative aspect-[5/4] max-h-[120px] w-full max-w-[150px] overflow-hidden rounded-xl sm:max-w-[100px]">
+        <div className="size-full animate-pulse bg-gray-100 dark:bg-gray-200" />
+      </div>
+    </div>
+  );
+};
+
+PostCard.Skeleton = PostCardSkeleton;
