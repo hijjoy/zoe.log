@@ -1,4 +1,4 @@
-import baseConfig from "./prettier/default.mjs";
+import baseConfig from './prettier/default.mjs';
 
 const config = {
   ...baseConfig,
