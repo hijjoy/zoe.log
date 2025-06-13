@@ -1,0 +1,39 @@
+{
+  "name": "zoelog",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --cache --write .",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix"
+  },
+  "dependencies": {
+    "@giscus/react": "^3.1.0",
+    "@mdx-js/react": "^3.1.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@react-three/fiber": "^9.1.2",
+    "@supabase/supabase-js": "^2.49.10",
+    "@tanstack/react-query": "^5.80.6",
+    "@tanstack/react-query-devtools": "^5.80.6",
+    "@types/three": "^0.177.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.15.0",
+    "next": "15.3.3",
+    "next-mdx-remote": "^5.0.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0",
+    "react-rotating-text": "^1.4.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "simplex-noise": "^4.0.3",
+    "tailwind-merge": "^3.3.0",
+    "three": "^0.177.0",
+    "@zoelog/db": "workspace:*"
+  },
+  "devDependencies": {}
+}

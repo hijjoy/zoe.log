@@ -5,11 +5,11 @@ const config = {
   printWidth: 160,
   singleQuote: true,
   bracketSpacing: true,
-  endOfLine: "lf",
-  trailingComma: "all",
-  arrowParens: "always",
-  quoteProps: "consistent",
-  plugins: ["prettier-plugin-tailwindcss"],
+  endOfLine: 'lf',
+  trailingComma: 'all',
+  arrowParens: 'always',
+  quoteProps: 'consistent',
+  plugins: ['prettier-plugin-tailwindcss'],
 };
 
 export default config;

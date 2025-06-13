@@ -1,0 +1,19 @@
+{
+  "name": "@zoelog/db",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "dev": "prisma generate",
+    "migrate": "prisma migrate dev",
+    "push": "prisma db push"
+  },
+  "packageManager": "pnpm@10.6.1",
+  "dependencies": {
+    "@prisma/client": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "prisma": "^6.9.0"
+  }
+}
