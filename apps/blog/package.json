@@ -20,7 +20,8 @@
     "@tanstack/react-query": "^5.80.6",
     "@tanstack/react-query-devtools": "^5.80.6",
     "@types/three": "^0.177.0",
-    "clsx": "^2.1.1",
+    "@zoelog/db": "workspace:*",
+    "@zoelog/ui": "workspace:*",
     "framer-motion": "^12.15.0",
     "next": "15.3.3",
     "next-mdx-remote": "^5.0.0",
@@ -31,9 +32,12 @@
     "react-rotating-text": "^1.4.1",
     "react-syntax-highlighter": "^15.6.1",
     "simplex-noise": "^4.0.3",
-    "tailwind-merge": "^3.3.0",
-    "three": "^0.177.0",
-    "@zoelog/db": "workspace:*"
+    "three": "^0.177.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/mdx": "^2.0.13",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
 }

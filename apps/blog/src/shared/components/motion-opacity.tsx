@@ -2,7 +2,7 @@
 
 import { motion, MotionProps } from 'framer-motion';
 import { ReactNode } from 'react';
-import { cn } from '@/libs/cn';
+import { cn } from '@zoelog/ui';
 
 interface Props extends MotionProps {
   children: ReactNode;

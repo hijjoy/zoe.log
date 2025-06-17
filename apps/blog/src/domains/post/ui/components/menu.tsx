@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/libs/cn';
 import { MENU_ITEMS } from '../../constants';
+import { cn } from '@zoelog/ui';
 
 export default function PostsMenu() {
   const pathname = usePathname();
@@ -34,7 +34,7 @@ const MenuItem = ({ item, index, pathname }: MenuItemProps) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
     >
-      <Link href={item.href} className={cn('relative block py-2 hover:opacity-80', pathname === item.href && 'text-main')}>
+      <Link href={item.href} className={cn('relative block py-2 text-gray-500 hover:opacity-80', pathname === item.href && 'text-main')}>
         {item.name}
         <motion.div
           className="bg-main absolute bottom-0 left-0 h-[2px] w-full"

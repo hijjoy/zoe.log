@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/libs/cn';
+import { cn } from '@zoelog/ui';
 import { useTheme } from 'next-themes';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneLight, tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';

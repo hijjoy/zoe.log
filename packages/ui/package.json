@@ -1,0 +1,26 @@
+{
+  "name": "@zoelog/ui",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./index.ts",
+    "./components/*": "./components/*",
+    "./globals.css": "./styles/globals.css",
+    "./postcss.config": "./postcss.config.mjs",
+    "./tailwind.config": "./tailwind.config.ts"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "framer-motion": "^11.0.0",
+    "tailwind-merge": "^2.2.1",
+    "@radix-ui/react-slot": "^1.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.3.3",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}

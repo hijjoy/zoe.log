@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 
 export default function Footer() {
   return (

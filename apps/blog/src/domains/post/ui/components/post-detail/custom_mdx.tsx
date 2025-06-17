@@ -1,61 +1,67 @@
 import CodeBlockBox from '@/shared/components/code-box';
+import { cn } from '@zoelog/ui';
+import type { HTMLAttributes, ImgHTMLAttributes } from 'react';
 import Image from 'next/image';
-import { ComponentPropsWithoutRef } from 'react';
+import type { MDXComponents } from 'mdx/types';
 
-type HeadingProps = ComponentPropsWithoutRef<'h1'>;
-type ParagraphProps = ComponentPropsWithoutRef<'p'>;
-type HRProps = ComponentPropsWithoutRef<'hr'>;
-type ImageProps = {
-  src: string;
-  alt?: string;
-};
-type StrongProps = ComponentPropsWithoutRef<'strong'>;
-type AnchorProps = ComponentPropsWithoutRef<'a'>;
-type CodeProps = ComponentPropsWithoutRef<'code'>;
-type PreProps = ComponentPropsWithoutRef<'pre'> & {
-  children?: {
-    props: {
-      children: string;
-    };
-  };
-};
-type ListProps = ComponentPropsWithoutRef<'ul'>;
-type OrderedListProps = ComponentPropsWithoutRef<'ol'>;
-type ListItemProps = ComponentPropsWithoutRef<'li'>;
+type MDXImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
-export const customComponents = {
-  h1: (props: HeadingProps) => <h1 {...props} className="mb-4 mt-8 text-4xl font-bold text-gray-700" />,
-  h2: (props: HeadingProps) => <h2 {...props} className="mb-3 mt-6 text-3xl font-semibold text-gray-700" />,
-  h3: (props: HeadingProps) => <h3 {...props} className="mb-2 mt-4 text-2xl font-semibold text-gray-700" />,
-  h4: (props: HeadingProps) => <h4 {...props} className="mb-1 mt-3 text-xl font-medium text-gray-700" />,
+export const customComponents: MDXComponents = {
+  h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+    <h1 {...props} className={cn('mb-4 mt-8 text-4xl font-bold text-gray-700', className)} />
+  ),
+  h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 {...props} className={cn('mb-3 mt-6 text-3xl font-semibold text-gray-700', className)} />
+  ),
+  h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 {...props} className={cn('mb-2 mt-4 text-2xl font-semibold text-gray-700', className)} />
+  ),
+  h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
+    <h4 {...props} className={cn('mb-1 mt-3 text-xl font-medium text-gray-700', className)} />
+  ),
 
-  p: (props: ParagraphProps) => <p {...props} className="mb-4 leading-loose text-gray-600" />,
+  p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => <p {...props} className={cn('mb-4 leading-relaxed text-gray-600', className)} />,
 
-  hr: (props: HRProps) => (
+  hr: ({ className, ...props }: HTMLAttributes<HTMLHRElement>) => (
     <hr
       {...props}
-      className="relative my-14 block h-10 border-none before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-xl before:font-normal before:text-gray-300 before:content-['*_*_*']"
+      className={cn(
+        'relative my-14 block h-10 border-none before:absolute before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:text-xl before:font-normal before:text-gray-300 before:content-["*_*_*"]',
+        className,
+      )}
     />
   ),
 
-  img: ({ src, alt = 'image' }: ImageProps) => <Image src={src} alt={alt} width={800} height={500} className="mx-auto my-4 rounded-xl" />,
+  img: ({ alt = 'image', src, ...props }: MDXImageProps) => {
+    if (typeof src !== 'string') return null;
+    return <Image src={src} alt={alt} width={800} height={500} className={cn('mx-auto my-4 rounded-xl', props.className)} />;
+  },
 
-  strong: (props: StrongProps) => (
+  strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong {...props} className="px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]" />
   ),
 
-  a: (props: AnchorProps) => <a {...props} className="text-main underline hover:opacity-80" target="_blank" rel="noopener noreferrer" />,
+  a: ({ className, ...props }: HTMLAttributes<HTMLAnchorElement>) => (
+    <a {...props} className={cn('text-main underline hover:opacity-80', className)} target="_blank" rel="noopener noreferrer" />
+  ),
 
-  code: (props: CodeProps) => <code {...props} className="text-main rounded border border-gray-100 bg-gray-50 px-1 py-0.5 text-sm dark:bg-gray-200" />,
+  code: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
+    <code {...props} className={cn('rounded-md bg-gray-100 px-1 py-0.5 font-mono text-sm text-gray-700', className)} />
+  ),
 
-  pre: ({ children }: PreProps) => {
-    const code = children?.props?.children || '';
-    return <CodeBlockBox code={code} className="my-4" />;
+  pre: (props) => {
+    const code = (props?.children as any)?.props?.children;
+    if (typeof code !== 'string') return null;
+    return <CodeBlockBox code={code} className={props.className} />;
   },
 
-  ul: (props: ListProps) => <ul {...props} className="my-4 list-disc pl-8 text-gray-600" />,
+  ul: ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => (
+    <ul {...props} className={cn('mb-4 list-inside list-disc space-y-1 text-gray-600', className)} />
+  ),
 
-  ol: (props: OrderedListProps) => <ol {...props} className="my-4 list-decimal pl-8 text-gray-600" />,
+  ol: ({ className, ...props }: HTMLAttributes<HTMLOListElement>) => (
+    <ol {...props} className={cn('mb-4 list-inside list-decimal space-y-1 text-gray-600', className)} />
+  ),
 
-  li: (props: ListItemProps) => <li {...props} className="mb-1 text-gray-600" />,
+  li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => <li {...props} className={cn('text-gray-600', className)} />,
 };

@@ -2,7 +2,7 @@
 
 import { postQueries } from '@/domains/post/queries/post-queries';
 import PostCard from '@/domains/post/ui/components/card';
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 import { useSuspenseQuery } from '@tanstack/react-query';
 
 export default function RecentPostSection() {
