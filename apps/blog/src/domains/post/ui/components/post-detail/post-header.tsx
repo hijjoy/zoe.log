@@ -10,8 +10,8 @@ export default function PostHeader({ post }: { post: Post }) {
       <Image src={post.thumbnail} alt={post.title} width={500} height={500} className="aspect-[5/4] h-[250px] w-full rounded-xl object-cover sm:h-[200px]" />
       <div className="absolute inset-0 rounded-xl bg-black/30 backdrop-blur-[5px]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 text-white">
-        <div>
-          <h1 className="break-keep px-4 text-center text-3xl font-bold sm:text-xl">{post.title}</h1>
+        <div className="flex flex-col gap-1">
+          <h1 className="break-keep px-4 text-center text-2xl font-bold sm:text-xl">{post.title}</h1>
           <Text className="break-keep px-10 text-center text-white sm:text-sm">{post.description}</Text>
         </div>
 

@@ -7,14 +7,12 @@ import type { MDXComponents } from 'mdx/types';
 type MDXImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
 export const customComponents: MDXComponents = {
-  h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 {...props} className={cn('mb-4 mt-8 text-4xl font-bold text-gray-700', className)} />
-  ),
+  h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => <h1 {...props} className={cn('my-6 text-4xl font-bold text-gray-700', className)} />,
   h2: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h2 {...props} className={cn('mb-3 mt-6 text-3xl font-semibold text-gray-700', className)} />
   ),
   h3: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 {...props} className={cn('mb-2 mt-4 text-2xl font-semibold text-gray-700', className)} />
+    <h3 {...props} className={cn('mb-2 mt-6 text-2xl font-semibold text-gray-700', className)} />
   ),
   h4: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <h4 {...props} className={cn('mb-1 mt-3 text-xl font-medium text-gray-700', className)} />
@@ -30,6 +28,10 @@ export const customComponents: MDXComponents = {
         className,
       )}
     />
+  ),
+
+  blockquote: ({ className, ...props }: HTMLAttributes<HTMLQuoteElement>) => (
+    <blockquote {...props} className={cn('my-6 border-l-4 border-gray-300 pl-4 text-gray-600', className)} />
   ),
 
   img: ({ alt = 'image', src, ...props }: MDXImageProps) => {
