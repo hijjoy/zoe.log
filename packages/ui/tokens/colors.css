@@ -39,4 +39,6 @@
   --text-body: var(--gray-300);
   --text-second: var(--gray-500);
   --page-background: var(--gray-100);
+
+  --main: #ab91dd;
 }

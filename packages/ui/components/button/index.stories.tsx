@@ -8,6 +8,14 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  argTypes: {
+    variant: {
+      control: {
+        type: 'select',
+        options: ['default', 'link'],
+      },
+    },
+  },
   tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 
@@ -39,14 +47,5 @@ export const Disabled: Story = {
   args: {
     children: '비활성화 버튼',
     disabled: true,
-  },
-};
-
-export const DarkMode: Story = {
-  args: {
-    children: '다크 모드 버튼',
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
   },
 };

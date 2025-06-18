@@ -20,6 +20,7 @@
     "@chromatic-com/storybook": "^4.0.0",
     "@storybook/addon-a11y": "^9.0.11",
     "@storybook/addon-docs": "^9.0.11",
+    "@storybook/addon-themes": "^9.0.11",
     "@storybook/addon-vitest": "^9.0.11",
     "@storybook/nextjs": "^9.0.11",
     "@types/react": "^18.2.0",
