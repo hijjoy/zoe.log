@@ -1,4 +1,4 @@
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 import { CATEGORY, Category } from '@/domains/post/constants';
 import { notFound } from 'next/navigation';
