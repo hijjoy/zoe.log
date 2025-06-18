@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/shared/components/button';
+import { Button } from '@zoelog/ui';
 import MotionOpacity from '@/shared/components/motion-opacity';
 import Image from 'next/image';
 import Link from 'next/link';

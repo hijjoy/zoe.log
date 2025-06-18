@@ -2,7 +2,7 @@ import { Post, PostCategory } from '@/types/post';
 import Link from 'next/link';
 import Image from 'next/image';
 import Categories from './categories';
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 import { formatDate } from '@/libs/\bformat-date';
 
 interface Props {

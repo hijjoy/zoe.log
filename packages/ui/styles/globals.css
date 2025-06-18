@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../tokens/colors.css';
+
+/* fonts */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Bold.woff2') format('woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Light.woff2') format('woff2');
+  font-weight: 300;
+}
+
+/* layout */
+@layer base {
+  body {
+    @apply m-0 min-h-screen p-0;
+    @apply font-pretendard text-second text-base;
+    @apply bg-page;
+  }
+
+  * {
+    @apply border-border box-border;
+  }
+
+  /* scrollbar */
+  * {
+    --scrollbar-size: 16px;
+    --scrollbar-size-min: 40px;
+    --scrollbar-color: var(--gray-200);
+    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-width: thin; /* firefox */
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    min-width: var(--scrollbar-size-min);
+    min-height: var(--scrollbar-size-min);
+    background-color: var(--scrollbar-color);
+    background-clip: padding-box;
+    border: 5px solid transparent;
+    border-radius: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    --scrollbar-color: var(--gray-300);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    --scrollbar-color: var(--gray-300);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}

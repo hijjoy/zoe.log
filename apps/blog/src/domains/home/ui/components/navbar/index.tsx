@@ -17,7 +17,7 @@ export default function Navbar() {
           rel="noopener noreferrer"
           className="rounded-md p-1.5 transition-all duration-500 hover:bg-gray-200"
         >
-          <FaGithub />
+          <FaGithub className="text-gray-600" />
         </Link>
         <div className="h-4 w-px bg-gray-200" />
         <ThemeToggle />

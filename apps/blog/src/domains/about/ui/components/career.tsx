@@ -1,4 +1,4 @@
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 import TimeLineItem from './time-line-item';
 
 export default function Career() {

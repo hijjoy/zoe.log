@@ -1,7 +1,8 @@
 import Image from 'next/image';
-import Text from '@/shared/components/text';
+
 import { Post } from '@/types/post';
 import { formatDate } from '@/libs/\bformat-date';
+import { Text } from '@zoelog/ui';
 
 export default function PostHeader({ post }: { post: Post }) {
   return (

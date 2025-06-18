@@ -1,8 +1,8 @@
 'use client';
 
 import { Slot } from '@radix-ui/react-slot';
+import { cn } from '@zoelog/ui';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { cn } from '@/libs/cn';
 
 type Unit = 'character' | 'word' | 'line';
 type Preset = 'fade' | 'slide';
@@ -78,7 +78,7 @@ export default function AnimatedText({ children, preset = 'fade', unit = 'charac
   );
 
   return (
-    <Comp className={cn('text-gray-700', className)} {...props}>
+    <Comp className={cn('text-gray-600', className)} {...props}>
       {content}
     </Comp>
   );

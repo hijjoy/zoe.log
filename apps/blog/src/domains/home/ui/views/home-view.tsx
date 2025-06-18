@@ -15,7 +15,7 @@ export default async function HomeView() {
 
   return (
     <MotionOpacity className="relative flex min-h-screen flex-col gap-10">
-      <div className="relative flex min-h-[450px] overflow-hidden px-4">
+      <div className="relative flex min-h-[500px] overflow-hidden px-4">
         <BlogTitle />
         <Blob />
       </div>

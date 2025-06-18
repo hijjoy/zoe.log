@@ -1,5 +1,5 @@
 import AnimatedText from '@/shared/components/animated-text';
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 import Image from 'next/image';
 import React from 'react';
 

@@ -1,4 +1,4 @@
-import Text from '@/shared/components/text';
+import { Text } from '@zoelog/ui';
 import React from 'react';
 import TimeLineItem from './time-line-item';
 
