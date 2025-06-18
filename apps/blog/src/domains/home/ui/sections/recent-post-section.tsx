@@ -13,9 +13,11 @@ export default function RecentPostSection() {
   return (
     <div className="flex flex-col gap-1 px-4 sm:mt-20">
       <Text className="mb-4 text-sm font-semibold text-gray-600">Recent Posts</Text>
-      {posts.map((post) => (
-        <PostCard key={post.id} post={post} />
-      ))}
+      <div className="flex flex-col gap-6">
+        {posts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
     </div>
   );
 }
