@@ -1,8 +1,8 @@
-import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
 import { notFound } from 'next/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
 import { customComponents } from '../components/post-detail/custom_mdx';
 import PostHeader from '../components/post-detail/post-header';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 
 interface Props {
   slug: string;

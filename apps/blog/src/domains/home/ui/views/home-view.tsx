@@ -1,12 +1,12 @@
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
+import { Suspense } from 'react';
+import { postQueries } from '@/domains/post/queries/post-queries';
+import { getQueryClient } from '@/libs/react-query-client';
+import LoadingSpinner from '@/shared/components/loading-spinner';
 import MotionOpacity from '@/shared/components/motion-opacity';
 import Blob from '../components/blob';
 import BlogTitle from '../components/blog-title';
 import RecentPostSection from '../sections/recent-post-section';
-import { getQueryClient } from '@/libs/react-query-client';
-import { postQueries } from '@/domains/post/queries/post-queries';
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import { Suspense } from 'react';
-import LoadingSpinner from '@/shared/components/loading-spinner';
 
 export default async function HomeView() {
   const queryClient = getQueryClient();

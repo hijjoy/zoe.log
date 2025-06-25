@@ -1,8 +1,8 @@
-import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Mesh } from 'three';
 import { createNoise3D } from 'simplex-noise';
+import type { Mesh } from 'three';
+import * as THREE from 'three';
 
 const noise3D = createNoise3D();
 const SPEED = 40;
@@ -17,7 +17,7 @@ const MeshComponent = () => {
     if (!mesh) return;
 
     const positions = mesh.geometry.attributes.position.array as Float32Array;
-    const time = performance.now() * 0.00001 * SPEED * Math.pow(PROCESS, 3);
+    const time = performance.now() * 0.00001 * SPEED * PROCESS ** 3;
     const spikes = SPIKE * PROCESS;
 
     for (let i = 0; i < positions.length; i += 3) {
@@ -25,7 +25,11 @@ const MeshComponent = () => {
       const y = positions[i + 1];
       const z = positions[i + 2];
 
-      const vector = new THREE.Vector3(x, y, z).normalize().multiplyScalar(1 + 0.3 * noise3D(x * spikes, y * spikes, z * spikes + time));
+      const vector = new THREE.Vector3(x, y, z)
+        .normalize()
+        .multiplyScalar(
+          1 + 0.3 * noise3D(x * spikes, y * spikes, z * spikes + time),
+        );
 
       positions[i] = vector.x;
       positions[i + 1] = vector.y;

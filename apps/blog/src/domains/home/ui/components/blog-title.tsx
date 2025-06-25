@@ -1,6 +1,5 @@
 import AnimatedText from '@/shared/components/animated-text';
 import RotatingTitle from '@/shared/components/rotating-title';
-import React from 'react';
 
 export default function BlogTitle() {
   return (

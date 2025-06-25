@@ -1,5 +1,4 @@
-import React from 'react';
-import { Category } from '../../constants';
+import type { Category } from '../../constants';
 import PostCategorySection from '../sections/post-category-section';
 
 interface Props {

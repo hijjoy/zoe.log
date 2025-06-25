@@ -5,13 +5,16 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**", "node_modules/.prisma/**", "node_modules/@prisma/client/**"]
+      "outputs": [
+        ".next/**",
+        "dist/**",
+        "node_modules/.prisma/**",
+        "node_modules/@prisma/client/**"
+      ]
     },
     "dev": {
       "cache": false,
       "persistent": true
-    },
-    "lint": {},
-    "test": {}
+    }
   }
 }

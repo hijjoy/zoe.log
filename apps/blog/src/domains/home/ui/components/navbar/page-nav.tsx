@@ -2,8 +2,14 @@ import Link from 'next/link';
 
 export default function PageNav() {
   return (
-    <nav aria-label="page navigation" className="flex items-center gap-4 text-sm text-gray-600">
-      <Link href="/" className="duration-400 hover:text-main font-semibold transition-all active:scale-95">
+    <nav
+      aria-label="page navigation"
+      className="flex items-center gap-4 text-gray-600 text-sm"
+    >
+      <Link
+        href="/"
+        className="font-semibold transition-all duration-400 hover:text-main active:scale-95"
+      >
         zoe.log
       </Link>
       <UnderlineMenu href="/about" name="about" />

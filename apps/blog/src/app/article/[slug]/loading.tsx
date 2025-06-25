@@ -3,7 +3,10 @@ import MotionOpacity from '@/shared/components/motion-opacity';
 
 export default function Loading() {
   return (
-    <MotionOpacity exit={{ opacity: 0, scale: 0.995 }} className="flex h-screen w-full flex-col items-center gap-6 px-4 sm:px-6">
+    <MotionOpacity
+      exit={{ opacity: 0, scale: 0.995 }}
+      className="flex h-screen w-full flex-col items-center gap-6 px-4 sm:px-6"
+    >
       <PostHeader.Skeleton />
 
       <div className="flex w-full flex-col gap-6">

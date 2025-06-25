@@ -1,7 +1,7 @@
 export const revalidate = 1800;
 
-import { CATEGORY, Category } from '@/domains/post/constants';
 import { notFound } from 'next/navigation';
+import { CATEGORY, type Category } from '@/domains/post/constants';
 import PostsWithCategoryView from '@/domains/post/ui/views/posts-with-category-view';
 
 export async function generateStaticParams() {

@@ -27,7 +27,7 @@ export default function ThemeToggle() {
           {isDark ? (
             <MoonIcon className="size-4 text-gray-600 transition-all duration-300 group-hover:rotate-12 dark:block dark:rotate-0" />
           ) : (
-            <SunIcon className="size-4 scale-100 text-gray-600 transition-all duration-300 group-hover:-rotate-90 dark:hidden" />
+            <SunIcon className="group-hover:-rotate-90 size-4 scale-100 text-gray-600 transition-all duration-300 dark:hidden" />
           )}
         </MotionOpacity>
       ) : null}

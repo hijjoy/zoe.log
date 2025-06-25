@@ -2,7 +2,7 @@
 
 import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@zoelog/ui';
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { type ReactNode, useEffect, useState } from 'react';
 
 type Unit = 'character' | 'word' | 'line';
 type Preset = 'fade' | 'slide';
@@ -43,19 +43,31 @@ const AnimationStyles = () => (
 );
 
 const splitter = {
-  character: (txt: string) => txt.split('').map((char) => (char === ' ' ? '\u00A0' : char)),
-  word: (txt: string) => txt.split(/(\s+)/).map((part) => (part.trim() === '' ? '\u00A0' : part)),
+  character: (txt: string) =>
+    txt.split('').map((char) => (char === ' ' ? '\u00A0' : char)),
+  word: (txt: string) =>
+    txt.split(/(\s+)/).map((part) => (part.trim() === '' ? '\u00A0' : part)),
   line: (txt: string) => txt.split(/\n/),
 };
 
 const getAnimationStyle = (preset: Preset, delay: number) => ({
   display: 'inline-block',
   opacity: 0,
-  animation: `${preset === 'fade' ? 'fadeIn' : 'slideIn'} 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
+  animation: `${
+    preset === 'fade' ? 'fadeIn' : 'slideIn'
+  } 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards`,
   animationDelay: `${delay}s`,
 });
 
-export default function AnimatedText({ children, preset = 'fade', unit = 'character', className, delay = 0.05, asChild = false, ...props }: AnimatedTextProps) {
+export default function AnimatedText({
+  children,
+  preset = 'fade',
+  unit = 'character',
+  className,
+  delay = 0.05,
+  asChild = false,
+  ...props
+}: AnimatedTextProps) {
   const Comp = asChild ? Slot : 'span';
   const [_, setIsVisible] = useState(false);
 
@@ -69,6 +81,7 @@ export default function AnimatedText({ children, preset = 'fade', unit = 'charac
   const content = (
     <span>
       {pieces.map((part, i) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
         <span key={i} style={getAnimationStyle(preset, i * delay)}>
           {part}
         </span>

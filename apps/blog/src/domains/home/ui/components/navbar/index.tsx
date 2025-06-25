@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa';
-import ThemeToggle from './theme-toggle';
 import PageNav from './page-nav';
+import ThemeToggle from './theme-toggle';
 
 export default function Navbar() {
   return (

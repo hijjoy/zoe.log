@@ -1,5 +1,5 @@
 import { queryOptions } from '@tanstack/react-query';
-import { Category } from '../constants';
+import type { Category } from '../constants';
 import { getDetailPost, getPosts, getRecentPosts } from './get-posts';
 
 export const postQueries = {
