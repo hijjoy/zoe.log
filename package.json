@@ -5,31 +5,22 @@
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
-    "lint": "turbo run lint",
-    "format": "prettier --write .",
-    "lint:fix": "eslint 'apps/**/*.{ts,tsx,js,jsx}' --fix"
+    "lint": "biome check .",
+    "format": "biome format . --write",
+    "lint:fix": "biome check --write"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.28.0",
+    "@biomejs/biome": "2.0.5",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.9.0",
     "@tanstack/eslint-plugin-query": "^5.78.0",
     "@types/node": "^24.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "@typescript-eslint/eslint-plugin": "^8.34.0",
-    "@typescript-eslint/parser": "^8.34.0",
     "autoprefixer": "^10.4.17",
-    "eslint": "^9.28.0",
-    "eslint-config-next": "15.3.3",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-plugin-prettier": "^5.4.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "postcss": "^8.4.35",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.12",
     "tailwindcss": "^3.4.1",
     "turbo": "^2.5.4",
     "typescript": "^5"
@@ -40,6 +31,6 @@
     "packages/*"
   ],
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,css}": "prettier --write"
+    "*.{ts,tsx,js,jsx,json,css}": "biome format --write"
   }
 }
