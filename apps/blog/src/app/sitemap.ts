@@ -1,5 +1,5 @@
+import type { MetadataRoute } from 'next';
 import { getPosts } from '@/domains/post/queries/get-posts';
-import { MetadataRoute } from 'next';
 
 export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts();

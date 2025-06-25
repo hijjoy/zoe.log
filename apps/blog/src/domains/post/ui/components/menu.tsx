@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
+import { cn } from '@zoelog/ui';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { MENU_ITEMS } from '../../constants';
-import { cn } from '@zoelog/ui';
 
 export default function PostsMenu() {
   const pathname = usePathname();
@@ -12,7 +12,12 @@ export default function PostsMenu() {
   return (
     <ul className="mb-10 flex gap-4">
       {MENU_ITEMS.map((item, index) => (
-        <MenuItem key={item.name} item={item} index={index} pathname={pathname} />
+        <MenuItem
+          key={item.name}
+          item={item}
+          index={index}
+          pathname={pathname}
+        />
       ))}
     </ul>
   );
@@ -34,10 +39,16 @@ const MenuItem = ({ item, index, pathname }: MenuItemProps) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3, delay: index * 0.1 }}
     >
-      <Link href={item.href} className={cn('relative block py-2 text-gray-500 hover:opacity-80', pathname === item.href && 'text-main')}>
+      <Link
+        href={item.href}
+        className={cn(
+          'relative block py-2 text-gray-500 hover:opacity-80',
+          pathname === item.href && 'text-main',
+        )}
+      >
         {item.name}
         <motion.div
-          className="bg-main absolute bottom-0 left-0 h-[2px] w-full"
+          className="absolute bottom-0 left-0 h-[2px] w-full bg-main"
           initial={false}
           animate={{
             scaleX: pathname === item.href ? 1 : 0,

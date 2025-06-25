@@ -1,5 +1,5 @@
-import type { NextConfig } from 'next';
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */

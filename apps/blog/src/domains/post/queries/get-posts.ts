@@ -1,7 +1,7 @@
-import { CATEGORY, Category } from '../constants';
-import { cache } from 'react';
-import { unstable_cache } from 'next/cache';
 import { db } from '@zoelog/db';
+import { unstable_cache } from 'next/cache';
+import { cache } from 'react';
+import { CATEGORY, type Category } from '../constants';
 
 // 쿼리키를 동적으로 변경해야해서 팩토리 함수 사용
 export async function getPosts(category?: Category) {

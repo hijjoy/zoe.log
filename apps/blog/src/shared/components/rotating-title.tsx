@@ -8,6 +8,14 @@ interface RotatingTitleProps {
   className?: string;
 }
 
-export default function RotatingTitle({ items, className }: RotatingTitleProps) {
-  return <ReactRotatingText items={items} className={cn('!text-gray-800', className)} />;
+export default function RotatingTitle({
+  items,
+  className,
+}: RotatingTitleProps) {
+  return (
+    <ReactRotatingText
+      items={items}
+      className={cn('!text-gray-800', className)}
+    />
+  );
 }

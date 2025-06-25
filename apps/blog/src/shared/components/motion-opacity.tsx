@@ -1,8 +1,8 @@
 'use client';
 
-import { motion, MotionProps } from 'framer-motion';
-import { ReactNode } from 'react';
 import { cn } from '@zoelog/ui';
+import { type MotionProps, motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 interface Props extends MotionProps {
   children: ReactNode;
@@ -18,7 +18,13 @@ export default function MotionOpacity({
   ...rest
 }: Props) {
   return (
-    <motion.div className={cn(className)} initial={initial} animate={animate} transition={transition} {...rest}>
+    <motion.div
+      className={cn(className)}
+      initial={initial}
+      animate={animate}
+      transition={transition}
+      {...rest}
+    >
       {children}
     </motion.div>
   );

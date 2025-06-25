@@ -38,7 +38,11 @@ export const CustomClassName: Story = {
 export const AsLink: Story = {
   args: {
     asChild: true,
-    children: React.createElement('a', { href: 'https://example.com' }, '링크 버튼'),
+    children: React.createElement(
+      'a',
+      { href: 'https://example.com' },
+      '링크 버튼',
+    ),
     variant: 'link',
   },
 };
