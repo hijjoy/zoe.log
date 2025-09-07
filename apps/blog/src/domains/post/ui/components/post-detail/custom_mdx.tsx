@@ -11,7 +11,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'my-6 font-bold text-3xl text-gray-700 sm:text-2xl',
+        'my-6 font-bold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
         className,
       )}
     />
@@ -20,7 +20,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-6 mb-3 font-semibold text-3xl text-gray-700 sm:text-2xl',
+        'mt-6 mb-3 font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
         className,
       )}
     />
@@ -29,7 +29,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-6 mb-2 font-semibold text-2xl text-gray-700 sm:text-xl',
+        'mt-6 mb-2 font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -38,7 +38,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-3 mb-1 font-medium text-gray-700 text-xl sm:text-lg',
+        'mt-3 mb-1 font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
         className,
       )}
     />
@@ -74,13 +74,20 @@ export const customComponents: MDXComponents = {
   img: ({ alt = 'image', src, ...props }: MDXImageProps) => {
     if (typeof src !== 'string') return null;
     return (
-      <Image
-        src={src}
-        alt={alt}
-        width={800}
-        height={500}
-        className={cn('mx-auto my-4 rounded-xl', props.className)}
-      />
+      <span className="my-10 block">
+        <Image
+          src={src}
+          alt={alt}
+          width={450}
+          height={300}
+          className={cn('mx-auto rounded-lg', props.className)}
+        />
+        {alt && alt !== 'image' && (
+          <span className="mt-2 block text-center text-gray-400 text-xs">
+            {alt}
+          </span>
+        )}
+      </span>
     );
   },
 
@@ -89,6 +96,10 @@ export const customComponents: MDXComponents = {
       {...props}
       className="px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]"
     />
+  ),
+
+  del: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
+    <del {...props} className={cn('text-gray-500 line-through', className)} />
   ),
 
   a: ({ className, ...props }: HTMLAttributes<HTMLAnchorElement>) => (
@@ -104,7 +115,7 @@ export const customComponents: MDXComponents = {
     <code
       {...props}
       className={cn(
-        'rounded-md bg-gray-100 px-1 py-0.5 font-mono text-gray-700 text-sm',
+        'rounded-md bg-gray-100 px-1.5 py-0.5 font-mono text-gray-700 text-sm',
         className,
       )}
     />
