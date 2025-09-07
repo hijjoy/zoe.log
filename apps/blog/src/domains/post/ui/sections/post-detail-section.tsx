@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
 import { customComponents } from '../components/post-detail/custom_mdx';
 import PostHeader from '../components/post-detail/post-header';
@@ -18,7 +19,15 @@ export default async function PostDetailSection({ slug }: Props) {
   return (
     <>
       <PostHeader post={post} />
-      <MDXRemote source={post.content} components={customComponents} />
+      <MDXRemote
+        source={post.content}
+        components={customComponents}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        }}
+      />
     </>
   );
 }
