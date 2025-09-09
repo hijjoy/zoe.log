@@ -11,7 +11,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'my-6 font-bold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
+        'my-6 break-keep font-bold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
         className,
       )}
     />
@@ -20,7 +20,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-6 mb-3 font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
+        'mt-6 mb-3 break-keep font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
         className,
       )}
     />
@@ -29,7 +29,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-6 mb-2 font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
+        'mt-6 mb-2 break-keep font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -38,7 +38,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-3 mb-1 font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
+        'mt-3 mb-1 break-keep font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
         className,
       )}
     />
@@ -47,7 +47,7 @@ export const customComponents: MDXComponents = {
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       {...props}
-      className={cn('mb-4 text-gray-600 leading-relaxed', className)}
+      className={cn('mb-4 break-keep text-gray-600 leading-relaxed', className)}
     />
   ),
 
@@ -65,7 +65,7 @@ export const customComponents: MDXComponents = {
     <blockquote
       {...props}
       className={cn(
-        'my-6 border-gray-300 border-l-4 pl-4 text-gray-600',
+        'my-6 break-keep border-gray-300 border-l-4 pl-4 text-gray-600',
         className,
       )}
     />
@@ -80,10 +80,13 @@ export const customComponents: MDXComponents = {
           alt={alt}
           width={450}
           height={300}
-          className={cn('mx-auto rounded-lg', props.className)}
+          className={cn(
+            'mx-auto rounded-lg border border-zinc-100',
+            props.className,
+          )}
         />
         {alt && alt !== 'image' && (
-          <span className="mt-2 block text-center text-gray-400 text-xs">
+          <span className="mt-2 block break-keep text-center text-gray-400 text-xs">
             {alt}
           </span>
         )}
@@ -94,18 +97,24 @@ export const customComponents: MDXComponents = {
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong
       {...props}
-      className="px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]"
+      className="break-keep px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]"
     />
   ),
 
   del: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
-    <del {...props} className={cn('text-gray-500 line-through', className)} />
+    <del
+      {...props}
+      className={cn('break-keep text-gray-500 line-through', className)}
+    />
   ),
 
   a: ({ className, ...props }: HTMLAttributes<HTMLAnchorElement>) => (
     <a
       {...props}
-      className={cn('text-main underline hover:opacity-80', className)}
+      className={cn(
+        'break-keep text-main underline hover:opacity-80',
+        className,
+      )}
       target="_blank"
       rel="noopener noreferrer"
     />
@@ -115,7 +124,7 @@ export const customComponents: MDXComponents = {
     <code
       {...props}
       className={cn(
-        'rounded-md bg-gray-100 px-1.5 py-0.5 font-mono text-gray-700 text-sm',
+        'break-keep rounded-md border-[0.5px] border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-gray-700 text-sm',
         className,
       )}
     />
@@ -131,7 +140,7 @@ export const customComponents: MDXComponents = {
     <ul
       {...props}
       className={cn(
-        'mb-4 list-inside list-disc space-y-1 text-gray-600',
+        'mb-4 list-inside list-disc space-y-1 break-keep text-gray-600',
         className,
       )}
     />
@@ -141,13 +150,13 @@ export const customComponents: MDXComponents = {
     <ol
       {...props}
       className={cn(
-        'mb-4 list-inside list-decimal space-y-1 text-gray-600',
+        'mb-4 list-inside list-decimal space-y-1 break-keep text-gray-600',
         className,
       )}
     />
   ),
 
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
-    <li {...props} className={cn('text-gray-600', className)} />
+    <li {...props} className={cn('break-keep text-gray-600', className)} />
   ),
 };
