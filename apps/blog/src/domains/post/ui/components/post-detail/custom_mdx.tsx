@@ -81,7 +81,7 @@ export const customComponents: MDXComponents = {
           width={450}
           height={300}
           className={cn(
-            'mx-auto rounded-lg border border-zinc-100',
+            'mx-auto rounded-lg border border-zinc-100 dark:border-zinc-700 ',
             props.className,
           )}
         />
@@ -124,7 +124,7 @@ export const customComponents: MDXComponents = {
     <code
       {...props}
       className={cn(
-        'break-keep rounded-md border-[0.5px] border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-gray-700 text-sm',
+        'break-keep rounded-md border-[0.5px] border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-sm text-zinc-700 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300',
         className,
       )}
     />
