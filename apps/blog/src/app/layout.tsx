@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 
@@ -35,6 +34,14 @@ export default function Layout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* Google AdSense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6379538190035381"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="vsc-initialized mx-auto max-w-[768px]">
         <RootLayout>{children}</RootLayout>
       </body>
