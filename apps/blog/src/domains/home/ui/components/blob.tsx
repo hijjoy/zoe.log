@@ -6,6 +6,7 @@ import MeshComponent from './mesh';
 const Blob = () => {
   return (
     <div
+      aria-hidden
       id="blob"
       className="-right-10 sm:-right-40 absolute size-[500px] sm:top-10 sm:size-[520px]"
     >

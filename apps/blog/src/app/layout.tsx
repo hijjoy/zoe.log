@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 

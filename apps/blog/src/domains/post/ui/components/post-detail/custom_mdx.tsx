@@ -84,9 +84,13 @@ export const customComponents: MDXComponents = {
             'mx-auto rounded-lg border border-zinc-100 dark:border-zinc-700 ',
             props.className,
           )}
+          loading="lazy"
         />
         {alt && alt !== 'image' && (
-          <span className="mt-2 block break-keep text-center text-gray-400 text-xs">
+          <span
+            className="mt-2 block break-keep text-center text-gray-400 text-xs"
+            aria-hidden
+          >
             {alt}
           </span>
         )}

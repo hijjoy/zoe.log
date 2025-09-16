@@ -2,7 +2,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { type ComponentProps, forwardRef, type ReactNode } from 'react';
 import { cn } from '../libs';
 
-interface TextProps extends ComponentProps<'div'> {
+interface TextProps extends ComponentProps<'p'> {
   asChild?: boolean;
   children: ReactNode;
   className?: string;
@@ -10,7 +10,7 @@ interface TextProps extends ComponentProps<'div'> {
 
 const Text = forwardRef<HTMLDivElement, TextProps>(
   ({ asChild, children, className, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'div';
+    const Comp = asChild ? Slot : 'p';
 
     return (
       <Comp

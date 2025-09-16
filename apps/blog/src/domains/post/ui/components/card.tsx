@@ -17,7 +17,10 @@ interface Props {
 export default function PostCard({ post }: Props) {
   return (
     <Link href={`/article/${post.slug}`} className="group">
-      <article className="flex justify-between gap-10 sm:items-center sm:gap-6">
+      <article
+        aria-label="post"
+        className="flex justify-between gap-10 sm:items-center sm:gap-6"
+      >
         <div>
           <Categories
             categories={
@@ -39,14 +42,15 @@ export default function PostCard({ post }: Props) {
           </time>
         </div>
 
-        <div className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[150px] overflow-hidden rounded-xl sm:max-w-[100px]">
+        <figure className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[150px] overflow-hidden rounded-xl sm:max-w-[100px]">
           <Image
             src={post.thumbnail}
-            alt={`${post.title} thumbnail`}
+            alt=""
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
-        </div>
+          <figcaption>{`${post.title} thumbnail`}</figcaption>
+        </figure>
       </article>
     </Link>
   );

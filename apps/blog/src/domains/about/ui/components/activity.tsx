@@ -3,12 +3,12 @@ import TimeLineItem from './time-line-item';
 
 export default function Activity() {
   return (
-    <div>
-      <Text className="mb-16 text-center">
+    <section aria-label="activity">
+      <Text className="mb-16 text-center" asChild>
         <h1 className="font-bold text-2xl">Activity</h1>
       </Text>
 
-      <div className="flex flex-col">
+      <ul className="flex flex-col">
         <TimeLineItem
           date="2024.03 - 2024.11"
           title="UMC"
@@ -23,7 +23,7 @@ export default function Activity() {
           description="Django • BE"
           link="https://likelion.net/"
         />
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 }

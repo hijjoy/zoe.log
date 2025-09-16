@@ -4,13 +4,15 @@ import AnimatedText from '@/shared/components/animated-text';
 
 export default function Info() {
   return (
-    <div>
+    <section aria-label="info">
       <div className="relative">
         <Image
           src="/images/zoe.png"
           alt="logo"
           width={50}
           height={50}
+          priority
+          aria-hidden
           className="-top-4 absolute left-[105px] rotate-12"
         />
         <div className="mb-10 flex flex-col">
@@ -50,6 +52,6 @@ export default function Info() {
           개발을 계속해나가고 싶습니다.
         </Text>
       </div>
-    </div>
+    </section>
   );
 }

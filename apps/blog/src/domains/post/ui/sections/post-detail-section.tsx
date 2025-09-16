@@ -17,7 +17,7 @@ export default async function PostDetailSection({ slug }: Props) {
   }
 
   return (
-    <>
+    <article aria-label="post-detail">
       <PostHeader post={post} />
       <MDXRemote
         source={post.content}
@@ -28,6 +28,6 @@ export default async function PostDetailSection({ slug }: Props) {
           },
         }}
       />
-    </>
+    </article>
   );
 }

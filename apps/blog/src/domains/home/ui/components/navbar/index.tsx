@@ -12,6 +12,7 @@ export default function Navbar() {
       {/* right side */}
       <div className="flex items-center gap-2">
         <Link
+          aria-label="GitHub"
           href="https://github.com/hijjoy"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,7 +20,7 @@ export default function Navbar() {
         >
           <FaGithub className="text-gray-600" />
         </Link>
-        <div className="h-4 w-px bg-gray-200" />
+        <div className="h-4 w-px bg-gray-200" aria-hidden />
         <ThemeToggle />
       </div>
     </header>

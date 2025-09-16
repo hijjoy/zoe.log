@@ -11,16 +11,19 @@ export default async function PostSection() {
   }
 
   return (
-    <div className="grid gap-6">
-      {posts.map((post, i) => (
-        <MotionOpacity
-          key={post.slug}
-          transition={{ delay: 0.1 * i, duration: 0.6 }}
-          initial={{ opacity: 0.01 * i, scale: 0.95 }}
-        >
-          <PostCard post={post} />
-        </MotionOpacity>
-      ))}
-    </div>
+    <section aria-label="posts">
+      <ul className="grid gap-6">
+        {posts.map((post, i) => (
+          <li key={post.slug}>
+            <MotionOpacity
+              transition={{ delay: 0.1 * i, duration: 0.6 }}
+              initial={{ opacity: 0.01 * i, scale: 0.95 }}
+            >
+              <PostCard post={post} />
+            </MotionOpacity>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

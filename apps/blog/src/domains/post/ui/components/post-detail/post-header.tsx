@@ -11,6 +11,7 @@ export default function PostHeader({ post }: { post: Post }) {
         alt={post.title}
         width={500}
         height={500}
+        priority
         className="aspect-[5/4] h-[250px] w-full rounded-xl object-cover sm:h-[200px]"
       />
       <div className="absolute inset-0 rounded-xl bg-black/30 backdrop-blur-[5px]" />

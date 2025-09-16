@@ -15,10 +15,10 @@ export default async function HomeView() {
 
   return (
     <MotionOpacity className="relative flex min-h-screen flex-col gap-10">
-      <div className="relative flex min-h-[500px] overflow-hidden px-4">
+      <section className="relative flex min-h-[500px] overflow-hidden px-4">
         <BlogTitle />
         <Blob />
-      </div>
+      </section>
 
       {/* Server Component에서 데이터를 미리 prefetch + dehydrate */}
       <HydrationBoundary state={dehydrate(queryClient)}>
