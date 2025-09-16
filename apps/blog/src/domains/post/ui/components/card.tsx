@@ -47,6 +47,8 @@ export default function PostCard({ post }: Props) {
             src={post.thumbnail}
             alt=""
             fill
+            sizes="(min-width: 640px) 200px, 450px"
+            priority
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <figcaption>{`${post.title} thumbnail`}</figcaption>

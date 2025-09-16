@@ -43,7 +43,7 @@ const MeshComponent = () => {
   return (
     <mesh ref={ref}>
       <sphereGeometry args={[0.8, 130, 130]} />
-      <meshPhongMaterial color="##a07dde" shininess={700} />
+      <meshPhongMaterial color="#fff" shininess={700} />
     </mesh>
   );
 };
