@@ -20,7 +20,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-6 mb-3 break-keep font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
+        'my-6 break-keep font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
         className,
       )}
     />
@@ -29,7 +29,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-6 mb-2 break-keep font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
+        'my-6 break-keep font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -38,7 +38,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-3 mb-1 break-keep font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
+        'my-6 break-keep font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
         className,
       )}
     />
