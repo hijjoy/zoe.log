@@ -144,7 +144,7 @@ export const customComponents: MDXComponents = {
     <ul
       {...props}
       className={cn(
-        'mb-4 list-inside list-disc space-y-1 break-keep text-gray-600',
+        'mb-4 list-inside list-disc space-y-2 break-keep pl-4 text-gray-600',
         className,
       )}
     />
@@ -154,7 +154,7 @@ export const customComponents: MDXComponents = {
     <ol
       {...props}
       className={cn(
-        'mb-4 list-inside list-decimal space-y-1 break-keep text-gray-600',
+        'mb-4 list-inside list-decimal space-y-2 break-keep pl-4 text-gray-600',
         className,
       )}
     />
