@@ -1,6 +1,7 @@
 import type React from 'react';
 import Footer from '@/domains/home/ui/components/footer';
 import Navbar from '@/domains/home/ui/components/navbar';
+import { ModalContainer } from '../components/modal-container';
 import { ReactQueryProvider } from '../contexts/query-provider';
 import ThemeProvider from '../contexts/theme-provider';
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: Props) {
         <Navbar />
         <main className="py-10">{children}</main>
         <Footer />
+        <ModalContainer />
       </ThemeProvider>
     </ReactQueryProvider>
   );

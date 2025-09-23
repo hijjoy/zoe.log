@@ -1,10 +1,8 @@
 import { cn } from '@zoelog/ui';
 import type { MDXComponents } from 'mdx/types';
-import Image from 'next/image';
-import type { HTMLAttributes, ImgHTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import CodeBlockBox from '@/shared/components/code-box';
-
-type MDXImageProps = ImgHTMLAttributes<HTMLImageElement>;
+import MDXImage from './mdx-image';
 
 export const customComponents: MDXComponents = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
@@ -71,32 +69,7 @@ export const customComponents: MDXComponents = {
     />
   ),
 
-  img: ({ alt = 'image', src, ...props }: MDXImageProps) => {
-    if (typeof src !== 'string') return null;
-    return (
-      <span className="my-10 block">
-        <Image
-          src={src}
-          alt={alt}
-          width={450}
-          height={300}
-          className={cn(
-            'mx-auto rounded-lg border border-zinc-100 dark:border-zinc-700 ',
-            props.className,
-          )}
-          loading="lazy"
-        />
-        {alt && alt !== 'image' && (
-          <span
-            className="mt-2 block break-keep text-center text-gray-400 text-xs"
-            aria-hidden
-          >
-            {alt}
-          </span>
-        )}
-      </span>
-    );
-  },
+  img: MDXImage,
 
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong
