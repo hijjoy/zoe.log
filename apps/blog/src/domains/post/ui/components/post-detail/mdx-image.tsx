@@ -3,7 +3,8 @@
 import { cn } from '@zoelog/ui';
 import Image from 'next/image';
 import type { ImgHTMLAttributes } from 'react';
-import { useImageModal } from '@/shared/hooks/use-image-modal';
+import { ImageModal } from '@/shared/components/image-modal';
+import { useModalStore } from '@/shared/stores/use-modal-store';
 
 type MDXImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
@@ -12,9 +13,13 @@ export default function MDXImage({
   src,
   ...props
 }: MDXImageProps) {
-  const { open } = useImageModal();
+  const openModal = useModalStore((state) => state.openModal);
 
   if (typeof src !== 'string') return null;
+
+  const handleImageClick = () => {
+    openModal(ImageModal, { src, alt });
+  };
 
   return (
     <span className="my-10 block">
@@ -28,7 +33,7 @@ export default function MDXImage({
           props.className,
         )}
         loading="lazy"
-        onClick={() => open(src, alt)}
+        onClick={handleImageClick}
       />
       {alt && alt !== 'image' && (
         <span

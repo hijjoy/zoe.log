@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { IoClose } from 'react-icons/io5';
-import { ModalBackdrop } from '@/shared/components/modal-backdrop';
+import { ModalOverlay } from '@/shared/components/modal-overlay';
 
 interface ImageModalProps {
   src: string;
@@ -13,10 +13,10 @@ interface ImageModalProps {
 
 export function ImageModal({ src, alt, onClose }: ImageModalProps) {
   return (
-    <ModalBackdrop onClose={onClose}>
+    <ModalOverlay onClose={onClose}>
       <ModalCloseButton onClose={onClose} />
       <ImageContainer src={src} alt={alt} />
-    </ModalBackdrop>
+    </ModalOverlay>
   );
 }
 

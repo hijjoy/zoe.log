@@ -44,6 +44,7 @@ export default function Layout({
       </head>
       <body className="vsc-initialized mx-auto max-w-[768px]">
         <RootLayout>{children}</RootLayout>
+        <div id="modal-root" />
       </body>
     </html>
   );
