@@ -28,13 +28,12 @@ interface ImageContainerProps {
 const ImageContainer = ({ src, alt }: ImageContainerProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={{ opacity: 1, scale: 1.1 }}
-      exit={{ opacity: 0, scale: 0.85 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{
-        type: 'spring',
-        stiffness: 260,
-        damping: 20,
+        duration: 0.3,
+        ease: 'easeOut',
       }}
       className="relative flex max-h-[90vh] max-w-[90vw] items-center justify-center"
     >
@@ -58,10 +57,10 @@ interface ModalCloseButtonProps {
 const ModalCloseButton = ({ onClose }: ModalCloseButtonProps) => {
   return (
     <motion.button
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2, delay: 0.1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
       type="button"
       onClick={onClose}
       className="absolute top-4 right-4 text-white transition-colors hover:scale-110 hover:text-gray-300"

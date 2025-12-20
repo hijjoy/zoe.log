@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import { useCallback, useEffect } from 'react';
 
+import { useIsomorphicLayoutEffect } from '@/shared/hooks/use-isomorphic-layout-effect';
+
 interface ModalOverlayProps {
   children: ReactNode;
   onClose: () => void;
@@ -46,12 +48,18 @@ export function ModalOverlay({
     }
   }, [closeOnEsc, handleEscKey]);
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     const originalOverflow = document.body.style.overflow;
+    const originalPaddingRight = document.body.style.paddingRight;
+
     document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
       document.body.style.overflow = originalOverflow;
+      document.body.style.paddingRight = originalPaddingRight;
     };
   }, []);
 
