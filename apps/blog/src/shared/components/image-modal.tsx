@@ -45,6 +45,7 @@ const ImageContainer = ({ src, alt }: ImageContainerProps) => {
         className="pointer-events-auto h-auto max-h-[85vh] w-auto max-w-[85vw] select-none object-contain"
         priority
         draggable={false}
+        unoptimized
       />
     </motion.div>
   );

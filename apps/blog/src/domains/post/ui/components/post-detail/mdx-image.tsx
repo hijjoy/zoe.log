@@ -21,6 +21,11 @@ export default function MDXImage({
     openModal(ImageModal, { src, alt });
   };
 
+  const handleMouseEnter = () => {
+    const img = new window.Image();
+    img.src = src;
+  };
+
   return (
     <span className="my-10 block">
       <Image
@@ -34,6 +39,7 @@ export default function MDXImage({
         )}
         loading="lazy"
         onClick={handleImageClick}
+        onMouseEnter={handleMouseEnter}
       />
       {alt && alt !== 'image' && (
         <span
