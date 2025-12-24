@@ -136,4 +136,45 @@ export const customComponents: MDXComponents = {
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li {...props} className={cn('break-keep text-gray-600', className)} />
   ),
+
+  table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
+    <div className="my-6 overflow-x-auto">
+      <table
+        {...props}
+        className={cn(
+          'w-full border-collapse text-gray-600 text-sm',
+          className,
+        )}
+      />
+    </div>
+  ),
+
+  thead: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead
+      {...props}
+      className={cn('border-gray-200 border-b-2 bg-gray-50', className)}
+    />
+  ),
+
+  tbody: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody {...props} className={cn('divide-y divide-gray-200', className)} />
+  ),
+
+  tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
+    <tr {...props} className={cn('hover:bg-gray-50', className)} />
+  ),
+
+  th: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
+    <th
+      {...props}
+      className={cn(
+        'px-4 py-3 text-left font-semibold text-gray-700',
+        className,
+      )}
+    />
+  ),
+
+  td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
+    <td {...props} className={cn('px-4 py-3 text-gray-600', className)} />
+  ),
 };
