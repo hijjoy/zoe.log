@@ -9,7 +9,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'my-6 break-keep font-bold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
+        'mt-7 mb-4 break-keep font-bold text-[32px] text-heading leading-[1.25] sm:text-[26px] [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -18,7 +18,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'my-6 break-keep font-semibold text-3xl text-gray-700 sm:text-2xl [&_code]:text-2xl [&_code]:sm:text-xl',
+        'mt-14 mb-1 break-keep font-bold text-[24px] text-heading leading-[1.6] sm:text-[20px] [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -27,7 +27,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'my-6 break-keep font-semibold text-2xl text-gray-700 sm:text-xl [&_code]:text-xl [&_code]:sm:text-lg',
+        'mt-10 mb-1 break-keep font-bold text-[24px] text-heading leading-[1.6] sm:text-[20px] [&_code]:text-xl [&_code]:sm:text-lg',
         className,
       )}
     />
@@ -36,7 +36,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'my-6 break-keep font-medium text-gray-700 text-xl sm:text-lg [&_code]:text-lg [&_code]:sm:text-base',
+        'mt-8 mb-1 break-keep font-bold text-[20px] text-heading leading-[1.6] sm:text-[18px] [&_code]:text-lg [&_code]:sm:text-base',
         className,
       )}
     />
@@ -45,7 +45,10 @@ export const customComponents: MDXComponents = {
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
     <p
       {...props}
-      className={cn('mb-4 break-keep text-gray-600 leading-relaxed', className)}
+      className={cn(
+        'mb-6 break-keep text-[17px] text-base leading-[1.6] tracking-normal',
+        className,
+      )}
     />
   ),
 
@@ -53,7 +56,7 @@ export const customComponents: MDXComponents = {
     <hr
       {...props}
       className={cn(
-        'before:-translate-x-1/2 before:-translate-y-1/2 relative my-14 block h-10 border-none before:absolute before:top-1/2 before:left-1/2 before:font-normal before:text-gray-300 before:text-xl before:content-["*_*_*"]',
+        'before:-translate-x-1/2 before:-translate-y-1/2 relative my-14 block h-10 border-none before:absolute before:top-1/2 before:left-1/2 before:font-normal before:text-second before:text-xl before:content-["*_*_*"]',
         className,
       )}
     />
@@ -63,7 +66,7 @@ export const customComponents: MDXComponents = {
     <blockquote
       {...props}
       className={cn(
-        'my-6 break-keep border-gray-300 border-l-4 pl-4 text-gray-600',
+        'my-6 break-keep border-gray-300 border-l-4 pl-4 text-[17px] text-second leading-[1.6]',
         className,
       )}
     />
@@ -74,14 +77,14 @@ export const customComponents: MDXComponents = {
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong
       {...props}
-      className="break-keep px-1 font-semibold text-gray-700 shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]"
+      className="break-keep px-1 font-semibold text-heading shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(100,70,120)]"
     />
   ),
 
   del: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <del
       {...props}
-      className={cn('break-keep text-gray-500 line-through', className)}
+      className={cn('break-keep text-second line-through', className)}
     />
   ),
 
@@ -101,7 +104,7 @@ export const customComponents: MDXComponents = {
     <code
       {...props}
       className={cn(
-        'break-keep rounded-md border-[0.5px] border-zinc-200 bg-zinc-100 px-1.5 py-0.5 font-mono text-sm text-zinc-700 dark:border-zinc-600 dark:bg-zinc-700 dark:text-zinc-300',
+        'break-keep rounded-md border-[0.5px] border-gray-200 bg-gray-100 px-1.5 py-0.5 font-mono text-base text-sm',
         className,
       )}
     />
@@ -117,7 +120,7 @@ export const customComponents: MDXComponents = {
     <ul
       {...props}
       className={cn(
-        'mb-4 list-inside list-disc space-y-2 break-keep pl-4 text-gray-600',
+        'mb-6 list-inside list-disc space-y-2 break-keep pl-4 text-[17px] text-base leading-[1.6]',
         className,
       )}
     />
@@ -127,14 +130,20 @@ export const customComponents: MDXComponents = {
     <ol
       {...props}
       className={cn(
-        'mb-4 list-inside list-decimal space-y-2 break-keep pl-4 text-gray-600',
+        'mb-6 list-inside list-decimal space-y-2 break-keep pl-4 text-[17px] text-base leading-[1.6]',
         className,
       )}
     />
   ),
 
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
-    <li {...props} className={cn('break-keep text-gray-600', className)} />
+    <li
+      {...props}
+      className={cn(
+        'break-keep text-[17px] text-base leading-[1.6]',
+        className,
+      )}
+    />
   ),
 
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
@@ -142,7 +151,7 @@ export const customComponents: MDXComponents = {
       <table
         {...props}
         className={cn(
-          'w-full border-collapse text-gray-600 text-sm',
+          'w-full border-collapse text-[15px] text-base leading-[1.6]',
           className,
         )}
       />
@@ -152,7 +161,7 @@ export const customComponents: MDXComponents = {
   thead: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (
     <thead
       {...props}
-      className={cn('border-gray-200 border-b-2 bg-gray-50', className)}
+      className={cn('border-gray-200 border-b-2 bg-gray-100', className)}
     />
   ),
 
@@ -161,20 +170,20 @@ export const customComponents: MDXComponents = {
   ),
 
   tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
-    <tr {...props} className={cn('hover:bg-gray-50', className)} />
+    <tr {...props} className={cn('hover:bg-gray-100', className)} />
   ),
 
   th: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <th
       {...props}
       className={cn(
-        'px-4 py-3 text-left font-semibold text-gray-700',
+        'px-4 py-3 text-left font-semibold text-heading',
         className,
       )}
     />
   ),
 
   td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
-    <td {...props} className={cn('px-4 py-3 text-gray-600', className)} />
+    <td {...props} className={cn('px-4 py-3 text-base', className)} />
   ),
 };
