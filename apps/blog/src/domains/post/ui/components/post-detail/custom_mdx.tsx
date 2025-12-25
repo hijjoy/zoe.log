@@ -72,7 +72,7 @@ export const customComponents: MDXComponents = {
     />
   ),
 
-  img: MDXImage,
+  Image: MDXImage,
 
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong

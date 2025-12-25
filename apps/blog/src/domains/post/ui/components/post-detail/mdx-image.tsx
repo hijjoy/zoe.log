@@ -2,16 +2,25 @@
 
 import { cn } from '@zoelog/ui';
 import Image from 'next/image';
-import type { ImgHTMLAttributes } from 'react';
 import { ImageModal } from '@/shared/components/image-modal';
 import { useModalStore } from '@/shared/stores/use-modal-store';
 
-type MDXImageProps = ImgHTMLAttributes<HTMLImageElement>;
+interface MDXImageProps {
+  src: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  description?: string;
+  className?: string;
+}
 
 export default function MDXImage({
-  alt = 'image',
   src,
-  ...props
+  alt = 'image',
+  width = 450,
+  height = 300,
+  description,
+  className,
 }: MDXImageProps) {
   const openModal = useModalStore((state) => state.openModal);
 
@@ -27,28 +36,25 @@ export default function MDXImage({
   };
 
   return (
-    <span className="my-10 block">
+    <figure className="my-10">
       <Image
         src={src}
         alt={alt}
-        width={450}
-        height={300}
+        width={width}
+        height={height}
         className={cn(
           'mx-auto cursor-zoom-in rounded-lg border border-zinc-100 transition-transform duration-700 hover:scale-[1.02] dark:border-zinc-700',
-          props.className,
+          className,
         )}
         loading="lazy"
         onClick={handleImageClick}
         onMouseEnter={handleMouseEnter}
       />
-      {alt && alt !== 'image' && (
-        <span
-          className="mt-2 block break-keep text-center text-xs text-zinc-400 dark:text-zinc-300"
-          aria-hidden
-        >
-          {alt}
-        </span>
+      {description && (
+        <figcaption className="mt-2 break-keep text-center text-xs text-zinc-400 dark:text-zinc-300">
+          {description}
+        </figcaption>
       )}
-    </span>
+    </figure>
   );
 }
