@@ -21,6 +21,12 @@
 
   /* Main color */
   --main: #ab91dd;
+
+  /* TOC */
+  --toc-h2: var(--gray-600);
+  --toc-h3: var(--gray-500);
+  --toc-h4: var(--gray-400);
+  --toc-active: var(--main);
 }
 
 :root.dark {
@@ -41,4 +47,10 @@
   --page-background: var(--gray-100);
 
   --main: #ab91dd;
+
+  /* TOC */
+  --toc-h2: var(--gray-600);
+  --toc-h3: var(--gray-500);
+  --toc-h4: var(--gray-400);
+  --toc-active: var(--main);
 }

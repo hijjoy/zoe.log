@@ -51,6 +51,12 @@ const config: Config = {
         page: 'var(--page-background)',
         border: 'var(--gray-200)',
         main: 'var(--main)',
+        toc: {
+          h2: 'var(--toc-h2)',
+          h3: 'var(--toc-h3)',
+          h4: 'var(--toc-h4)',
+          active: 'var(--toc-active)',
+        },
       },
       keyframes: {
         'fade-in': {
