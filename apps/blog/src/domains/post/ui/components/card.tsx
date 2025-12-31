@@ -1,6 +1,6 @@
 import { Text } from '@zoelog/ui';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import { formatDate } from '@/libs/format-date';
 import type { Post, PostCategory } from '@/types/post';
 import Categories from './categories';

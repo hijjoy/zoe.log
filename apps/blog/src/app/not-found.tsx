@@ -2,7 +2,7 @@
 
 import { Button } from '@zoelog/ui';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 import MotionOpacity from '@/shared/components/motion-opacity';
 
 export default function NotFound() {

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 
@@ -43,8 +44,10 @@ export default function Layout({
         />
       </head>
       <body className="vsc-initialized mx-auto max-w-[768px]">
-        <RootLayout>{children}</RootLayout>
-        <div id="modal-root" />
+        <ViewTransitions>
+          <RootLayout>{children}</RootLayout>
+          <div id="modal-root" />
+        </ViewTransitions>
       </body>
     </html>
   );
