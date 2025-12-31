@@ -1,3 +1,5 @@
+export const revalidate = 3_600;
+
 import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';

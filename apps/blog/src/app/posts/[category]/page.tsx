@@ -1,5 +1,3 @@
-export const revalidate = 3600;
-
 import { notFound } from 'next/navigation';
 import { CATEGORY, type Category } from '@/domains/post/constants';
 import PostsWithCategoryView from '@/domains/post/ui/views/posts-with-category-view';
