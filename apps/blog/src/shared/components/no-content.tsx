@@ -1,10 +1,9 @@
 import { Text } from '@zoelog/ui';
 import Image from 'next/image';
-import MotionOpacity from './motion-opacity';
 
 export default function NoContent() {
   return (
-    <MotionOpacity className="flex flex-col items-center gap-4 py-1">
+    <div className="flex flex-col items-center gap-4 py-1">
       <Image
         src="/images/쪼이.svg"
         alt="logo"
@@ -20,6 +19,6 @@ export default function NoContent() {
           잠시만 기다려주세요 !
         </Text>
       </div>
-    </MotionOpacity>
+    </div>
   );
 }

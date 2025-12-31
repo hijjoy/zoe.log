@@ -25,7 +25,7 @@ export default function PostHeader({ post }: { post: Post }) {
             {post.description}
           </Text>
         </div>
-        <Text className="break-keep text-center text-gray-200 text-xs dark:text-gray-400">
+        <Text className="break-keep text-center text-gray-200 text-xs dark:text-white">
           {formatDate(post.createdAt)}
         </Text>
       </div>
