@@ -125,6 +125,9 @@ importers:
       three:
         specifier: ^0.177.0
         version: 0.177.0
+      wanted-sans:
+        specifier: ^1.0.3
+        version: 1.0.3
       zustand:
         specifier: ^5.0.8
         version: 5.0.8(@types/react@19.1.8)(react@19.1.0)(use-sync-external-store@1.5.0(react@19.1.0))
@@ -172,6 +175,9 @@ importers:
       tailwind-merge:
         specifier: ^2.2.1
         version: 2.6.0
+      wanted-sans:
+        specifier: ^1.0.3
+        version: 1.0.3
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^4.0.0
@@ -4932,6 +4938,9 @@ packages:
 
   vm-browserify@1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
+
+  wanted-sans@1.0.3:
+    resolution: {integrity: sha512-YU+mQRJMc97zMGFmxFjOvjdrF5Hi2zagc69bNP9n//i77Dlf9AWGfziZWYKdhQzPK5tw+e0iHcjLrZXDatxRTQ==}
 
   watchpack@2.4.4:
     resolution: {integrity: sha512-c5EGNOiyxxV5qmTtAB7rbiXxi1ooX1pQKMLX/MIabJjRA0SJBQOjKF+KSVfHkr9U1cADPon0mRiVe/riyaiDUA==}
@@ -10511,6 +10520,8 @@ snapshots:
       - yaml
 
   vm-browserify@1.1.2: {}
+
+  wanted-sans@1.0.3: {}
 
   watchpack@2.4.4:
     dependencies:

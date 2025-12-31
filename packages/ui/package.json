@@ -14,7 +14,8 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.0",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "wanted-sans": "^1.0.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.0.0",

@@ -1,39 +1,25 @@
 @import '../tokens/colors.css';
 
+/* Storybook용 fallback 폰트 (Next.js에서는 next/font가 덮어씀) */
+@font-face {
+  font-family: 'Wanted Sans Variable';
+  src: url('wanted-sans/fonts/variable/WantedSansVariable.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root {
+  --font-wanted-sans: 'Wanted Sans Variable', sans-serif;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* fonts */
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/Pretendard-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/Pretendard-Bold.woff2') format('woff2');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/fonts/Pretendard-Light.woff2') format('woff2');
-  font-weight: 300;
-}
 
 /* layout */
 @layer base {
   body {
     @apply m-0 min-h-screen p-0;
-    @apply font-pretendard text-second text-base;
+    @apply font-wantedsans text-second text-base;
     @apply bg-page;
   }
 

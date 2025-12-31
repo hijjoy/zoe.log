@@ -4,6 +4,9 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   /* config options here */
 
+  // 모노레포에서 packages/ui 트랜스파일
+  transpilePackages: ['@zoelog/ui'],
+
   // Turbopack 설정 (Next.js 16+)
   turbopack: {},
 

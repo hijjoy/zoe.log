@@ -20,7 +20,7 @@ const config: Config = {
         28: '7rem',
       },
       fontFamily: {
-        pretendard: ['"Pretendard"', 'sans-serif'],
+        wantedsans: ['var(--font-wanted-sans)', 'sans-serif'],
       },
       fontSize: {
         '5xl': '2.5rem',

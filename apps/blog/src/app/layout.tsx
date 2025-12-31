@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
+import localFont from 'next/font/local';
 import { ViewTransitions } from 'next-view-transitions';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
+
+const wantedSans = localFont({
+  src: '../../node_modules/wanted-sans/fonts/variable/WantedSansVariable.ttf',
+  variable: '--font-wanted-sans',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hijjoy.com'),
@@ -34,7 +41,7 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" suppressHydrationWarning>
+    <html lang="ko" className={wantedSans.variable} suppressHydrationWarning>
       <head>
         {/* Google AdSense */}
         <script
