@@ -13,15 +13,15 @@ export default function PostHeader({ post }: { post: Post }) {
         width={500}
         height={500}
         priority
-        className="aspect-[5/4] h-[250px] w-full rounded-xl object-cover blur-[2px] sm:h-[200px]"
+        className="aspect-[5/4] h-[200px] w-full rounded-xl object-cover blur-[2px] md:h-[250px]"
       />
       <div className="absolute inset-0 rounded-xl bg-black/30" />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-4 text-white sm:gap-2">
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-white md:gap-6">
         <div className="flex flex-col gap-1">
-          <h1 className="break-keep text-center font-bold text-2xl sm:text-lg">
+          <h1 className="break-keep text-center font-bold text-lg md:text-2xl">
             {post.title}
           </h1>
-          <Text className="break-keep text-center text-sm text-white sm:text-xs">
+          <Text className="break-keep text-center text-white text-xs md:text-sm">
             {post.description}
           </Text>
         </div>

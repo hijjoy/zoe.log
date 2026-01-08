@@ -8,7 +8,7 @@ const Blob = () => {
     <div
       aria-hidden
       id="blob"
-      className="-right-10 sm:-right-40 absolute size-[500px] sm:top-10 sm:size-[520px]"
+      className="-right-40 absolute top-10 size-[520px] md:-right-10 md:top-0 md:size-[500px]"
     >
       <Canvas
         camera={{ fov: 45, position: [0, 0, 5], near: 0.1, far: 1000 }}

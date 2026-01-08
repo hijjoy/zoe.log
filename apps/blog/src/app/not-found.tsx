@@ -12,7 +12,7 @@ export default function NotFound() {
         alt="not-found"
         width={260}
         height={260}
-        className="sm:size-40"
+        className="size-40 md:size-[260px]"
       />
       <Button asChild>
         <Link href="/">홈으로 돌아가기</Link>

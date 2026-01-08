@@ -11,7 +11,7 @@ export default function RecentPosts() {
   if (!posts) return null;
 
   return (
-    <section className="flex flex-col gap-1 px-4 sm:mt-20">
+    <section className="mt-20 flex flex-col gap-1 px-4 md:mt-0">
       <Text asChild className="mb-4 font-semibold text-gray-600 text-sm">
         <h1>Recent Posts</h1>
       </Text>

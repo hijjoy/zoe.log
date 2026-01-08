@@ -9,7 +9,7 @@ export default function NoContent() {
         alt="logo"
         width={400}
         height={400}
-        className="sm:size-64"
+        className="size-64 md:size-[400px]"
       />
       <div>
         <Text className="text-center text-gray-500 text-sm">

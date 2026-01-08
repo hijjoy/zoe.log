@@ -5,7 +5,7 @@ import ThemeToggle from './theme-toggle';
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-20 flex w-full items-center justify-between px-4 py-4 backdrop-blur-sm sm:backdrop-blur-none">
+    <header className="sticky top-0 z-20 flex w-full items-center justify-between px-4 py-4 backdrop-blur-none md:backdrop-blur-sm">
       {/* left side */}
       <PageNav />
 

@@ -9,7 +9,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'mt-7 mb-4 break-keep font-bold text-[32px] text-heading leading-[1.25] sm:text-[26px] [&_code]:text-xl [&_code]:sm:text-lg',
+        'mt-7 mb-4 break-keep font-bold text-[26px] text-heading leading-[1.25] md:text-[32px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -18,7 +18,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-14 mb-1 break-keep font-bold text-[24px] text-heading leading-[1.6] sm:text-[20px] [&_code]:text-xl [&_code]:sm:text-lg',
+        'mt-14 mb-1 break-keep font-bold text-[20px] text-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -27,7 +27,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-10 mb-1 break-keep font-bold text-[24px] text-heading leading-[1.6] sm:text-[20px] [&_code]:text-xl [&_code]:sm:text-lg',
+        'mt-10 mb-1 break-keep font-bold text-[20px] text-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -36,7 +36,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-8 mb-1 break-keep font-bold text-[20px] text-heading leading-[1.6] sm:text-[18px] [&_code]:text-lg [&_code]:sm:text-base',
+        'mt-8 mb-1 break-keep font-bold text-[18px] text-heading leading-[1.6] md:text-[20px] [&_code]:text-base [&_code]:md:text-lg',
         className,
       )}
     />
