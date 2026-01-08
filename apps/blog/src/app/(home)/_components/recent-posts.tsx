@@ -2,10 +2,10 @@
 
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Text } from '@zoelog/ui';
+import PostCard from '@/app/posts/_components/post-card';
 import { postQueries } from '@/domains/post/queries/post-queries';
-import PostCard from '@/domains/post/ui/components/card';
 
-export default function RecentPostSection() {
+export default function RecentPosts() {
   const { data: posts } = useSuspenseQuery(postQueries.recent(3));
 
   if (!posts) return null;

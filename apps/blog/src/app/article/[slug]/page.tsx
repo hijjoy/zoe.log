@@ -3,7 +3,9 @@ export const revalidate = 3_600;
 import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
-import PostDetailView from '@/domains/post/ui/views/post-detail-view';
+import Comments from './_components/comments';
+import PostContent from './_components/post-content';
+import Toc from './_components/toc';
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> },
@@ -31,5 +33,13 @@ export default async function PostDetailPage({
 }) {
   const { slug } = await params;
 
-  return <PostDetailView slug={slug} />;
+  return (
+    <>
+      <Toc />
+      <div className="min-h-screen px-4 sm:px-6">
+        <PostContent slug={slug} />
+        <Comments />
+      </div>
+    </>
+  );
 }

@@ -1,6 +1,6 @@
 import type React from 'react';
-import Footer from '@/domains/home/ui/components/footer';
-import Navbar from '@/domains/home/ui/components/navbar';
+import Footer from '@/shared/components/footer';
+import Navbar from '@/shared/components/navbar';
 import { ReactQueryProvider } from '../contexts/query-provider';
 import ThemeProvider from '../contexts/theme-provider';
 import { ModalProvider } from '../providers/modal-provider';

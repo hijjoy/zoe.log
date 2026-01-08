@@ -69,7 +69,7 @@ export default function Toc() {
 
   return (
     <aside
-      className="fixed top-28 z-20 block xl:hidden"
+      className="fixed top-28 z-20 hidden xl:block"
       style={{ left: 'max(16px, calc(50% - 384px - 220px))' }}
     >
       <nav className="scrollbar-hide max-h-[70vh] max-w-[200px] overflow-y-auto">

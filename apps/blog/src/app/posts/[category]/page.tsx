@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 import { CATEGORY, type Category } from '@/domains/post/constants';
-import PostsWithCategoryView from '@/domains/post/ui/views/posts-with-category-view';
+import LoadingSpinner from '@/shared/components/loading-spinner';
+import PostList from '../_components/post-list';
 
 export async function generateStaticParams() {
-  // 카테고리 목록을 빌드 타임에 가져옴
-  // TODO:카테고리 스키마 변경후 db에서 가져오는 것으로 수정
   return Object.keys(CATEGORY).map((category) => ({
     category,
   }));
@@ -23,5 +23,9 @@ export default async function CategoryPage({ params }: Props) {
     notFound();
   }
 
-  return <PostsWithCategoryView category={category} />;
+  return (
+    <Suspense fallback={<LoadingSpinner delay={300} />}>
+      <PostList category={category} />
+    </Suspense>
+  );
 }

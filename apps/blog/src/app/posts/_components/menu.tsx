@@ -2,9 +2,9 @@
 
 import { cn } from '@zoelog/ui';
 import { motion } from 'framer-motion';
-import { Link } from 'next-view-transitions';
 import { usePathname } from 'next/navigation';
-import { MENU_ITEMS } from '../../constants';
+import { Link } from 'next-view-transitions';
+import { MENU_ITEMS } from '@/domains/post/constants';
 
 export default function PostsMenu() {
   const pathname = usePathname();

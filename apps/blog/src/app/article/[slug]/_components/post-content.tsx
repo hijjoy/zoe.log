@@ -3,14 +3,14 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
-import { customComponents } from '../components/post-detail/custom_mdx';
-import PostHeader from '../components/post-detail/post-header';
+import { customComponents } from './custom-mdx';
+import PostHeader from './post-header';
 
 interface Props {
   slug: string;
 }
 
-export default async function PostDetailSection({ slug }: Props) {
+export default async function PostContent({ slug }: Props) {
   const post = await getPostDetailWithCache(slug);
 
   if (!post) {

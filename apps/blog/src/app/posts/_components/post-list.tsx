@@ -1,9 +1,14 @@
+import type { Category } from '@/domains/post/constants';
+import { getPosts } from '@/domains/post/queries/get-posts';
 import NoContent from '@/shared/components/no-content';
-import { getPosts } from '../../queries/get-posts';
-import PostCard from '../components/card';
+import PostCard from './post-card';
 
-export default async function PostSection() {
-  const posts = await getPosts();
+interface Props {
+  category?: Category;
+}
+
+export default async function PostList({ category }: Props) {
+  const posts = await getPosts(category);
 
   if (posts.length === 0) {
     return <NoContent />;
