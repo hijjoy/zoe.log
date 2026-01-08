@@ -12,6 +12,7 @@
   "devDependencies": {
     "@biomejs/biome": "2.0.5",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.9.0",
+    "@tailwindcss/postcss": "^4.1.18",
     "@tanstack/eslint-plugin-query": "^5.78.0",
     "@types/node": "^24.0.1",
     "@types/react": "^19",
@@ -21,7 +22,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "postcss": "^8.4.35",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.1.18",
     "turbo": "^2.5.4",
     "typescript": "^5"
   },
