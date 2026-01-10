@@ -66,7 +66,7 @@ export const customComponents: MDXComponents = {
     <blockquote
       {...props}
       className={cn(
-        'my-6 break-keep border-gray-300 border-l-4 pl-4 text-[17px] text-second leading-[1.6]',
+        'my-6 break-keep border-gray-300 border-l-4 pl-4 text-base',
         className,
       )}
     />
@@ -120,7 +120,7 @@ export const customComponents: MDXComponents = {
     <ul
       {...props}
       className={cn(
-        'mb-6 list-inside list-disc space-y-2 break-keep pl-4 text-[17px] text-base leading-[1.6]',
+        'mb-6 list-inside list-disc space-y-2 break-keep pl-4 text-base',
         className,
       )}
     />
@@ -130,7 +130,7 @@ export const customComponents: MDXComponents = {
     <ol
       {...props}
       className={cn(
-        'mb-6 list-inside list-decimal space-y-2 break-keep pl-4 text-[17px] text-base leading-[1.6]',
+        'mb-6 list-inside list-decimal space-y-2 break-keep pl-4 text-base',
         className,
       )}
     />
