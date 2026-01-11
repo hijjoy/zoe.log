@@ -46,7 +46,7 @@ export const customComponents: MDXComponents = {
     <p
       {...props}
       className={cn(
-        'mb-6 break-keep text-[17px] text-base leading-[1.6] tracking-normal',
+        'mb-8 break-keep text-base leading-[1.6] tracking-normal',
         className,
       )}
     />
@@ -177,13 +177,16 @@ export const customComponents: MDXComponents = {
     <th
       {...props}
       className={cn(
-        'px-4 py-3 text-left font-semibold text-heading',
+        'whitespace-nowrap px-4 py-3 text-left font-semibold text-heading',
         className,
       )}
     />
   ),
 
   td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
-    <td {...props} className={cn('px-4 py-3 text-base', className)} />
+    <td
+      {...props}
+      className={cn('whitespace-nowrap px-4 py-3 text-base', className)}
+    />
   ),
 };
