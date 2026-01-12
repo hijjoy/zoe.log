@@ -1,5 +1,6 @@
 export const CATEGORY = {
   development: '개발',
+  study: '공부',
   review: '회고',
 } as const;
 
@@ -13,6 +14,10 @@ export const MENU_ITEMS = [
   {
     name: '개발',
     href: '/posts/development',
+  },
+  {
+    name: '공부',
+    href: '/posts/study',
   },
   {
     name: '회고',
