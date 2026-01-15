@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 
 const DEFAULT_DELAY = 300;
 
+interface LoadingSpinnerProps {
+  delay?: number;
+}
+
 export default function LoadingSpinner({
   delay = DEFAULT_DELAY,
-}: {
-  delay?: number;
-}) {
+}: LoadingSpinnerProps) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {

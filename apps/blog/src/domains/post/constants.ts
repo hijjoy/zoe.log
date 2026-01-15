@@ -7,20 +7,9 @@ export const CATEGORY = {
 export type Category = keyof typeof CATEGORY;
 
 export const MENU_ITEMS = [
-  {
-    name: '전체',
-    href: '/posts',
-  },
-  {
-    name: '개발',
-    href: '/posts/development',
-  },
-  {
-    name: '공부',
-    href: '/posts/study',
-  },
-  {
-    name: '회고',
-    href: '/posts/review',
-  },
-];
+  { name: '전체', href: '/posts' },
+  ...Object.entries(CATEGORY).map(([key, name]) => ({
+    name,
+    href: `/posts/${key}`,
+  })),
+] as const;

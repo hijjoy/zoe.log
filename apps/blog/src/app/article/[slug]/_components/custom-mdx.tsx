@@ -1,4 +1,4 @@
-import { cn } from '@zoelog/ui';
+import { cn, Divider } from '@zoelog/ui';
 import type { MDXComponents } from 'mdx/types';
 import type { HTMLAttributes } from 'react';
 import CodeBlockBox from '@/shared/components/code-box';
@@ -53,13 +53,7 @@ export const customComponents: MDXComponents = {
   ),
 
   hr: ({ className, ...props }: HTMLAttributes<HTMLHRElement>) => (
-    <hr
-      {...props}
-      className={cn(
-        'before:-translate-x-1/2 before:-translate-y-1/2 relative my-14 block h-10 border-none before:absolute before:top-1/2 before:left-1/2 before:font-normal before:text-second before:text-xl before:content-["*_*_*"]',
-        className,
-      )}
-    />
+    <Divider variant="muted" spacing="md" className={className} {...props} />
   ),
 
   blockquote: ({ className, ...props }: HTMLAttributes<HTMLQuoteElement>) => (

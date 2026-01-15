@@ -3,7 +3,11 @@ import Image from 'next/image';
 import { formatDate } from '@/libs/format-date';
 import type { Post } from '@/types/post';
 
-export default function PostHeader({ post }: { post: Post }) {
+interface PostHeaderProps {
+  post: Post;
+}
+
+export default function PostHeader({ post }: PostHeaderProps) {
   return (
     <div className="relative mt-4 mb-16 flex items-center justify-center">
       <Image
