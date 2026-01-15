@@ -10,8 +10,8 @@ export default function PageNav() {
         <li>
           <Link
             href="/"
-            className="font-semibold transition-all duration-400 hover:text-main active:scale-95"
-            aria-labelledby="홈으로 이동"
+            className="rounded font-semibold transition-all duration-400 hover:text-main focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 active:scale-95"
+            aria-label="홈으로 이동"
           >
             zoe.log
           </Link>
@@ -25,10 +25,11 @@ export default function PageNav() {
 
 const UnderlineMenu = ({ href, name }: { href: string; name: string }) => {
   return (
-    <li aria-labelledby={`${name}으로 이동`}>
+    <li>
       <Link
         href={href}
-        className="relative text-gray-500 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-gray-800 after:transition-transform after:duration-300 after:content-[''] hover:text-gray-600 hover:after:scale-x-100"
+        aria-label={`${name}으로 이동`}
+        className="relative rounded text-gray-500 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-gray-800 after:transition-transform after:duration-300 after:content-[''] hover:text-gray-600 hover:after:scale-x-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2"
       >
         {name}
       </Link>

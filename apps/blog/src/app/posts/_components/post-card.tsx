@@ -45,13 +45,13 @@ export default function PostCard({ post }: Props) {
         <figure className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
           <Image
             src={post.thumbnail}
-            alt=""
+            alt={`${post.title} 썸네일`}
             fill
             sizes="(min-width: 640px) 200px, 450px"
             priority
             className="object-cover transition-transform duration-500 group-hover:scale-110"
           />
-          <figcaption>{`${post.title} thumbnail`}</figcaption>
+          <figcaption className="sr-only">{`${post.title} 썸네일`}</figcaption>
         </figure>
       </article>
     </Link>

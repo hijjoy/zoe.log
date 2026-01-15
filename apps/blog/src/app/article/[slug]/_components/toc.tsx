@@ -72,7 +72,10 @@ export default function Toc() {
       className="fixed top-28 z-20 hidden xl:block"
       style={{ left: 'max(16px, calc(50% - 384px - 220px))' }}
     >
-      <nav className="scrollbar-hide max-h-[70vh] max-w-[200px] overflow-y-auto">
+      <nav
+        aria-label="목차"
+        className="scrollbar-hide max-h-[70vh] max-w-[200px] overflow-y-auto"
+      >
         <ul className="flex flex-col gap-2">
           {toc.map((item) => {
             const isActive = activeId === item.id;
@@ -86,7 +89,7 @@ export default function Toc() {
                   href={`#${item.id}`}
                   onClick={() => setActiveId(item.id)}
                   className={cn(
-                    'block truncate text-[13px] leading-relaxed transition-colors hover:text-toc-active',
+                    'block truncate rounded text-[13px] leading-relaxed transition-colors hover:text-toc-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main',
                     textColor,
                     isActive && 'font-medium text-toc-active',
                   )}

@@ -65,14 +65,17 @@ export function ModalOverlay({
 
   return (
     <motion.div
+      role="dialog"
+      aria-modal="true"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
       className={
         overlayClassName ||
-        'fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md'
+        'fixed inset-0 z-50 flex items-center justify-center overscroll-contain bg-black/80 backdrop-blur-md'
       }
+      style={{ overscrollBehavior: 'contain' }}
       onClick={handleOverlayClick}
     >
       {/* biome-ignore lint/a11y/useKeyWithClickEvents: 모달 콘텐츠는 클릭 이벤트만 방지 */}

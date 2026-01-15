@@ -41,8 +41,24 @@ export default function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className={wantedSans.variable} suppressHydrationWarning>
+    <html
+      lang="ko"
+      className={wantedSans.variable}
+      suppressHydrationWarning
+      style={{ colorScheme: 'light dark' }}
+    >
       <head>
+        <meta name="color-scheme" content="light dark" />
+        <meta
+          name="theme-color"
+          content="#ffffff"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#0a0a0a"
+          media="(prefers-color-scheme: dark)"
+        />
         {/* Google AdSense */}
         <script
           async

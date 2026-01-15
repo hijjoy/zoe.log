@@ -30,6 +30,13 @@ export default function MDXImage({
     openModal(ImageModal, { src, alt });
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal(ImageModal, { src, alt });
+    }
+  };
+
   const handleMouseEnter = () => {
     const img = new window.Image();
     img.src = src;
@@ -43,11 +50,15 @@ export default function MDXImage({
         width={width}
         height={height}
         className={cn(
-          'mx-auto cursor-zoom-in rounded-lg border border-zinc-100 transition-transform duration-700 hover:scale-[1.02] dark:border-zinc-700',
+          'mx-auto cursor-zoom-in rounded-lg border border-zinc-100 transition-transform duration-700 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 dark:border-zinc-700',
           className,
         )}
         loading="lazy"
+        tabIndex={0}
+        role="button"
+        aria-label={`${alt} 이미지 확대`}
         onClick={handleImageClick}
+        onKeyDown={handleKeyDown}
         onMouseEnter={handleMouseEnter}
       />
       {description && (

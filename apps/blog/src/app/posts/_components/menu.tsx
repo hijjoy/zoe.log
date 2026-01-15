@@ -42,7 +42,7 @@ const MenuItem = ({ item, index, pathname }: MenuItemProps) => {
       <Link
         href={item.href}
         className={cn(
-          'relative block py-2 text-gray-500 hover:opacity-80',
+          'relative block rounded py-2 text-gray-500 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2',
           pathname === item.href && 'text-main',
         )}
       >
