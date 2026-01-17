@@ -53,7 +53,7 @@ export const customComponents: MDXComponents = {
   ),
 
   hr: ({ className, ...props }: HTMLAttributes<HTMLHRElement>) => (
-    <Divider variant="muted" spacing="md" className={className} {...props} />
+    <Divider spacing="md" className={className} {...props} />
   ),
 
   blockquote: ({ className, ...props }: HTMLAttributes<HTMLQuoteElement>) => (
