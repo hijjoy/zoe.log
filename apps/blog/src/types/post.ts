@@ -27,7 +27,13 @@ export const PostListItemSchema = z.object({
   postCategories: z.array(PostCategorySchema),
 });
 
+export const AdjacentPostSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+});
+
 export type CategoryData = z.infer<typeof CategorySchema>;
 export type PostCategory = z.infer<typeof PostCategorySchema>;
 export type Post = z.infer<typeof PostSchema>;
 export type PostListItem = z.infer<typeof PostListItemSchema>;
+export type AdjacentPost = z.infer<typeof AdjacentPostSchema>;
