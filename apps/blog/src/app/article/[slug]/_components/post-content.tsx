@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { Suspense } from 'react';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
+import { getPostDetailWithCache } from '@/domains/post/queries';
 import { customComponents } from './custom-mdx';
 import PostHeader from './post-header';
+import { PostNavigation } from './post-navigation';
 
 interface Props {
   slug: string;
@@ -30,6 +32,9 @@ export default async function PostContent({ slug }: Props) {
           },
         }}
       />
+      <Suspense fallback={<PostNavigation.Loading />}>
+        <PostNavigation slug={slug} />
+      </Suspense>
     </article>
   );
 }

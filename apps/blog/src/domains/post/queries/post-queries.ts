@@ -1,6 +1,6 @@
 import { queryOptions } from '@tanstack/react-query';
 import type { Category } from '../constants';
-import { getDetailPost, getPosts, getRecentPosts } from './get-posts';
+import { getDetailPost, getPosts, getRecentPosts } from '.';
 
 export const postQueries = {
   // 계층 구조용 key

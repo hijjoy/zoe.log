@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getPosts } from '@/domains/post/queries/get-posts';
+import { getPosts } from '@/domains/post/queries';
 import { env } from '@/libs/env';
 
 export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {

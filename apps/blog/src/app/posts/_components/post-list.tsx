@@ -1,5 +1,5 @@
 import type { Category } from '@/domains/post/constants';
-import { getPosts } from '@/domains/post/queries/get-posts';
+import { getPosts } from '@/domains/post/queries';
 import NoContent from '@/shared/components/no-content';
 import PostCard from './post-card';
 

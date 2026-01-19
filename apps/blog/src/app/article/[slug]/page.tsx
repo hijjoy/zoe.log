@@ -2,7 +2,7 @@ export const revalidate = 3_600;
 
 import type { Metadata, ResolvingMetadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostDetailWithCache } from '@/domains/post/queries/get-posts';
+import { getPostDetailWithCache } from '@/domains/post/queries';
 import Comments from './_components/comments';
 import PostContent from './_components/post-content';
 import Toc from './_components/toc';
