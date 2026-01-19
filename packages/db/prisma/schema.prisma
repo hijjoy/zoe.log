@@ -20,6 +20,8 @@ model Post {
   content        String
   thumbnail      String           @db.VarChar(255)
   postCategories PostCategories[]
+
+  @@index([createdAt])
 }
 
 model Categories {
