@@ -1,22 +1,18 @@
 import { db } from '@zoelog/db';
 import { unstable_cache } from 'next/cache';
-import { cache } from 'react';
+
+const getDetailPostCached = unstable_cache(
+  async (slug: string) => {
+    return db.post.findUnique({
+      where: { slug },
+    });
+  },
+  ['post', 'detail'],
+  { revalidate: 60 * 30 },
+);
 
 export async function getDetailPost(slug: string) {
-  const key = ['post', 'detail', slug];
-
-  return unstable_cache(
-    async () => {
-      return db.post.findUnique({
-        where: { slug },
-      });
-    },
-    key,
-    { revalidate: 60 * 30 },
-  )();
+  return getDetailPostCached(slug);
 }
 
-export const getPostDetailWithCache = cache(async (slug: string) => {
-  const post = await getDetailPost(slug);
-  return post;
-});
+export const getPostDetailWithCache = getDetailPost;
