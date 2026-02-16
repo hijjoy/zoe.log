@@ -29,8 +29,12 @@ export async function getPosts(category?: Category) {
           thumbnail: true,
           createdAt: true,
           postCategories: {
-            include: {
-              categories: true,
+            select: {
+              categories: {
+                select: {
+                  name: true,
+                },
+              },
             },
           },
         },

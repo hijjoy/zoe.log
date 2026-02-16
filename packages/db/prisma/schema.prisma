@@ -37,4 +37,5 @@ model PostCategories {
   post        Post       @relation(fields: [post_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
 
   @@id([post_id, category_id])
+  @@index([category_id, post_id])
 }

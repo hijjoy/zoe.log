@@ -1,9 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { getPosts } from '@/domains/post/queries';
+import { getPostSitemapEntries } from '@/domains/post/queries';
 import { env } from '@/libs/env';
 
 export default async function Sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getPosts();
+  const posts = await getPostSitemapEntries();
 
   const postEntries = posts.map((post) => ({
     url: `${env.NEXT_PUBLIC_BASE_URL}/article/${post.slug}`,

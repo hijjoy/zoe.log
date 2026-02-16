@@ -8,10 +8,20 @@ export const getRecentPosts = unstable_cache(
         createdAt: 'desc',
       },
       take,
-      include: {
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        description: true,
+        thumbnail: true,
+        createdAt: true,
         postCategories: {
-          include: {
-            categories: true,
+          select: {
+            categories: {
+              select: {
+                name: true,
+              },
+            },
           },
         },
       },
