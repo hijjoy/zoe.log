@@ -48,11 +48,18 @@ export default function Toc() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        }
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) => a.boundingClientRect.top - b.boundingClientRect.top,
+          )[0];
+
+        if (!visibleEntry) return;
+
+        const nextActiveId = visibleEntry.target.id;
+        setActiveId((prevActiveId) =>
+          prevActiveId === nextActiveId ? prevActiveId : nextActiveId,
+        );
       },
       { rootMargin: '-80px 0px -80% 0px' },
     );
