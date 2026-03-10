@@ -14,7 +14,7 @@ export default function Activity() {
           title="UMC"
           subTitle="유엠씨"
           description="Web • FE"
-          link="https://umc.makeus.in/"
+          link="https://umc.it.kr/"
         />
         <TimeLineItem
           date="2022.03 - 2022.08"
