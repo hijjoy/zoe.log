@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import '../tokens/colors.css';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @source "../components";
 
 :root {
