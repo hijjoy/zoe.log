@@ -7,7 +7,7 @@ interface Props {
 
 export default function PostsLayout({ children }: Props) {
   return (
-    <div className="mx-auto min-h-screen px-4">
+    <div className="mx-auto min-h-screen px-5">
       <PostsMenu />
       {children}
     </div>

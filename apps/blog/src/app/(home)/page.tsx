@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <div className="relative flex min-h-screen flex-col gap-10">
-      <section className="relative flex min-h-[500px] overflow-hidden px-4">
+      <section className="relative flex min-h-[500px] overflow-hidden px-5">
         <BlogTitle />
         <Blob />
       </section>

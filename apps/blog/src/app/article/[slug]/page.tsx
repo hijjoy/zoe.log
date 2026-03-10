@@ -36,7 +36,7 @@ export default async function PostDetailPage({
   return (
     <>
       <Toc />
-      <div className="min-h-screen px-6 md:px-4">
+      <div className="min-h-screen px-5">
         <PostContent slug={slug} />
         <Comments />
       </div>
