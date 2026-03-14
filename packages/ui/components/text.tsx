@@ -8,6 +8,9 @@ interface TextProps extends ComponentProps<'p'> {
   className?: string;
 }
 
+/**
+ * @deprecated Use `Typography` instead. This component will be removed in a future version.
+ */
 const Text = forwardRef<HTMLDivElement, TextProps>(
   ({ asChild, children, className, ...props }, ref) => {
     const Comp = asChild ? Slot : 'p';
