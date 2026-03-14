@@ -1,15 +1,30 @@
 import './colors.css';
 
-// Gray scale
-export const gray50 = 'var(--gray-50)';
-export const gray100 = 'var(--gray-100)';
-export const gray200 = 'var(--gray-200)';
-export const gray300 = 'var(--gray-300)';
-export const gray400 = 'var(--gray-400)';
-export const gray500 = 'var(--gray-500)';
-export const gray600 = 'var(--gray-600)';
-export const gray700 = 'var(--gray-700)';
-export const gray800 = 'var(--gray-800)';
-export const gray900 = 'var(--gray-900)';
 
-export const main = 'var(--main)';
+// === Purple Gray atomic tokens (NEW) ===
+export const pg = {
+  50: 'var(--pg-50)',
+  100: 'var(--pg-100)',
+  200: 'var(--pg-200)',
+  300: 'var(--pg-300)',
+  400: 'var(--pg-400)',
+  500: 'var(--pg-500)',
+  600: 'var(--pg-600)',
+  700: 'var(--pg-700)',
+  800: 'var(--pg-800)',
+  900: 'var(--pg-900)',
+  primary: 'var(--pg-primary)',
+  primaryHover: 'var(--pg-primary-hover)',
+} as const;
+
+// === Semantic color tokens (NEW) ===
+export const semantic = {
+  heading: 'var(--color-heading)',
+  body: 'var(--color-body)',
+  secondary: 'var(--color-secondary)',
+  primary: 'var(--color-primary)',
+  primaryHover: 'var(--color-primary-hover)',
+  background: 'var(--color-background)',
+  surface: 'var(--color-surface)',
+  border: 'var(--color-border)',
+} as const;

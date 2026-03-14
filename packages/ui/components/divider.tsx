@@ -7,8 +7,8 @@ const dividerVariants = cva(
   {
     variants: {
       variant: {
-        default: 'before:text-gray-300',
-        muted: 'before:text-second',
+        default: 'before:text-pg-300',
+        muted: 'before:text-ds-secondary',
       },
       spacing: {
         none: '',
