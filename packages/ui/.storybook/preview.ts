@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/nextjs';
+import type { Preview } from '@storybook/react-vite';
 import '../styles/globals.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
 
@@ -8,13 +8,6 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
-      },
-    },
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: '/posts',
-        query: {},
       },
     },
     a11y: {
