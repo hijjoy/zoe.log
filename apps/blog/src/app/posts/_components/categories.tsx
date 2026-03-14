@@ -13,5 +13,5 @@ export default function Categories({ categories }: Props) {
 }
 
 const Category = ({ category }: { category: string }) => {
-  return <li className="text-main text-xs">{category}</li>;
+  return <li className="text-ds-primary text-xs">{category}</li>;
 };

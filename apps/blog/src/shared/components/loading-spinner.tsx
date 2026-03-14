@@ -25,7 +25,7 @@ export default function LoadingSpinner({
 
   return (
     <div className="flex min-h-screen justify-center pt-40">
-      <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-100 border-t-main" />
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-pg-100 border-t-ds-primary dark:border-pg-800" />
     </div>
   );
 }

@@ -1,12 +1,10 @@
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import TimeLineItem from './time-line-item';
 
 export default function Career() {
   return (
     <section aria-label="career" className="flex flex-col">
-      <Text className="mb-16 text-center" asChild>
-        <h1 className="font-bold text-2xl">Career</h1>
-      </Text>
+      <Typography variant="title" weight="bold" as="h1" className="mb-16 text-center text-2xl">Career</Typography>
 
       <ul>
         <TimeLineItem

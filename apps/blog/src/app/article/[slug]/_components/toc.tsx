@@ -77,7 +77,7 @@ export default function Toc() {
   return (
     <aside
       className="fixed top-28 z-20 hidden xl:block"
-      style={{ left: 'max(16px, calc(50% - 384px - 220px))' }}
+      style={{ left: 'max(16px, calc(50% - 384px - 280px))' }}
     >
       <nav
         aria-label="목차"
@@ -96,7 +96,7 @@ export default function Toc() {
                   href={`#${item.id}`}
                   onClick={() => setActiveId(item.id)}
                   className={cn(
-                    'block truncate rounded text-[13px] leading-relaxed transition-colors hover:text-toc-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main',
+                    'block truncate rounded text-[13px] leading-relaxed transition-colors hover:text-toc-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary',
                     textColor,
                     isActive && 'font-medium text-toc-active',
                   )}

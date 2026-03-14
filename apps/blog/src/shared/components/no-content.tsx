@@ -1,4 +1,4 @@
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import Image from 'next/image';
 
 export default function NoContent() {
@@ -12,12 +12,12 @@ export default function NoContent() {
         className="size-64 md:size-[400px]"
       />
       <div>
-        <Text className="text-center text-gray-500 text-sm">
+        <Typography variant="label" color="secondary" className="text-center">
           아직 글이 없어요
-        </Text>
-        <Text className="text-center text-gray-500 text-sm">
+        </Typography>
+        <Typography variant="label" color="secondary" className="text-center">
           잠시만 기다려주세요 !
-        </Text>
+        </Typography>
       </div>
     </div>
   );

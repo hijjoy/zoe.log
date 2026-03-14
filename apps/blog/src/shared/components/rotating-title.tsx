@@ -15,7 +15,7 @@ export default function RotatingTitle({
   return (
     <ReactRotatingText
       items={items}
-      className={cn('!text-gray-800', className)}
+      className={cn('text-ds-heading!', className)}
     />
   );
 }

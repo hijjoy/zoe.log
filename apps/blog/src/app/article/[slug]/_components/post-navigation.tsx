@@ -1,3 +1,4 @@
+import { Typography } from '@zoelog/ui';
 import { Link } from 'next-view-transitions';
 import { getAdjacentPosts } from '@/domains/post/queries';
 
@@ -53,12 +54,12 @@ function NavigationLink({
   return (
     <Link
       href={`/article/${slug}`}
-      className={`group block h-full rounded-lg border border-gray-200 p-4 transition-colors hover:border-main dark:border-gray-700 dark:hover:border-main ${align === 'right' ? 'text-right' : ''}`}
+      className={`group block h-full rounded-lg border border-pg-200 p-4 transition-colors hover:border-ds-primary dark:border-pg-700 dark:hover:border-ds-primary ${align === 'right' ? 'text-right' : ''}`}
     >
-      <span className="text-gray-500 text-sm">{label}</span>
-      <p className="mt-1 line-clamp-2 font-medium transition-colors group-hover:text-main">
+      <Typography variant="label" color="secondary">{label}</Typography>
+      <Typography variant="body" weight="medium" as="p" className="mt-1 line-clamp-2 transition-colors group-hover:text-ds-primary">
         {title}
-      </p>
+      </Typography>
     </Link>
   );
 }
@@ -66,8 +67,8 @@ function NavigationLink({
 function PostNavigationLoading() {
   return (
     <nav aria-label="게시글 탐색" className="mt-16 grid grid-cols-2 gap-4">
-      <div className="h-[88px] animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700" />
-      <div className="h-[88px] animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700" />
+      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
+      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
     </nav>
   );
 }

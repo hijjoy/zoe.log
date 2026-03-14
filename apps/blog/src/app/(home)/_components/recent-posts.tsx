@@ -1,7 +1,7 @@
 'use client';
 
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import PostCard from '@/app/posts/_components/post-card';
 import { postQueries } from '@/domains/post/queries/post-queries';
 
@@ -12,9 +12,7 @@ export default function RecentPosts() {
 
   return (
     <section className="mt-20 flex flex-col gap-1 px-5 md:mt-0">
-      <Text asChild className="mb-4 font-semibold text-gray-600 text-sm">
-        <h1>Recent Posts</h1>
-      </Text>
+      <Typography variant="label" weight="semibold" color="body" as="h1" className="mb-4">Recent Posts</Typography>
 
       <ul className="flex flex-col gap-6">
         {posts.map((post) => (

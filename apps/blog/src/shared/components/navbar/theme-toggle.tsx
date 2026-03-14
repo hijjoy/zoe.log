@@ -20,14 +20,14 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="group size-[30px] cursor-pointer rounded-md p-1.5 transition-all duration-500 hover:bg-gray-200"
+      className="group size-[30px] cursor-pointer rounded-md p-1.5 transition-all duration-500 hover:bg-pg-200 dark:hover:bg-pg-700"
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       {isDark ? (
-        <MoonIcon className="size-4 text-gray-600 transition-all duration-300 group-hover:rotate-12 dark:block dark:rotate-0" />
+        <MoonIcon className="size-4 text-ds-body transition-all duration-300 group-hover:rotate-12 dark:block dark:rotate-0" />
       ) : (
-        <SunIcon className="group-hover:-rotate-90 size-4 scale-100 text-gray-600 transition-all duration-300 dark:hidden" />
+        <SunIcon className="group-hover:-rotate-90 size-4 scale-100 text-ds-body transition-all duration-300 dark:hidden" />
       )}
     </button>
   );

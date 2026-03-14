@@ -16,11 +16,11 @@ export default function Navbar() {
           href="https://github.com/hijjoy"
           target="_blank"
           rel="noopener noreferrer"
-          className="rounded-md p-1.5 transition-all duration-500 hover:bg-gray-200"
+          className="rounded-md p-1.5 transition-all duration-500 hover:bg-pg-200 dark:hover:bg-pg-700"
         >
-          <FaGithub className="text-gray-600" />
+          <FaGithub className="text-ds-body" />
         </Link>
-        <div className="h-4 w-px bg-gray-200" aria-hidden />
+        <div className="h-4 w-px bg-pg-200 dark:bg-pg-700" aria-hidden />
         <ThemeToggle />
       </div>
     </header>

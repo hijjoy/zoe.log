@@ -64,7 +64,7 @@ const ModalCloseButton = ({ onClose }: ModalCloseButtonProps) => {
       transition={{ duration: 0.2 }}
       type="button"
       onClick={onClose}
-      className="absolute top-4 right-4 text-white transition-colors hover:scale-110 hover:text-gray-300"
+      className="absolute top-4 right-4 text-white transition-colors hover:scale-110 hover:text-pg-300"
       aria-label="Close modal"
     >
       <IoClose size={24} />

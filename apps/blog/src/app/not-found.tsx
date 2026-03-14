@@ -14,7 +14,7 @@ export default function NotFound() {
         height={260}
         className="size-40 md:size-[260px]"
       />
-      <Button asChild>
+      <Button asChild variant="ghost" color="neutral">
         <Link href="/">홈으로 돌아가기</Link>
       </Button>
       <Image src="/images/쪼이.svg" alt="logo" width={400} height={400} />

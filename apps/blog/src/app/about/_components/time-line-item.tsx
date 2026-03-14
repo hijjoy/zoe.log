@@ -1,4 +1,4 @@
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import Link from 'next/link';
 import { GoLink } from 'react-icons/go';
 
@@ -19,21 +19,21 @@ export default function TimeLineItem({
 }: Props) {
   return (
     <li className="flex flex-col">
-      <div className="relative flex items-center gap-6 border-gray-300 border-l pb-4 pl-4 before:absolute before:top-[20px] before:left-[-5px] before:h-2 before:w-2 before:rounded-full before:border before:border-gray-300 before:bg-white dark:border-gray-300 dark:before:border-gray-400 dark:before:bg-gray-100">
-        <p className="w-[80px] text-gray-400 text-sm md:w-[120px] dark:text-gray-500">
+      <div className="relative flex items-center gap-6 border-pg-300 border-l pb-4 pl-4 before:absolute before:top-[20px] before:left-[-5px] before:h-2 before:w-2 before:rounded-full before:border before:border-pg-300 before:bg-white dark:border-pg-500 dark:before:border-pg-500 dark:before:bg-pg-800">
+        <Typography variant="label" as="p" className="w-[80px] text-pg-500 md:w-[120px] dark:text-pg-400">
           {date}
-        </p>
+        </Typography>
 
         <div className="flex flex-col justify-center">
           <div className="flex flex-col items-start gap-0 md:flex-row md:items-center md:gap-2">
-            <h2 className="font-semibold text-lg dark:text-gray-600">
+            <Typography variant="body" weight="semibold" as="h2" className="text-lg dark:text-pg-300">
               {title}
-            </h2>
+            </Typography>
             <div className="flex items-center gap-2">
               {subTitle && (
-                <Text className="text-gray-400 text-xs md:text-sm dark:text-gray-500">
+                <Typography variant="caption" className="text-pg-500 md:text-sm dark:text-pg-400">
                   {subTitle}
-                </Text>
+                </Typography>
               )}
               {link && (
                 <Link
@@ -47,9 +47,9 @@ export default function TimeLineItem({
               )}
             </div>
           </div>
-          <p className="text-gray-400 text-xs md:text-sm dark:text-gray-500">
+          <Typography variant="caption" as="p" className="text-pg-400 md:text-sm dark:text-pg-500">
             {description}
-          </p>
+          </Typography>
         </div>
       </div>
     </li>

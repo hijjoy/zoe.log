@@ -62,7 +62,7 @@ export default function CodeBlockBox({ code, className }: Props) {
           </>
         )}
       </button>
-      <pre className="font-mono text-gray-800 text-sm leading-relaxed">
+      <pre className="font-mono text-ds-heading text-sm leading-relaxed">
         <SyntaxHighlighter
           language="tsx"
           className="rounded-xl"

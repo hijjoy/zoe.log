@@ -91,7 +91,7 @@ export default function AnimatedText({
   );
 
   return (
-    <Comp className={cn('text-gray-600', className)} {...props}>
+    <Comp className={cn('text-ds-body', className)} {...props}>
       {content}
     </Comp>
   );

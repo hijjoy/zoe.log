@@ -1,4 +1,4 @@
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
 import { formatDate } from '@/libs/format-date';
@@ -27,19 +27,19 @@ export default function PostCard({ post }: Props) {
               post.postCategories?.map((e) => e.categories.name) ?? []
             }
           />
-          <Text className="mb-2 break-keep font-semibold text-lg transition-all duration-300 group-hover:text-main md:text-xl">
+          <Typography variant="body" weight="semibold" className="mb-2 break-keep text-lg transition-all duration-300 group-hover:text-ds-primary md:text-xl">
             {post.title}
-          </Text>
+          </Typography>
 
           {post.description && (
-            <Text className="mb-4 break-keep text-gray-500 text-sm">
+            <Typography variant="label" color="secondary" as="p" className="mb-4 break-keep">
               {post.description}
-            </Text>
+            </Typography>
           )}
 
-          <time className="text-gray-400 text-sm">
+          <Typography variant="label" as="time" className="text-pg-400 dark:text-pg-500">
             {formatDate(post.createdAt)}
-          </time>
+          </Typography>
         </div>
 
         <figure className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
@@ -62,13 +62,13 @@ const PostCardSkeleton = () => {
   return (
     <div className="flex w-full items-center justify-between gap-6 md:gap-10">
       <div className="flex w-full flex-col justify-center">
-        <div className="mb-2 h-4 w-10 rounded-md bg-gray-100 dark:bg-gray-200" />
-        <div className="mb-2 h-8 w-1/2 rounded-md bg-gray-100 dark:bg-gray-200" />
-        <div className="mb-4 h-4 w-3/4 rounded-md bg-gray-100 dark:bg-gray-200" />
-        <div className="h-4 w-32 rounded-md bg-gray-100 dark:bg-gray-200" />
+        <div className="mb-2 h-4 w-10 rounded-md bg-ds-surface" />
+        <div className="mb-2 h-8 w-1/2 rounded-md bg-ds-surface" />
+        <div className="mb-4 h-4 w-3/4 rounded-md bg-ds-surface" />
+        <div className="h-4 w-32 rounded-md bg-ds-surface" />
       </div>
       <div className="relative aspect-[5/4] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
-        <div className="size-full animate-pulse bg-gray-100 dark:bg-gray-200" />
+        <div className="size-full animate-pulse bg-ds-surface" />
       </div>
     </div>
   );

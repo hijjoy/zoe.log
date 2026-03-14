@@ -1,4 +1,4 @@
-import { Text } from '@zoelog/ui';
+import { Typography } from '@zoelog/ui';
 import Image from 'next/image';
 import { formatDate } from '@/libs/format-date';
 import type { Post } from '@/types/post';
@@ -22,16 +22,16 @@ export default function PostHeader({ post }: PostHeaderProps) {
       <div className="absolute inset-0 rounded-xl bg-black/30" />
       <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-white md:gap-6">
         <div className="flex flex-col gap-1">
-          <h1 className="break-keep text-center font-bold text-lg md:text-2xl">
+          <Typography variant="body" weight="bold" as="h1" color="inherit" className="break-keep text-center text-lg md:text-2xl">
             {post.title}
-          </h1>
-          <Text className="break-keep text-center text-white text-xs md:text-sm">
+          </Typography>
+          <Typography variant="caption" color="inherit" className="break-keep text-center text-white md:text-sm">
             {post.description}
-          </Text>
+          </Typography>
         </div>
-        <Text className="break-keep text-center text-gray-200 text-xs dark:text-white">
+        <Typography variant="caption" color="inherit" className="break-keep text-center text-pg-200 dark:text-white">
           {formatDate(post.createdAt)}
-        </Text>
+        </Typography>
       </div>
     </div>
   );
@@ -40,7 +40,7 @@ export default function PostHeader({ post }: PostHeaderProps) {
 const PostHeaderSkeleton = () => {
   return (
     <div className="relative mt-4 mb-16 flex w-full items-center justify-center">
-      <div className="aspect-[5/4] h-[250px] w-full animate-pulse rounded-xl bg-gray-100 dark:bg-gray-200" />
+      <div className="aspect-[5/4] h-[250px] w-full animate-pulse rounded-xl bg-ds-surface" />
     </div>
   );
 };

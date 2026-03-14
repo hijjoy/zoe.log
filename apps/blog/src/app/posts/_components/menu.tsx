@@ -42,13 +42,13 @@ const MenuItem = ({ item, index, pathname }: MenuItemProps) => {
       <Link
         href={item.href}
         className={cn(
-          'relative block rounded py-2 text-gray-500 hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2',
-          pathname === item.href && 'text-main',
+          'relative block rounded py-2 text-ds-secondary hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary focus-visible:ring-offset-2',
+          pathname === item.href && 'text-ds-primary',
         )}
       >
         {item.name}
         <motion.div
-          className="absolute bottom-0 left-0 h-[2px] w-full bg-main"
+          className="absolute bottom-0 left-0 h-[2px] w-full bg-ds-primary"
           initial={false}
           animate={{
             scaleX: pathname === item.href ? 1 : 0,
