@@ -8,5 +8,6 @@ export const formatDate = (date: string | Date): string => {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
+    timeZone: 'Asia/Seoul',
   });
 };
