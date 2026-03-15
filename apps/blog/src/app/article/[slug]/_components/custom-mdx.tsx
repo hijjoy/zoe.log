@@ -9,7 +9,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'mt-7 mb-4 break-keep font-bold text-[26px] text-ds-heading leading-[1.25] md:text-[32px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-7 mb-4 break-keep font-semibold text-[24px] text-ds-heading leading-[1.25] md:text-[26px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -18,7 +18,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-14 mb-1 break-keep font-bold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-14 mb-1 break-keep font-semibold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -27,7 +27,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-10 mb-1 break-keep font-bold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-14 mb-1 break-keep font-semibold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
         className,
       )}
     />
@@ -36,7 +36,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-8 mb-1 break-keep font-bold text-[18px] text-ds-heading leading-[1.6] md:text-[20px] [&_code]:text-base [&_code]:md:text-lg',
+        'mt-12 mb-1 break-keep font-semibold text-[18px] text-ds-heading leading-[1.6] md:text-[20px] [&_code]:text-base [&_code]:md:text-lg',
         className,
       )}
     />
@@ -71,7 +71,7 @@ export const customComponents: MDXComponents = {
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong
       {...props}
-      className="break-keep px-1 font-semibold text-ds-heading shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]"
+      className="break-keep px-1 font-medium text-ds-heading shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]"
     />
   ),
 
@@ -155,16 +155,25 @@ export const customComponents: MDXComponents = {
   thead: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (
     <thead
       {...props}
-      className={cn('border-pg-200 border-b-2 bg-pg-100 dark:border-pg-700 dark:bg-pg-800', className)}
+      className={cn(
+        'border-pg-200 border-b-2 bg-pg-100 dark:border-pg-700 dark:bg-pg-800',
+        className,
+      )}
     />
   ),
 
   tbody: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (
-    <tbody {...props} className={cn('divide-y divide-pg-200 dark:divide-pg-700', className)} />
+    <tbody
+      {...props}
+      className={cn('divide-y divide-pg-200 dark:divide-pg-700', className)}
+    />
   ),
 
   tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
-    <tr {...props} className={cn('hover:bg-pg-100 dark:hover:bg-pg-800', className)} />
+    <tr
+      {...props}
+      className={cn('hover:bg-pg-100 dark:hover:bg-pg-800', className)}
+    />
   ),
 
   th: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
