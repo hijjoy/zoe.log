@@ -1,27 +1,27 @@
 export const revalidate = 3_600;
 
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getPostDetailWithCache } from '@/domains/post/queries';
 import Comments from './_components/comments';
 import PostContent from './_components/post-content';
 import Toc from './_components/toc';
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostDetailWithCache(slug);
 
-  const previousImages = (await parent).openGraph?.images || [];
   if (!post) return notFound();
 
   return {
     title: post.title,
     description: post.description ?? '',
     openGraph: {
-      images: [post.thumbnail, ...previousImages],
+      images: [post.thumbnail],
     },
   };
 }
