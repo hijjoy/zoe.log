@@ -42,7 +42,7 @@ export default function PostCard({ post }: Props) {
           </Typography>
         </div>
 
-        <figure className="group relative aspect-[5/4] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
+        <figure className="group relative aspect-[3/2] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
           <Image
             src={post.thumbnail}
             alt={`${post.title} 썸네일`}
@@ -67,7 +67,7 @@ const PostCardSkeleton = () => {
         <div className="mb-4 h-4 w-3/4 rounded-md bg-ds-surface" />
         <div className="h-4 w-32 rounded-md bg-ds-surface" />
       </div>
-      <div className="relative aspect-[5/4] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
+      <div className="relative aspect-[3/2] max-h-[120px] w-full max-w-[100px] overflow-hidden rounded-xl md:max-w-[150px]">
         <div className="size-full animate-pulse bg-ds-surface" />
       </div>
     </div>
