@@ -30,14 +30,18 @@ export default function Info() {
       </div>
 
       <div className="flex flex-col gap-6">
-        <Typography variant="label" as="p" className="flex items-center gap-2 text-sm">
+        <Typography
+          variant="label"
+          as="p"
+          className="flex items-center gap-2 text-sm"
+        >
           기능을 구현하는 것만큼, 보여지는 화면의 형태와 감각에도 많은 관심을
           가지고 있습니다. <br />
         </Typography>
         <Typography variant="label" as="p" className="text-sm leading-relaxed">
           때로는 디자이너처럼 피그마 작업을 하고, <br />
           때로는 개발자처럼 코드를 작성하며{' '}
-          <strong className="font-semibold shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]">
+          <strong className="font-medium shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]">
             코드와 디자인과 개발 사이를 자유롭게{' '}
           </strong>
           오가는 일을 즐깁니다.
