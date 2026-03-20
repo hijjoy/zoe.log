@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { postQueries } from '@/domains/post/queries/post-queries';
 import { getQueryClient } from '@/libs/react-query-client';
 import LoadingSpinner from '@/shared/components/loading-spinner';
-import Blob from './_components/blob';
+import Tamagotchi from './_components/tamagotchi';
 import BlogTitle from './_components/blog-title';
 import RecentPosts from './_components/recent-posts';
 
@@ -16,7 +16,7 @@ export default async function Home() {
     <div className="relative flex min-h-screen flex-col gap-10">
       <section className="relative flex min-h-[500px] overflow-hidden px-5">
         <BlogTitle />
-        <Blob />
+        <Tamagotchi />
       </section>
 
       <HydrationBoundary state={dehydrate(queryClient)}>
