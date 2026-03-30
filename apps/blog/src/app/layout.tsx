@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { ViewTransitions } from 'next-view-transitions';
+import { Analytics } from '@vercel/analytics/next';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 
@@ -71,6 +72,7 @@ export default function Layout({
           <RootLayout>{children}</RootLayout>
           <div id="modal-root" />
         </ViewTransitions>
+        <Analytics />
       </body>
     </html>
   );
