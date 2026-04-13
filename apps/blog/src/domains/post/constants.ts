@@ -1,7 +1,7 @@
 export const CATEGORY = {
   development: '개발',
-  study: '공부',
-  review: '회고',
+  fe: 'FE',
+  be: 'BE',
 } as const;
 
 export type Category = keyof typeof CATEGORY;
