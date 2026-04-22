@@ -5,7 +5,7 @@ import Info from './_components/info';
 
 export default function About() {
   return (
-    <div className="mb-40 flex min-h-screen flex-col gap-32 px-5 pt-10">
+    <div className="mx-auto mb-40 flex min-h-screen max-w-[768px] flex-col gap-32 px-5 pt-10">
       <Info />
       <Divider />
       <Career />

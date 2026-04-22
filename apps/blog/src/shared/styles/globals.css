@@ -1,1 +1,7 @@
 @import '@zoelog/ui/globals.css';
+
+@layer base {
+  body:has([data-home-page]) {
+    background-color: transparent;
+  }
+}

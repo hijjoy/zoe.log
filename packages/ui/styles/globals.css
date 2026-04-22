@@ -103,8 +103,13 @@
     --scrollbar-size: 16px;
     --scrollbar-size-min: 40px;
     --scrollbar-color: var(--pg-200);
-    scrollbar-color: var(--scrollbar-color) transparent;
+    scrollbar-color: transparent transparent;
     scrollbar-width: thin; /* firefox */
+    transition: scrollbar-color 0.3s;
+  }
+
+  *:hover {
+    scrollbar-color: var(--scrollbar-color) transparent;
   }
 
   ::-webkit-scrollbar {
@@ -115,10 +120,15 @@
   ::-webkit-scrollbar-thumb {
     min-width: var(--scrollbar-size-min);
     min-height: var(--scrollbar-size-min);
-    background-color: var(--scrollbar-color);
+    background-color: transparent;
     background-clip: padding-box;
     border: 5px solid transparent;
     border-radius: var(--scrollbar-size);
+    transition: background-color 0.3s;
+  }
+
+  *:hover::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
   }
 
   ::-webkit-scrollbar-thumb:hover {

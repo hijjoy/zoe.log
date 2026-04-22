@@ -1,7 +1,7 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { ViewTransitions } from 'next-view-transitions';
-import { Analytics } from '@vercel/analytics/next';
 import '@/shared/styles/globals.css';
 import RootLayout from '@/shared/layouts/root-layout';
 
@@ -67,7 +67,7 @@ export default function Layout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="vsc-initialized mx-auto max-w-[768px]">
+      <body className="vsc-initialized">
         <ViewTransitions>
           <RootLayout>{children}</RootLayout>
           <div id="modal-root" />

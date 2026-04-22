@@ -1,13 +1,41 @@
-import type { SVGProps } from 'react';
+'use client';
 
-export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
+import { useTheme } from 'next-themes';
+import type { SVGProps } from 'react';
+import { useEffect, useState } from 'react';
+
+export default function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const isDark = theme === 'dark';
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="size-[18px]" aria-hidden="true" />;
+  }
+
+  return (
+    <button
+      type="button"
+      className="text-ds-secondary transition-colors hover:text-ds-primary"
+      aria-label="Toggle theme"
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+    >
+      {isDark ? <MoonIcon /> : <SunIcon />}
+    </button>
+  );
+}
+
+const SunIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     role="graphics-symbol"
     viewBox="0 0 15 15"
     width="1em"
     height="1em"
     fill="none"
-    className="h-4 w-4 dark:hidden"
     {...props}
   >
     <path
@@ -19,7 +47,7 @@ export const SunIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
+const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     role="graphics-symbol"
     viewBox="0 0 15 15"

@@ -1,6 +1,5 @@
 import type React from 'react';
-import Footer from '@/shared/components/footer';
-import Navbar from '@/shared/components/navbar';
+import Footer from '../components/footer';
 import { ReactQueryProvider } from '../contexts/query-provider';
 import ThemeProvider from '../contexts/theme-provider';
 import { ModalProvider } from '../providers/modal-provider';
@@ -18,7 +17,6 @@ export default function RootLayout({ children }: Props) {
         enableSystem
         disableTransitionOnChange
       >
-        <Navbar />
         <main className="py-10">{children}</main>
         <Footer />
         <ModalProvider />

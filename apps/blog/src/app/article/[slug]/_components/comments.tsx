@@ -23,7 +23,7 @@ export default function Comments() {
   const { theme } = useTheme();
 
   return (
-    <div className="mt-16">
+    <div id="comments" className="mt-16 scroll-mt-24">
       <Giscus
         {...GISCUS_CONFIG}
         theme={theme === 'dark' ? 'transparent_dark' : 'light'}
