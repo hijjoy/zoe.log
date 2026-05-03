@@ -3,8 +3,8 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { Typography } from '@zoelog/ui';
 import { Link } from 'next-view-transitions';
-import { CATEGORY, type Category } from '@/domains/post/constants';
 import { postQueries } from '@/domains/post/queries/post-queries';
+import { formatCategoryLabel } from '@/domains/post/utils/format-category-label';
 import { formatEnglishDate } from '@/libs/format-date';
 import type { PostListItem } from '@/types/post';
 
@@ -31,16 +31,16 @@ interface PostItemProps {
 }
 
 function PostItem({ post }: PostItemProps) {
-  const label = buildCategoryLabel(post.postCategories);
+  const label = formatCategoryLabel(post.postCategories);
 
   return (
     <Link
       href={`/article/${post.slug}`}
-      className="group block border-white/15 border-t py-4 transition-colors hover:bg-white/5"
+      className="group block border-white/15 border-t px-2 py-4 transition-colors hover:bg-white/5"
     >
       <div className="flex items-baseline justify-between gap-3">
         <Typography
-          variant="label"
+          variant="caption"
           weight="medium"
           as="time"
           className="font-mono text-white tabular-nums"
@@ -59,7 +59,7 @@ function PostItem({ post }: PostItemProps) {
       </div>
 
       <Typography
-        variant="label"
+        variant="caption"
         weight="medium"
         as="p"
         className="mt-1.5 line-clamp-1 text-white/90 transition-colors group-hover:text-white"
@@ -78,16 +78,4 @@ function PostItem({ post }: PostItemProps) {
       )}
     </Link>
   );
-}
-
-function buildCategoryLabel(
-  postCategories: PostListItem['postCategories'],
-): string | null {
-  if (!postCategories.length) return null;
-  return postCategories
-    .map(({ categories }) => {
-      const key = categories.name as Category;
-      return CATEGORY[key] ?? categories.name;
-    })
-    .join(' · ');
 }
