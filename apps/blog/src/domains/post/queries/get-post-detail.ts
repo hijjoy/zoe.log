@@ -1,7 +1,7 @@
 import { db } from '@zoelog/db';
 import { unstable_cache } from 'next/cache';
 
-const getDetailPostCached = unstable_cache(
+export const getPostDetail = unstable_cache(
   async (slug: string) => {
     return db.post.findUnique({
       where: { slug },
@@ -10,9 +10,3 @@ const getDetailPostCached = unstable_cache(
   ['post', 'detail'],
   { revalidate: 60 * 30 },
 );
-
-export async function getDetailPost(slug: string) {
-  return getDetailPostCached(slug);
-}
-
-export const getPostDetailWithCache = getDetailPost;

@@ -4,7 +4,15 @@ import TimeLineItem from './time-line-item';
 export default function Activity() {
   return (
     <section aria-label="activity">
-      <Typography variant="title" weight="bold" as="h1" className="mb-16 text-center text-2xl">Activity</Typography>
+      <Typography
+        variant="title"
+        weight="bold"
+        as="h1"
+        color="heading"
+        className="mb-16 text-center"
+      >
+        Activity
+      </Typography>
 
       <ul className="flex flex-col">
         <TimeLineItem

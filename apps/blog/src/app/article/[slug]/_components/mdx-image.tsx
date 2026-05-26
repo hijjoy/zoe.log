@@ -26,18 +26,16 @@ export default function MDXImage({
 
   if (typeof src !== 'string') return null;
 
-  const handleImageClick = () => {
-    openModal(ImageModal, { src, alt });
-  };
+  const openImageModal = () => openModal(ImageModal, { src, alt });
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      openModal(ImageModal, { src, alt });
+      openImageModal();
     }
   };
 
-  const handleMouseEnter = () => {
+  const prefetchImage = () => {
     const img = new window.Image();
     img.src = src;
   };
@@ -50,19 +48,19 @@ export default function MDXImage({
         width={width}
         height={height}
         className={cn(
-          'mx-auto cursor-zoom-in rounded-lg border border-zinc-100 transition-transform duration-700 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-main focus-visible:ring-offset-2 dark:border-zinc-700',
+          'mx-auto cursor-zoom-in rounded-lg border border-ds-border-semantic transition-transform duration-700 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary focus-visible:ring-offset-2',
           className,
         )}
         loading="lazy"
         tabIndex={0}
         role="button"
         aria-label={`${alt} 이미지 확대`}
-        onClick={handleImageClick}
+        onClick={openImageModal}
         onKeyDown={handleKeyDown}
-        onMouseEnter={handleMouseEnter}
+        onMouseEnter={prefetchImage}
       />
       {description && (
-        <figcaption className="mt-2 break-keep text-center text-xs text-zinc-400 dark:text-zinc-300">
+        <figcaption className="mt-2 break-keep text-center text-xs text-ds-secondary">
           {description}
         </figcaption>
       )}

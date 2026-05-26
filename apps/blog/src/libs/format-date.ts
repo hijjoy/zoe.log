@@ -1,8 +1,15 @@
-// utils/format-date.ts
-export const formatDate = (date: string | Date): string => {
-  const parsed = typeof date === 'string' ? new Date(date) : date;
+type DateInput = string | Date;
 
-  if (Number.isNaN(parsed.getTime())) return 'Invalid date';
+const parseDate = (input: DateInput): Date | null => {
+  const parsed = typeof input === 'string' ? new Date(input) : input;
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+};
+
+const pad2 = (n: number): string => String(n).padStart(2, '0');
+
+export const formatDate = (date: DateInput): string => {
+  const parsed = parseDate(date);
+  if (!parsed) return 'Invalid date';
 
   return parsed.toLocaleDateString('ko-KR', {
     year: 'numeric',
@@ -12,40 +19,30 @@ export const formatDate = (date: string | Date): string => {
   });
 };
 
-export const formatYearDate = (date: string | Date): string => {
-  const parsed = typeof date === 'string' ? new Date(date) : date;
+export const formatYearDate = (date: DateInput): string => {
+  const parsed = parseDate(date);
+  if (!parsed) return 'Invalid date';
 
-  if (Number.isNaN(parsed.getTime())) return 'Invalid date';
-
-  const yyyy = parsed.getFullYear();
-  const mm = String(parsed.getMonth() + 1).padStart(2, '0');
-  const dd = String(parsed.getDate()).padStart(2, '0');
-
-  return `${yyyy}.${mm}.${dd}`;
+  return `${parsed.getFullYear()}.${pad2(parsed.getMonth() + 1)}.${pad2(parsed.getDate())}`;
 };
 
-export const formatShortDate = (date: string | Date): string => {
-  const parsed = typeof date === 'string' ? new Date(date) : date;
+export const formatShortDate = (date: DateInput): string => {
+  const parsed = parseDate(date);
+  if (!parsed) return '--.--';
 
-  if (Number.isNaN(parsed.getTime())) return '--.--';
-
-  const mm = String(parsed.getMonth() + 1).padStart(2, '0');
-  const dd = String(parsed.getDate()).padStart(2, '0');
-
-  return `${mm}.${dd}`;
+  return `${pad2(parsed.getMonth() + 1)}.${pad2(parsed.getDate())}`;
 };
 
-export const formatEnglishDate = (date: string | Date): string => {
-  const parsed = typeof date === 'string' ? new Date(date) : date;
+export const formatEnglishDate = (date: DateInput): string => {
+  const parsed = parseDate(date);
+  if (!parsed) return 'Invalid date';
 
-  if (Number.isNaN(parsed.getTime())) return 'Invalid date';
-
-  const formatted = parsed.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    timeZone: 'Asia/Seoul',
-  });
-
-  return formatted.replace(/^(\w{3})/, '$1.');
+  return parsed
+    .toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'Asia/Seoul',
+    })
+    .replace(/^(\w{3})/, '$1.');
 };

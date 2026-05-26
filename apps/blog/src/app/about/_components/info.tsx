@@ -22,7 +22,7 @@ export default function Info() {
           <AnimatedText
             unit="word"
             preset="fade"
-            className="text-pg-400 text-sm dark:text-pg-500"
+            className="text-ds-secondary text-sm"
           >
             Frontend Developer based in Seoul, South Korea
           </AnimatedText>
@@ -30,15 +30,11 @@ export default function Info() {
       </div>
 
       <div className="flex flex-col gap-6">
-        <Typography
-          variant="label"
-          as="p"
-          className="flex items-center gap-2 text-sm"
-        >
+        <Typography variant="label" as="p">
           기능을 구현하는 것만큼, 보여지는 화면의 형태와 감각에도 많은 관심을
           가지고 있습니다. <br />
         </Typography>
-        <Typography variant="label" as="p" className="text-sm leading-relaxed">
+        <Typography variant="label" as="p" className="leading-relaxed">
           때로는 디자이너처럼 피그마 작업을 하고, <br />
           때로는 개발자처럼 코드를 작성하며{' '}
           <strong className="font-medium shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]">
@@ -46,7 +42,7 @@ export default function Info() {
           </strong>
           오가는 일을 즐깁니다.
         </Typography>
-        <Typography variant="label" as="p" className="text-sm leading-relaxed">
+        <Typography variant="label" as="p" className="leading-relaxed">
           직접 디자인한 화면을 개발해 앱을 출시해보면서, 사용자의 입장에서
           UI/UX를 더 입체적으로 바라보고 구현하는 시각을 얻게 되었고, 사용자
           흐름과 반응을 세심하게 고려하며 UI를 구현하는 일에 더욱 매력을 느끼게

@@ -4,7 +4,15 @@ import TimeLineItem from './time-line-item';
 export default function Career() {
   return (
     <section aria-label="career" className="flex flex-col">
-      <Typography variant="title" weight="bold" as="h1" className="mb-16 text-center text-2xl">Career</Typography>
+      <Typography
+        variant="title"
+        weight="bold"
+        as="h1"
+        color="heading"
+        className="mb-16 text-center"
+      >
+        Career
+      </Typography>
 
       <ul>
         <TimeLineItem

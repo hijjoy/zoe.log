@@ -2,7 +2,7 @@ export const revalidate = 3_600;
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getPostDetailWithCache } from '@/domains/post/queries';
+import { getPostDetail } from '@/domains/post/queries';
 import Comments from './_components/comments';
 import PostContent from './_components/post-content';
 
@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getPostDetailWithCache(slug);
+  const post = await getPostDetail(slug);
 
   if (!post) return notFound();
 
@@ -32,7 +32,7 @@ export default async function PostDetailPage({
 }) {
   const { slug } = await params;
 
-  const post = await getPostDetailWithCache(slug);
+  const post = await getPostDetail(slug);
 
   if (!post) {
     notFound();

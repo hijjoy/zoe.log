@@ -1,45 +1,42 @@
 import type { FunctionComponent } from 'react';
 import { create } from 'zustand';
 
-// 모든 모달이 가져야 할 기본 props
 interface BaseModalProps {
   onClose: () => void;
 }
 
-// 실제 저장되는 모달 인스턴스 (any를 사용하여 타입 유연성 확보)
 interface ModalInstance {
-  // biome-ignore lint/suspicious/noExplicitAny: 다양한 모달 컴포넌트를 유연하게 저장하기 위해 필요
+  id: string;
+  // biome-ignore lint/suspicious/noExplicitAny: 임의 컴포넌트 시그니처를 store에 담기 위해 필요
   Component: FunctionComponent<any>;
-  // biome-ignore lint/suspicious/noExplicitAny: props는 각 모달마다 다르므로 any 사용
+  // biome-ignore lint/suspicious/noExplicitAny: props는 모달별로 다름
   props?: any;
 }
 
-interface ModalState {
+interface ModalStore {
   modals: ModalInstance[];
-}
-
-interface ModalAction {
-  openModal: <P extends BaseModalProps = BaseModalProps>(
+  openModal: <P extends BaseModalProps>(
     Component: FunctionComponent<P>,
     props?: Omit<P, 'onClose'>,
   ) => void;
-  closeModal: (index: number) => void;
+  closeModal: (id: string) => void;
   clearModals: () => void;
 }
 
-type ModalStore = ModalState & ModalAction;
+let modalIdSeed = 0;
+const nextModalId = () => `modal-${++modalIdSeed}`;
 
 export const useModalStore = create<ModalStore>((set) => ({
   modals: [],
 
   openModal: (Component, props) =>
     set((state) => ({
-      modals: [...state.modals, { Component, props }],
+      modals: [...state.modals, { id: nextModalId(), Component, props }],
     })),
 
-  closeModal: (index) =>
+  closeModal: (id) =>
     set((state) => ({
-      modals: state.modals.filter((_, i) => i !== index),
+      modals: state.modals.filter((modal) => modal.id !== id),
     })),
 
   clearModals: () => set({ modals: [] }),

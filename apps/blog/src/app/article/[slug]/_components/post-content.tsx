@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Suspense } from 'react';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import { getPostDetailWithCache } from '@/domains/post/queries';
+import { getPostDetail } from '@/domains/post/queries';
 import { customComponents } from './custom-mdx';
 import { PostNavigation } from './post-navigation';
 
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default async function PostContent({ slug }: Props) {
-  const post = await getPostDetailWithCache(slug);
+  const post = await getPostDetail(slug);
 
   if (!post) {
     return notFound();

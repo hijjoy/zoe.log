@@ -6,6 +6,13 @@ interface Props {
   slug: string;
 }
 
+type Direction = 'prev' | 'next';
+
+const directionMeta: Record<Direction, { label: string; align: string }> = {
+  prev: { label: '이전글', align: 'text-left' },
+  next: { label: '다음글', align: 'text-right' },
+};
+
 async function PostNavigationComponent({ slug }: Props) {
   const { prevPost, nextPost } = await getAdjacentPosts(slug);
 
@@ -16,21 +23,12 @@ async function PostNavigationComponent({ slug }: Props) {
   return (
     <nav aria-label="게시글 탐색" className="mt-16 grid grid-cols-2 gap-4">
       {prevPost ? (
-        <NavigationLink
-          slug={prevPost.slug}
-          title={prevPost.title}
-          label="이전글"
-        />
+        <NavigationLink direction="prev" post={prevPost} />
       ) : (
         <div />
       )}
       {nextPost ? (
-        <NavigationLink
-          slug={nextPost.slug}
-          title={nextPost.title}
-          label="다음글"
-          align="right"
-        />
+        <NavigationLink direction="next" post={nextPost} />
       ) : (
         <div />
       )}
@@ -39,26 +37,28 @@ async function PostNavigationComponent({ slug }: Props) {
 }
 
 interface NavigationLinkProps {
-  slug: string;
-  title: string;
-  label: string;
-  align?: 'left' | 'right';
+  direction: Direction;
+  post: { slug: string; title: string };
 }
 
-function NavigationLink({
-  slug,
-  title,
-  label,
-  align = 'left',
-}: NavigationLinkProps) {
+function NavigationLink({ direction, post }: NavigationLinkProps) {
+  const { label, align } = directionMeta[direction];
+
   return (
     <Link
-      href={`/article/${slug}`}
-      className={`group block h-full rounded-lg border border-pg-200 p-4 transition-colors hover:border-ds-primary dark:border-pg-700 dark:hover:border-ds-primary ${align === 'right' ? 'text-right' : ''}`}
+      href={`/article/${post.slug}`}
+      className={`group block h-full rounded-lg border border-ds-border-semantic p-4 transition-colors hover:border-ds-primary ${align}`}
     >
-      <Typography variant="label" color="secondary">{label}</Typography>
-      <Typography variant="body" weight="medium" as="p" className="mt-1 line-clamp-2 transition-colors group-hover:text-ds-primary">
-        {title}
+      <Typography variant="label" color="secondary">
+        {label}
+      </Typography>
+      <Typography
+        variant="body"
+        weight="medium"
+        as="p"
+        className="mt-1 line-clamp-2 transition-colors group-hover:text-ds-primary"
+      >
+        {post.title}
       </Typography>
     </Link>
   );

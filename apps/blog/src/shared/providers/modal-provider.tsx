@@ -30,13 +30,8 @@ export function ModalProvider() {
 
   return createPortal(
     <AnimatePresence mode="wait">
-      {modals.map(({ Component, props }, index) => (
-        <Component
-          // biome-ignore lint/suspicious/noArrayIndexKey: 모달 배열은 끝에서만 추가/삭제되므로 순서가 변하지 않습니다.
-          key={`modal-${index}`}
-          {...props}
-          onClose={() => closeModal(index)}
-        />
+      {modals.map(({ id, Component, props }) => (
+        <Component {...props} key={id} onClose={() => closeModal(id)} />
       ))}
     </AnimatePresence>,
     modalRoot,
