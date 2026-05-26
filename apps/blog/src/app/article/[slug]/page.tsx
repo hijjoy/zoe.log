@@ -2,11 +2,7 @@ export const revalidate = 3_600;
 
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import {
-  getAdjacentPosts,
-  getPostDetailWithCache,
-} from '@/domains/post/queries';
-import ArticleNavBar from './_components/article-nav-bar';
+import { getPostDetailWithCache } from '@/domains/post/queries';
 import Comments from './_components/comments';
 import PostContent from './_components/post-content';
 import Toc from './_components/toc';
@@ -37,10 +33,7 @@ export default async function PostDetailPage({
 }) {
   const { slug } = await params;
 
-  const [post, { prevPost, nextPost }] = await Promise.all([
-    getPostDetailWithCache(slug),
-    getAdjacentPosts(slug),
-  ]);
+  const post = await getPostDetailWithCache(slug);
 
   if (!post) {
     notFound();
@@ -49,11 +42,7 @@ export default async function PostDetailPage({
   return (
     <>
       <Toc />
-      <div className="mx-auto min-h-screen max-w-[768px] px-5">
-        <ArticleNavBar
-          post={post}
-          adjacent={{ prev: prevPost, next: nextPost }}
-        />
+      <div className="mx-auto min-h-screen max-w-[768px] md:px-5">
         <PostContent slug={slug} />
         <Comments />
       </div>

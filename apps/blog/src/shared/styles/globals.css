@@ -1,5 +1,9 @@
 @import '@zoelog/ui/globals.css';
 
+@theme {
+  --font-oswald: var(--font-oswald-source), sans-serif;
+}
+
 @layer base {
   body:has([data-home-page]) {
     background-color: transparent;

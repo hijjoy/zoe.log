@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
+import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ViewTransitions } from 'next-view-transitions';
 import '@/shared/styles/globals.css';
@@ -8,6 +9,13 @@ import RootLayout from '@/shared/layouts/root-layout';
 const wantedSans = localFont({
   src: '../../node_modules/wanted-sans/fonts/variable/WantedSansVariable.ttf',
   variable: '--font-wanted-sans',
+  display: 'swap',
+});
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500'],
+  variable: '--font-oswald-source',
   display: 'swap',
 });
 
@@ -44,7 +52,7 @@ export default function Layout({
   return (
     <html
       lang="ko"
-      className={wantedSans.variable}
+      className={`${wantedSans.variable} ${oswald.variable}`}
       suppressHydrationWarning
       style={{ colorScheme: 'light dark' }}
     >

@@ -26,7 +26,7 @@ export const postQueries = {
   category: (category: Category) =>
     queryOptions({
       queryKey: [...postQueries.categories(), category],
-      queryFn: () => getPosts(category),
+      queryFn: () => getPosts({ category }),
       enabled: !!category,
     }),
 };

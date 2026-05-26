@@ -76,13 +76,10 @@ export default function Toc() {
 
   return (
     <aside
-      className="fixed top-28 z-20 hidden xl:block"
-      style={{ left: 'max(16px, calc(50% - 384px - 280px))' }}
+      aria-label="목차"
+      className="hidden xl:fixed xl:left-10 xl:top-[120px] xl:block xl:max-h-[40vh] xl:w-[180px] xl:overflow-y-auto"
     >
-      <nav
-        aria-label="목차"
-        className="scrollbar-hide max-h-[70vh] max-w-[200px] overflow-y-auto"
-      >
+      <nav className="scrollbar-hide max-h-[70vh] overflow-y-auto">
         <ul className="flex flex-col gap-2">
           {toc.map((item) => {
             const isActive = activeId === item.id;
