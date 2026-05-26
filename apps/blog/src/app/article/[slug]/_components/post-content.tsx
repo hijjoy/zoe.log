@@ -5,7 +5,6 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import { getPostDetailWithCache } from '@/domains/post/queries';
 import { customComponents } from './custom-mdx';
-import PostHeader from './post-header';
 import { PostNavigation } from './post-navigation';
 
 interface Props {
@@ -21,7 +20,6 @@ export default async function PostContent({ slug }: Props) {
 
   return (
     <article aria-label="post-detail">
-      <PostHeader post={post} />
       <MDXRemote
         source={post.content}
         components={customComponents}

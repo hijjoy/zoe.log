@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation';
 import { getPostDetailWithCache } from '@/domains/post/queries';
 import Comments from './_components/comments';
 import PostContent from './_components/post-content';
-import Toc from './_components/toc';
 
 export async function generateMetadata({
   params,
@@ -40,12 +39,9 @@ export default async function PostDetailPage({
   }
 
   return (
-    <>
-      <Toc />
-      <div className="mx-auto min-h-screen max-w-[768px] md:px-5">
-        <PostContent slug={slug} />
-        <Comments />
-      </div>
-    </>
+    <div className="mx-auto min-h-screen max-w-[768px] md:px-5">
+      <PostContent slug={slug} />
+      <Comments />
+    </div>
   );
 }

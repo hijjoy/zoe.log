@@ -9,7 +9,7 @@ export const customComponents: MDXComponents = {
     <h1
       {...props}
       className={cn(
-        'mt-7 mb-4 break-keep font-semibold text-[24px] text-ds-heading leading-[1.25] md:text-[26px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-7 mb-4 break-keep font-semibold text-[22px] text-ds-heading leading-[1.25] md:text-[24px] [&_code]:text-base [&_code]:md:text-lg',
         className,
       )}
     />
@@ -18,7 +18,7 @@ export const customComponents: MDXComponents = {
     <h2
       {...props}
       className={cn(
-        'mt-14 mb-1 break-keep font-semibold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-14 mb-1 break-keep font-semibold text-[18px] text-ds-heading leading-[1.6] md:text-[22px] [&_code]:text-base [&_code]:md:text-lg',
         className,
       )}
     />
@@ -27,7 +27,7 @@ export const customComponents: MDXComponents = {
     <h3
       {...props}
       className={cn(
-        'mt-14 mb-1 break-keep font-semibold text-[20px] text-ds-heading leading-[1.6] md:text-[24px] [&_code]:text-lg [&_code]:md:text-xl',
+        'mt-14 mb-1 break-keep font-semibold text-[18px] text-ds-heading leading-[1.6] md:text-[22px] [&_code]:text-base [&_code]:md:text-lg',
         className,
       )}
     />
@@ -36,7 +36,7 @@ export const customComponents: MDXComponents = {
     <h4
       {...props}
       className={cn(
-        'mt-12 mb-1 break-keep font-semibold text-[18px] text-ds-heading leading-[1.6] md:text-[20px] [&_code]:text-base [&_code]:md:text-lg',
+        'mt-12 mb-1 break-keep font-semibold text-[16px] text-ds-heading leading-[1.6] md:text-[18px] [&_code]:text-sm [&_code]:md:text-base',
         className,
       )}
     />
@@ -46,7 +46,7 @@ export const customComponents: MDXComponents = {
     <p
       {...props}
       className={cn(
-        'mb-8 break-keep text-base leading-[1.6] tracking-normal',
+        'mb-8 break-keep [overflow-wrap:anywhere] text-[15px] leading-[1.6] tracking-normal',
         className,
       )}
     />
@@ -60,7 +60,7 @@ export const customComponents: MDXComponents = {
     <blockquote
       {...props}
       className={cn(
-        'my-6 break-keep border-pg-300 border-l-4 pl-4 text-base dark:border-pg-600',
+        'my-6 break-keep [overflow-wrap:anywhere] border-pg-300 border-l-4 pl-4 text-[15px] dark:border-pg-600',
         className,
       )}
     />
@@ -86,7 +86,7 @@ export const customComponents: MDXComponents = {
     <a
       {...props}
       className={cn(
-        'break-keep text-ds-primary underline hover:opacity-80',
+        'break-keep [overflow-wrap:anywhere] text-ds-primary underline hover:opacity-80',
         className,
       )}
       target="_blank"
@@ -98,7 +98,7 @@ export const customComponents: MDXComponents = {
     <code
       {...props}
       className={cn(
-        'break-keep rounded-md border-[0.5px] border-pg-200 bg-pg-100 px-1.5 py-0.5 font-mono text-base text-sm dark:border-pg-700 dark:bg-pg-800',
+        'break-keep [overflow-wrap:anywhere] rounded-md border-[0.5px] border-pg-200 bg-pg-100 px-1.5 py-0.5 font-mono text-[13px] dark:border-pg-700 dark:bg-pg-800',
         className,
       )}
     />
@@ -114,7 +114,7 @@ export const customComponents: MDXComponents = {
     <ul
       {...props}
       className={cn(
-        'mb-6 list-inside list-disc space-y-2 break-keep pl-4 text-base',
+        'mb-6 list-inside list-disc space-y-2 break-keep pl-4 text-[15px]',
         className,
       )}
     />
@@ -124,7 +124,7 @@ export const customComponents: MDXComponents = {
     <ol
       {...props}
       className={cn(
-        'mb-6 list-inside list-decimal space-y-2 break-keep pl-4 text-base',
+        'mb-6 list-inside list-decimal space-y-2 break-keep pl-4 text-[15px]',
         className,
       )}
     />
@@ -134,7 +134,7 @@ export const customComponents: MDXComponents = {
     <li
       {...props}
       className={cn(
-        'break-keep text-[17px] text-base leading-[1.6]',
+        'break-keep [overflow-wrap:anywhere] text-[15px] leading-[1.6]',
         className,
       )}
     />
@@ -145,7 +145,7 @@ export const customComponents: MDXComponents = {
       <table
         {...props}
         className={cn(
-          'w-full border-collapse text-[15px] text-base leading-[1.6]',
+          'w-full border-collapse text-[14px] leading-[1.6]',
           className,
         )}
       />
@@ -189,7 +189,7 @@ export const customComponents: MDXComponents = {
   td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <td
       {...props}
-      className={cn('whitespace-nowrap px-4 py-3 text-base', className)}
+      className={cn('whitespace-nowrap px-4 py-3 text-[14px]', className)}
     />
   ),
 };
