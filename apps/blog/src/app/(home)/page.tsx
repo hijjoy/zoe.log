@@ -5,7 +5,7 @@ import RecentPosts from './_components/recent-posts';
 export default function Home() {
   return (
     <div className="flex flex-col gap-3 md:h-[calc(100dvh-4rem)] md:overflow-hidden">
-      <div className="h-[40dvh] md:h-auto md:min-h-0 md:flex-1">
+      <div className="h-[40dvh] overflow-hidden md:h-auto md:min-h-0 md:flex-1">
         <HeroWordmark />
       </div>
       <section
