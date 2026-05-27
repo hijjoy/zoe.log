@@ -11,7 +11,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.0.5",
-    "@prisma/nextjs-monorepo-workaround-plugin": "^6.9.0",
     "@tailwindcss/postcss": "^4.1.18",
     "@tanstack/eslint-plugin-query": "^5.78.0",
     "@types/node": "^24.0.1",
