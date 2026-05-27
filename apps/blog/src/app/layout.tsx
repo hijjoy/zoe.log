@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   description: '개발자 조이 블로그',
   icons: {
-    icon: [{ url: '/favicon.ico' }],
+    icon: [{ url: '/icon.png', type: 'image/png' }],
   },
   openGraph: {
     url: 'https://hijjoy.com',
