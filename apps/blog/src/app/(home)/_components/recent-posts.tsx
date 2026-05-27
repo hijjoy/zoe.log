@@ -1,7 +1,6 @@
 import { Typography } from '@zoelog/ui';
 import Link from 'next/link';
 import { getPosts } from '@/domains/post/queries';
-import { formatCategoryLabel } from '@/domains/post/utils/format-category-label';
 import { formatShortDate } from '@/libs/format-date';
 import type { PostListItem } from '@/types/post';
 

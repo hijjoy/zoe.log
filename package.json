@@ -31,6 +31,6 @@
     "packages/*"
   ],
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,css}": "biome format --write"
+    "*.{ts,tsx,js,jsx,json,css}": "biome check --write --no-errors-on-unmatched"
   }
 }
