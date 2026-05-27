@@ -4,6 +4,7 @@ import { Oswald } from 'next/font/google';
 import localFont from 'next/font/local';
 import { ViewTransitions } from 'next-view-transitions';
 import '@/shared/styles/globals.css';
+import '@/libs/env';
 import RootLayout from '@/shared/layouts/root-layout';
 
 const wantedSans = localFont({
