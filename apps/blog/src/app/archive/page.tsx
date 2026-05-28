@@ -39,13 +39,13 @@ function ArchiveItem({ post }: ArchiveItemProps) {
   return (
     <Link
       href={`/article/${post.slug}`}
-      className="group grid grid-cols-[6rem_1fr] items-baseline gap-6"
+      className="group grid grid-cols-1 items-baseline gap-6 sm:grid-cols-[6rem_1fr]"
     >
       <Typography
         variant="caption"
         as="time"
         color="secondary"
-        className="font-mono tabular-nums"
+        className="hidden font-mono tabular-nums sm:block"
       >
         {formatYearDate(post.createdAt)}
       </Typography>

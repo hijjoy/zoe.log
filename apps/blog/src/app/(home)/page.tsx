@@ -1,5 +1,4 @@
 import { Typography } from '@zoelog/ui';
-import { Fragment } from 'react';
 import RecentPosts from './_components/recent-posts';
 
 export default function Home() {
@@ -38,13 +37,7 @@ function HeroWordmark() {
         style={{ position: 'absolute' }}
       >
         <defs>
-          <filter
-            id="zoe-distort"
-            x="-5%"
-            y="-5%"
-            width="110%"
-            height="110%"
-          >
+          <filter id="zoe-distort" x="-5%" y="-5%" width="110%" height="110%">
             <feTurbulence
               type="fractalNoise"
               baseFrequency="0.04"
@@ -64,7 +57,7 @@ function HeroWordmark() {
       </svg>
       <div
         aria-label="ZOE.log"
-        className="flex items-baseline whitespace-nowrap pb-[0.2em] font-light leading-none tracking-[-0.04em] text-ds-heading"
+        className="flex items-baseline whitespace-nowrap pb-[0.2em] font-light text-ds-heading leading-none tracking-[-0.04em]"
         style={{
           fontFamily: 'var(--font-oswald), sans-serif',
           fontSize: 'clamp(48px, 32cqw, 280px)',
@@ -82,26 +75,17 @@ function HeroWordmark() {
   );
 }
 
-const META_ITEMS = ['Recent posts', `${new Date().getFullYear()}`];
-
 function MetaRow() {
   return (
-    <div className="hidden items-center gap-3 md:flex" aria-hidden>
-      {META_ITEMS.map((item, idx) => (
-        <Fragment key={item}>
-          <Typography
-            variant="caption"
-            as="span"
-            color="secondary"
-            className="shrink-0 font-mono uppercase tracking-wider"
-          >
-            {item}
-          </Typography>
-          {idx < META_ITEMS.length - 1 && (
-            <span className="h-px flex-1 bg-ds-border-semantic" />
-          )}
-        </Fragment>
-      ))}
+    <div className="flex items-center gap-3" aria-hidden>
+      <Typography
+        variant="caption"
+        as="span"
+        color="secondary"
+        className="shrink-0 font-mono uppercase tracking-wider"
+      >
+        Recent posts
+      </Typography>
     </div>
   );
 }
