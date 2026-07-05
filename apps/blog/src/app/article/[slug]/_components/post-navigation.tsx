@@ -13,7 +13,7 @@ const directionMeta: Record<Direction, { label: string; align: string }> = {
   next: { label: '다음글', align: 'text-right' },
 };
 
-async function PostNavigationComponent({ slug }: Props) {
+export async function PostNavigation({ slug }: Props) {
   const { prevPost, nextPost } = await getAdjacentPosts(slug);
 
   if (!prevPost && !nextPost) {
@@ -35,6 +35,15 @@ async function PostNavigationComponent({ slug }: Props) {
     </nav>
   );
 }
+
+PostNavigation.Loading = function Loading() {
+  return (
+    <nav aria-label="게시글 탐색" className="mt-16 grid grid-cols-2 gap-4">
+      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
+      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
+    </nav>
+  );
+};
 
 interface NavigationLinkProps {
   direction: Direction;
@@ -63,16 +72,3 @@ function NavigationLink({ direction, post }: NavigationLinkProps) {
     </Link>
   );
 }
-
-function PostNavigationLoading() {
-  return (
-    <nav aria-label="게시글 탐색" className="mt-16 grid grid-cols-2 gap-4">
-      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
-      <div className="h-[88px] animate-pulse rounded-lg bg-ds-surface" />
-    </nav>
-  );
-}
-
-export const PostNavigation = Object.assign(PostNavigationComponent, {
-  Loading: PostNavigationLoading,
-});
