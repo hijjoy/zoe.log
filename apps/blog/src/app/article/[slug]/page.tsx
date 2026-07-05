@@ -18,8 +18,13 @@ export async function generateMetadata({
 
   return {
     title: post.title,
-    description: post.description ?? '',
+    description: post.description ?? undefined,
+    alternates: {
+      canonical: `/article/${slug}`,
+    },
     openGraph: {
+      type: 'article',
+      publishedTime: new Date(post.createdAt).toISOString(),
       images: [post.thumbnail],
     },
   };
