@@ -15,7 +15,7 @@ const wantedSans = localFont({
 
 const oswald = Oswald({
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500'],
+  weight: 'variable',
   variable: '--font-oswald-source',
   display: 'swap',
 });
