@@ -32,12 +32,6 @@ export default async function PostDetailPage({
 }) {
   const { slug } = await params;
 
-  const post = await getPostDetail(slug);
-
-  if (!post) {
-    notFound();
-  }
-
   return (
     <div className="mx-auto min-h-screen max-w-[768px] md:px-5">
       <PostContent slug={slug} />
