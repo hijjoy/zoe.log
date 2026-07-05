@@ -15,6 +15,8 @@ interface Props {
   className?: string;
 }
 
+const COPY_FEEDBACK_DURATION_MS = 3000;
+
 export default function CodeBlockBox({ code, className }: Props) {
   const { resolvedTheme } = useTheme();
 
@@ -31,7 +33,7 @@ export default function CodeBlockBox({ code, className }: Props) {
     try {
       await navigator.clipboard.writeText(code);
       setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      setTimeout(() => setCopied(false), COPY_FEEDBACK_DURATION_MS);
     } catch (error) {
       console.error('Failed to copy:', error);
     }
