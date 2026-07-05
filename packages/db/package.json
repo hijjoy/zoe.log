@@ -10,10 +10,10 @@
   },
   "packageManager": "pnpm@10.6.1",
   "dependencies": {
-    "@prisma/client": "^6.9.0"
+    "@prisma/client": "^6.19.3"
   },
   "devDependencies": {
-    "@types/node": "^20.19.0",
-    "prisma": "^6.9.0"
+    "@types/node": "^20.19.43",
+    "prisma": "^6.19.3"
   }
 }

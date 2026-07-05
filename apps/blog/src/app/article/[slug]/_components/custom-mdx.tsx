@@ -75,7 +75,7 @@ export const customComponents: MDXComponents = {
     />
   ),
 
-  del: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
+  del: ({ className, ...props }: HTMLAttributes<HTMLModElement>) => (
     <del
       {...props}
       className={cn('break-keep text-ds-secondary line-through', className)}
