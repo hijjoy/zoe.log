@@ -16,7 +16,7 @@ interface Props {
 }
 
 export default function CodeBlockBox({ code, className }: Props) {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const [mounted, setMounted] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -66,7 +66,7 @@ export default function CodeBlockBox({ code, className }: Props) {
         <SyntaxHighlighter
           language="tsx"
           className="rounded-xl"
-          style={theme === 'dark' ? tomorrow : oneLight}
+          style={resolvedTheme === 'dark' ? tomorrow : oneLight}
         >
           {code}
         </SyntaxHighlighter>

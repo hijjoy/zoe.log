@@ -5,8 +5,8 @@ import type { SVGProps } from 'react';
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === 'dark';
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
