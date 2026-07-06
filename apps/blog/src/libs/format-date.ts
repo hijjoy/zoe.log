@@ -14,6 +14,14 @@ export const formatYearDate = (date: DateInput): string => {
   return `${parsed.getFullYear()}.${pad2(parsed.getMonth() + 1)}.${pad2(parsed.getDate())}`;
 };
 
+/** <time dateTime> 속성용 YYYY-MM-DD 포맷 */
+export const formatISODate = (date: DateInput): string | undefined => {
+  const parsed = parseDate(date);
+  if (!parsed) return undefined;
+
+  return `${parsed.getFullYear()}-${pad2(parsed.getMonth() + 1)}-${pad2(parsed.getDate())}`;
+};
+
 export const formatShortDate = (date: DateInput): string => {
   const parsed = parseDate(date);
   if (!parsed) return '--.--';

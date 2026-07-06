@@ -6,7 +6,7 @@ const SOCIALS: Array<{ label: string; href: string }> = [
 
 export default function Socials() {
   return (
-    <nav aria-label="Socials" className="flex flex-col gap-1">
+    <nav aria-label="소셜 링크" className="flex flex-col gap-1">
       {SOCIALS.map(({ label, href }) => (
         <a
           key={label}
@@ -23,6 +23,7 @@ export default function Socials() {
           >
             {label}
           </Typography>
+          <span className="sr-only">(새 탭에서 열림)</span>
         </a>
       ))}
     </nav>

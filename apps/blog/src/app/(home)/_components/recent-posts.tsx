@@ -1,7 +1,7 @@
 import { Typography } from '@zoelog/ui';
 import Link from 'next/link';
 import { getPosts } from '@/domains/post/queries';
-import { formatShortDate } from '@/libs/format-date';
+import { formatISODate, formatShortDate } from '@/libs/format-date';
 import type { PostListItem } from '@/types/post';
 
 export default async function RecentPosts() {
@@ -41,11 +41,13 @@ function RecentPostItem({ post }: RecentPostItemProps) {
 
       <Typography
         variant="caption"
-        as="time"
         color="secondary"
         className="font-mono tabular-nums"
+        asChild
       >
-        {formatShortDate(post.createdAt)}
+        <time dateTime={formatISODate(post.createdAt)}>
+          {formatShortDate(post.createdAt)}
+        </time>
       </Typography>
     </Link>
   );

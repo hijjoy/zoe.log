@@ -6,7 +6,7 @@ import type { ButtonProps } from './types';
 const buttonVariants = cva(
   [
     'relative inline-flex items-center justify-center gap-2 rounded-lg',
-    'transition-all duration-200 cursor-pointer',
+    'cursor-pointer transition-all duration-200',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary focus-visible:ring-offset-2',
     'disabled:cursor-not-allowed disabled:opacity-50',
   ],
@@ -38,27 +38,61 @@ const buttonVariants = cva(
     },
     compoundVariants: [
       // === Primary Solid ===
-      { variant: 'solid', color: 'primary', className: 'bg-ds-primary text-white hover:bg-ds-primary-hover' },
+      {
+        variant: 'solid',
+        color: 'primary',
+        className: 'bg-ds-primary text-white hover:bg-ds-primary-hover',
+      },
       // === Primary Outlined ===
-      { variant: 'outlined', color: 'primary', className: 'border-ds-primary text-ds-primary hover:bg-ds-primary/10' },
+      {
+        variant: 'outlined',
+        color: 'primary',
+        className: 'border-ds-primary text-ds-primary hover:bg-ds-primary/10',
+      },
       // === Primary Ghost ===
-      { variant: 'ghost', color: 'primary', className: 'text-ds-primary hover:bg-ds-primary/10' },
+      {
+        variant: 'ghost',
+        color: 'primary',
+        className: 'text-ds-primary hover:bg-ds-primary/10',
+      },
       // === Primary Text ===
-      { variant: 'text', color: 'primary', className: 'text-ds-primary hover:underline' },
+      {
+        variant: 'text',
+        color: 'primary',
+        className: 'text-ds-primary hover:underline',
+      },
 
       // === Neutral Solid ===
-      { variant: 'solid', color: 'neutral', className: 'bg-pg-700 text-white hover:bg-pg-800 dark:bg-pg-300 dark:text-pg-900 dark:hover:bg-pg-400' },
+      {
+        variant: 'solid',
+        color: 'neutral',
+        className:
+          'bg-pg-700 text-white hover:bg-pg-800 dark:bg-pg-300 dark:text-pg-900 dark:hover:bg-pg-400',
+      },
       // === Neutral Outlined ===
-      { variant: 'outlined', color: 'neutral', className: 'border-ds-border-semantic text-ds-heading hover:bg-ds-surface' },
+      {
+        variant: 'outlined',
+        color: 'neutral',
+        className:
+          'border-ds-border-semantic text-ds-heading hover:bg-ds-surface',
+      },
       // === Neutral Ghost ===
-      { variant: 'ghost', color: 'neutral', className: 'text-ds-heading hover:bg-ds-surface' },
+      {
+        variant: 'ghost',
+        color: 'neutral',
+        className: 'text-ds-heading hover:bg-ds-surface',
+      },
       // === Neutral Text ===
-      { variant: 'text', color: 'neutral', className: 'text-ds-heading hover:underline' },
+      {
+        variant: 'text',
+        color: 'neutral',
+        className: 'text-ds-heading hover:underline',
+      },
 
       // === Icon only sizing (square) ===
-      { iconOnly: true, size: 'small', className: 'px-0 w-8' },
-      { iconOnly: true, size: 'medium', className: 'px-0 w-10' },
-      { iconOnly: true, size: 'large', className: 'px-0 w-12' },
+      { iconOnly: true, size: 'small', className: 'w-8 px-0' },
+      { iconOnly: true, size: 'medium', className: 'w-10 px-0' },
+      { iconOnly: true, size: 'large', className: 'w-12 px-0' },
     ],
     defaultVariants: {
       variant: 'solid',
@@ -97,7 +131,10 @@ function Button({
 
   return (
     <Component
-      className={cn(buttonVariants({ variant, size, color, fullWidth, iconOnly }), className)}
+      className={cn(
+        buttonVariants({ variant, size, color, fullWidth, iconOnly }),
+        className,
+      )}
       disabled={isDisabled}
       aria-busy={loading || undefined}
       aria-disabled={isDisabled || undefined}
@@ -106,12 +143,16 @@ function Button({
     >
       {loading ? (
         <>
-          <span className="invisible flex items-center gap-2">
-            {leadingContent && <span className="shrink-0">{leadingContent}</span>}
+          <span className="flex items-center gap-2 opacity-0">
+            {leadingContent && (
+              <span className="shrink-0">{leadingContent}</span>
+            )}
             {children}
-            {trailingContent && <span className="shrink-0">{trailingContent}</span>}
+            {trailingContent && (
+              <span className="shrink-0">{trailingContent}</span>
+            )}
           </span>
-          <span className="absolute">
+          <span className="absolute" aria-hidden="true">
             <span
               className={cn(
                 'block animate-spin rounded-full border-2 border-current border-t-transparent',
@@ -124,7 +165,9 @@ function Button({
         <>
           {leadingContent && <span className="shrink-0">{leadingContent}</span>}
           {children}
-          {trailingContent && <span className="shrink-0">{trailingContent}</span>}
+          {trailingContent && (
+            <span className="shrink-0">{trailingContent}</span>
+          )}
         </>
       )}
     </Component>

@@ -17,11 +17,11 @@ export default function About() {
 
 function Info() {
   return (
-    <section aria-label="info">
+    <section aria-label="소개">
       <div className="relative">
         <Image
           src="/images/zoe.png"
-          alt="logo"
+          alt=""
           width={50}
           height={50}
           priority
@@ -29,9 +29,11 @@ function Info() {
           className="-top-4 absolute left-[105px] rotate-12"
         />
         <div className="mb-10 flex flex-col">
-          <AnimatedText className="font-bold text-ds-heading text-lg">
-            Hyewon, Jung
-          </AnimatedText>
+          <Typography as="h1" variant="body" className="leading-[1.4]">
+            <AnimatedText className="font-bold text-ds-heading text-lg">
+              Hyewon, Jung
+            </AnimatedText>
+          </Typography>
           <AnimatedText
             unit="word"
             preset="fade"
@@ -71,11 +73,11 @@ function Info() {
 
 function Career() {
   return (
-    <section aria-label="career" className="flex flex-col">
+    <section aria-label="경력" className="flex flex-col">
       <Typography
         variant="title"
         weight="bold"
-        as="h1"
+        as="h2"
         color="heading"
         className="mb-16 text-center"
       >
@@ -97,11 +99,11 @@ function Career() {
 
 function Activity() {
   return (
-    <section aria-label="activity">
+    <section aria-label="활동">
       <Typography
         variant="title"
         weight="bold"
-        as="h1"
+        as="h2"
         color="heading"
         className="mb-16 text-center"
       >
@@ -160,7 +162,7 @@ function TimeLineItem({
             <Typography
               variant="heading"
               weight="semibold"
-              as="h2"
+              as="h3"
               color="heading"
             >
               {title}
@@ -176,9 +178,10 @@ function TimeLineItem({
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${title} 웹사이트 (새 탭에서 열림)`}
                   className="text-ds-secondary transition-colors hover:text-ds-primary"
                 >
-                  <GoLink size={12} aria-label="site link" />
+                  <GoLink size={12} aria-hidden="true" />
                 </Link>
               )}
             </div>

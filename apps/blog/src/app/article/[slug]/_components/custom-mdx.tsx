@@ -1,6 +1,6 @@
 import { cn, Divider } from '@zoelog/ui';
 import type { MDXComponents } from 'mdx/types';
-import type { HTMLAttributes } from 'react';
+import type { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 import CodeBlockBox from '@/shared/components/code-box';
 import MDXImage from './mdx-image';
 
@@ -46,7 +46,7 @@ export const customComponents: MDXComponents = {
     <p
       {...props}
       className={cn(
-        'mb-8 break-keep [overflow-wrap:anywhere] text-[15px] leading-[1.6] tracking-normal',
+        'mb-8 break-keep text-[15px] leading-[1.6] tracking-normal [overflow-wrap:anywhere]',
         className,
       )}
     />
@@ -60,7 +60,7 @@ export const customComponents: MDXComponents = {
     <blockquote
       {...props}
       className={cn(
-        'my-6 break-keep [overflow-wrap:anywhere] border-pg-300 border-l-4 pl-4 text-[15px] dark:border-pg-600',
+        'my-6 break-keep border-pg-300 border-l-4 pl-4 text-[15px] [overflow-wrap:anywhere] dark:border-pg-600',
         className,
       )}
     />
@@ -82,23 +82,30 @@ export const customComponents: MDXComponents = {
     />
   ),
 
-  a: ({ className, ...props }: HTMLAttributes<HTMLAnchorElement>) => (
+  a: ({
+    className,
+    children,
+    ...props
+  }: AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
       {...props}
       className={cn(
-        'break-keep [overflow-wrap:anywhere] text-ds-primary underline hover:opacity-80',
+        'break-keep text-ds-primary underline [overflow-wrap:anywhere] hover:opacity-80',
         className,
       )}
       target="_blank"
       rel="noopener noreferrer"
-    />
+    >
+      {children}
+      <span className="sr-only"> (새 탭에서 열림)</span>
+    </a>
   ),
 
   code: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <code
       {...props}
       className={cn(
-        'break-keep [overflow-wrap:anywhere] rounded-md border-[0.5px] border-pg-200 bg-pg-100 px-1.5 py-0.5 font-mono text-[13px] dark:border-pg-700 dark:bg-pg-800',
+        'break-keep rounded-md border-[0.5px] border-pg-200 bg-pg-100 px-1.5 py-0.5 font-mono text-[13px] [overflow-wrap:anywhere] dark:border-pg-700 dark:bg-pg-800',
         className,
       )}
     />
@@ -134,14 +141,15 @@ export const customComponents: MDXComponents = {
     <li
       {...props}
       className={cn(
-        'break-keep [overflow-wrap:anywhere] text-[15px] leading-[1.6]',
+        'break-keep text-[15px] leading-[1.6] [overflow-wrap:anywhere]',
         className,
       )}
     />
   ),
 
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
-    <div className="my-6 overflow-x-auto">
+    // biome-ignore-start lint/a11y/noNoninteractiveTabindex: 가로 스크롤 영역 키보드 접근용 (axe: scrollable-region-focusable)
+    <section className="my-6 overflow-x-auto" tabIndex={0} aria-label="표">
       <table
         {...props}
         className={cn(
@@ -149,7 +157,8 @@ export const customComponents: MDXComponents = {
           className,
         )}
       />
-    </div>
+    </section>
+    // biome-ignore-end lint/a11y/noNoninteractiveTabindex: 가로 스크롤 영역 키보드 접근용
   ),
 
   thead: ({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) => (

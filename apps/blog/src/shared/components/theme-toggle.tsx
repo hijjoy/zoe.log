@@ -21,7 +21,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       className="text-ds-secondary transition-colors hover:text-ds-primary"
-      aria-label="Toggle theme"
+      aria-label={isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
       {isDark ? <MoonIcon /> : <SunIcon />}
@@ -31,7 +31,7 @@ export default function ThemeToggle() {
 
 const SunIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    role="graphics-symbol"
+    aria-hidden="true"
     viewBox="0 0 15 15"
     width="1em"
     height="1em"
@@ -49,7 +49,7 @@ const SunIcon = (props: SVGProps<SVGSVGElement>) => (
 
 const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    role="graphics-symbol"
+    aria-hidden="true"
     viewBox="0 0 15 15"
     width="1em"
     height="1em"

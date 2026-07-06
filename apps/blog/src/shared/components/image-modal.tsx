@@ -13,7 +13,7 @@ interface ImageModalProps {
 
 export function ImageModal({ src, alt, onClose }: ImageModalProps) {
   return (
-    <ModalOverlay onClose={onClose}>
+    <ModalOverlay onClose={onClose} ariaLabel="이미지 확대 보기">
       <ModalCloseButton onClose={onClose} />
       <ImageContainer src={src} alt={alt} />
     </ModalOverlay>
@@ -39,7 +39,7 @@ const ImageContainer = ({ src, alt }: ImageContainerProps) => {
     >
       <Image
         src={src}
-        alt={alt || 'image'}
+        alt={alt || '확대된 이미지'}
         width={1400}
         height={900}
         className="pointer-events-auto h-auto max-h-[85vh] w-auto max-w-[85vw] select-none object-contain"

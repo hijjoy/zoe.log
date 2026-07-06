@@ -82,11 +82,14 @@ export default function AnimatedText({
   ...props
 }: AnimatedTextProps) {
   const Comp = asChild ? Slot : 'span';
-  const pieces = splitters[unit](extractText(children));
+  const text = extractText(children);
+  const pieces = splitters[unit](text);
 
   return (
     <Comp className={cn('text-ds-body', className)} {...props}>
-      <span>
+      <span className="sr-only">{text}</span>
+      {/* 분할된 글자는 스크린리더가 한 글자씩 읽으므로 숨기고 위의 전체 텍스트로 대체 */}
+      <span aria-hidden="true">
         {pieces.map((part, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: 텍스트 분할 순서는 고정
           <span key={i} style={animationStyle(preset, i * delay)}>

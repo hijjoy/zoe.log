@@ -44,25 +44,26 @@ export default function CodeBlockBox({ code, className }: Props) {
   }
 
   return (
-    <div className={cn('group relative overflow-x-auto', className)}>
+    // biome-ignore-start lint/a11y/noNoninteractiveTabindex: 가로 스크롤 영역 키보드 접근용 (axe: scrollable-region-focusable)
+    <section
+      className={cn('group relative overflow-x-auto', className)}
+      tabIndex={0}
+      aria-label="코드 블록"
+    >
       <button
         type="button"
         onClick={handleCopy}
-        disabled={copied}
-        className="absolute top-3 right-3 z-10 flex items-center gap-1 rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-700 opacity-0 transition-all duration-200 hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-100 group-hover:opacity-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600"
-        aria-label="Copy code"
+        className={cn(
+          'absolute top-3 right-3 z-10 flex items-center gap-1 rounded-md bg-zinc-100 px-2 py-1 text-xs text-zinc-700 opacity-0 transition-all duration-200 hover:bg-zinc-200 focus-visible:opacity-100 group-hover:opacity-100 dark:bg-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-600',
+          copied && 'cursor-default opacity-100',
+        )}
       >
         {copied ? (
-          <>
-            <FiCheck className="h-3 w-3" />
-            <span>복사 완료!</span>
-          </>
+          <FiCheck aria-hidden="true" className="h-3 w-3" />
         ) : (
-          <>
-            <FiCopy className="h-3 w-3" />
-            <span>코드 복사</span>
-          </>
+          <FiCopy aria-hidden="true" className="h-3 w-3" />
         )}
+        <span aria-live="polite">{copied ? '복사 완료!' : '코드 복사'}</span>
       </button>
       <pre className="font-mono text-ds-heading text-sm leading-relaxed">
         <SyntaxHighlighter
@@ -73,6 +74,7 @@ export default function CodeBlockBox({ code, className }: Props) {
           {code}
         </SyntaxHighlighter>
       </pre>
-    </div>
+    </section>
+    // biome-ignore-end lint/a11y/noNoninteractiveTabindex: 가로 스크롤 영역 키보드 접근용
   );
 }

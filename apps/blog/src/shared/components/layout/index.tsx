@@ -1,5 +1,6 @@
 'use client';
 
+import { Typography } from '@zoelog/ui';
 import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 import ThemeToggle from '../theme-toggle';
@@ -15,10 +16,33 @@ export default function Layout({ children }: LayoutProps) {
   const pathname = usePathname();
   const isArticle = pathname?.startsWith('/article/') ?? false;
 
-  return isArticle ? (
-    <ArticleShell>{children}</ArticleShell>
-  ) : (
-    <DefaultShell>{children}</DefaultShell>
+  return (
+    <>
+      <SkipToContentLink />
+      {isArticle ? (
+        <ArticleShell>{children}</ArticleShell>
+      ) : (
+        <DefaultShell>{children}</DefaultShell>
+      )}
+    </>
+  );
+}
+
+function SkipToContentLink() {
+  return (
+    <a
+      href="#main-content"
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:border focus:border-ds-border-semantic focus:bg-ds-background focus:px-4 focus:py-2 focus:shadow-md"
+    >
+      <Typography
+        variant="caption"
+        as="span"
+        color="heading"
+        className="font-mono uppercase tracking-wider"
+      >
+        본문으로 건너뛰기
+      </Typography>
+    </a>
   );
 }
 
@@ -36,7 +60,9 @@ function ArticleShell({ children }: LayoutProps) {
         <Socials />
       </aside>
 
-      <main className="min-w-0 overflow-hidden">{children}</main>
+      <main id="main-content" className="min-w-0 overflow-hidden">
+        {children}
+      </main>
 
       <aside className="hidden md:block">
         <Nav />
@@ -59,7 +85,7 @@ function DefaultShell({ children }: LayoutProps) {
         <Socials />
       </aside>
 
-      <main className="min-w-0 overflow-hidden">
+      <main id="main-content" className="min-w-0 overflow-hidden">
         <div className="mb-6 flex justify-end md:hidden">
           <Nav />
         </div>

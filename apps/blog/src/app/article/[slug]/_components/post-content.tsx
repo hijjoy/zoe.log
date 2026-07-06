@@ -19,7 +19,7 @@ export default async function PostContent({ slug }: Props) {
   }
 
   return (
-    <article aria-label="post-detail">
+    <article>
       <MDXRemote
         source={post.content}
         components={customComponents}

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Logo() {
   return (
-    <Link href="/" aria-label="zoe.log home" className="group inline-flex">
+    <Link href="/" aria-label="zoe.log 홈으로" className="group inline-flex">
       <Typography
         variant="label"
         weight="medium"

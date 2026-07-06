@@ -8,10 +8,7 @@ const LINKS: Array<{ label: string; href: string }> = [
 
 export default function Nav() {
   return (
-    <nav
-      aria-label="Site navigation"
-      className="flex flex-col items-start gap-1"
-    >
+    <nav aria-label="사이트 메뉴" className="flex flex-col items-start gap-1">
       {LINKS.map(({ label, href }) => (
         <Link key={label} href={href}>
           <Typography

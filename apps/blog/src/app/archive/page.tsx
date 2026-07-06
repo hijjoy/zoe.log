@@ -2,7 +2,7 @@ import { Typography } from '@zoelog/ui';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getPosts } from '@/domains/post/queries';
-import { formatYearDate } from '@/libs/format-date';
+import { formatISODate, formatYearDate } from '@/libs/format-date';
 import type { PostListItem } from '@/types/post';
 
 export const metadata: Metadata = {
@@ -12,7 +12,14 @@ export const metadata: Metadata = {
 export default async function ArchivePage() {
   const posts = await getPosts();
 
-  return <ArchiveList posts={posts} />;
+  return (
+    <>
+      <Typography as="h1" className="sr-only">
+        Archive
+      </Typography>
+      <ArchiveList posts={posts} />
+    </>
+  );
 }
 
 interface ArchiveListProps {
@@ -43,11 +50,13 @@ function ArchiveItem({ post }: ArchiveItemProps) {
     >
       <Typography
         variant="caption"
-        as="time"
         color="secondary"
         className="hidden font-mono tabular-nums sm:block"
+        asChild
       >
-        {formatYearDate(post.createdAt)}
+        <time dateTime={formatISODate(post.createdAt)}>
+          {formatYearDate(post.createdAt)}
+        </time>
       </Typography>
       <Typography
         variant="label"
