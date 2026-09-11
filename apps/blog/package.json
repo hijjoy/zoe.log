@@ -31,11 +31,14 @@
     "remark-gfm": "^4.0.1",
     "simplex-noise": "^4.0.3",
     "three": "^0.177.0",
+    "unist-util-visit": "^5.1.0",
     "wanted-sans": "^1.0.3",
     "zod": "^4.4.3",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
-    "@types/mdx": "^2.0.14"
+    "@types/hast": "^3.0.4",
+    "@types/mdx": "^2.0.14",
+    "mdast-util-mdx-jsx": "^3.2.0"
   }
 }

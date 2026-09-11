@@ -75,6 +75,16 @@ export const customComponents: MDXComponents = {
     />
   ),
 
+  mark: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
+    <mark
+      {...props}
+      className={cn(
+        'break-keep bg-[#3fd59936] px-1 font-semibold text-ds-heading',
+        className,
+      )}
+    />
+  ),
+
   del: ({ className, ...props }: HTMLAttributes<HTMLModElement>) => (
     <del
       {...props}

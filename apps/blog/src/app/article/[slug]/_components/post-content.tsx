@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import { getPostDetail } from '@/domains/post/queries';
 import { customComponents } from './custom-mdx';
 import { PostNavigation } from './post-navigation';
+import { rehypeJsxToElement } from './rehype-jsx-to-element';
 
 interface Props {
   slug: string;
@@ -19,14 +20,14 @@ export default async function PostContent({ slug }: Props) {
   }
 
   return (
-    <article className="[&_mark]:break-keep [&_mark]:bg-[#3fd59936] [&_mark]:px-1 [&_mark]:font-bold [&_mark]:text-ds-heading">
+    <article>
       <MDXRemote
         source={post.content}
         components={customComponents}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm],
-            rehypePlugins: [rehypeSlug],
+            rehypePlugins: [rehypeSlug, rehypeJsxToElement],
           },
         }}
       />
