@@ -19,7 +19,7 @@ export default async function PostContent({ slug }: Props) {
   }
 
   return (
-    <article>
+    <article className="[&_mark]:break-keep [&_mark]:bg-[#3fd59936] [&_mark]:px-1 [&_mark]:font-bold [&_mark]:text-ds-heading">
       <MDXRemote
         source={post.content}
         components={customComponents}

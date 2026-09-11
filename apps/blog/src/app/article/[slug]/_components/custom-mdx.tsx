@@ -71,7 +71,7 @@ export const customComponents: MDXComponents = {
   strong: ({ className, ...props }: HTMLAttributes<HTMLElement>) => (
     <strong
       {...props}
-      className="break-keep px-1 font-medium text-ds-heading shadow-[inset_0_-10px_0_rgb(241,222,241)] dark:shadow-[inset_0_-10px_0_rgb(130,50,150)]"
+      className={cn('break-keep font-semibold text-ds-heading', className)}
     />
   ),
 
