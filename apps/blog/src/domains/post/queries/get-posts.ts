@@ -11,6 +11,7 @@ export async function getPosts({ take }: GetPostsOptions = {}) {
   return unstable_cache(
     async () => {
       return db.post.findMany({
+        where: { published: true },
         orderBy: { createdAt: 'desc' },
         take,
         select: {

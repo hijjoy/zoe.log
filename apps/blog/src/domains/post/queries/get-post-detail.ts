@@ -3,8 +3,8 @@ import { unstable_cache } from 'next/cache';
 
 export const getPostDetail = unstable_cache(
   async (slug: string) => {
-    return db.post.findUnique({
-      where: { slug },
+    return db.post.findFirst({
+      where: { slug, published: true },
     });
   },
   ['post', 'detail'],

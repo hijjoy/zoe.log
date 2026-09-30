@@ -17,7 +17,7 @@ export async function getAdjacentPosts(currentSlug: string) {
         WITH "current_post" AS (
           SELECT "createdAt"
           FROM "Post"
-          WHERE "slug" = ${currentSlug}
+          WHERE "slug" = ${currentSlug} AND "published" = true
         )
         SELECT
           "prev"."slug" AS "prevSlug",
@@ -28,14 +28,16 @@ export async function getAdjacentPosts(currentSlug: string) {
         LEFT JOIN LATERAL (
           SELECT "slug", "title"
           FROM "Post"
-          WHERE "createdAt" < "current_post"."createdAt"
+          WHERE "published" = true
+            AND "createdAt" < "current_post"."createdAt"
           ORDER BY "createdAt" DESC
           LIMIT 1
         ) AS "prev" ON true
         LEFT JOIN LATERAL (
           SELECT "slug", "title"
           FROM "Post"
-          WHERE "createdAt" > "current_post"."createdAt"
+          WHERE "published" = true
+            AND "createdAt" > "current_post"."createdAt"
           ORDER BY "createdAt" ASC
           LIMIT 1
         ) AS "next" ON true;

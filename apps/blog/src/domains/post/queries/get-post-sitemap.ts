@@ -4,6 +4,7 @@ import { unstable_cache } from 'next/cache';
 export const getPostSitemapEntries = unstable_cache(
   async () => {
     return db.post.findMany({
+      where: { published: true },
       orderBy: { createdAt: 'desc' },
       select: {
         slug: true,
