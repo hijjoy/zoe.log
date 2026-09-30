@@ -17,9 +17,10 @@ model Post {
   createdAt      DateTime         @default(now())
   content        String
   thumbnail      String           @db.VarChar(255)
+  published      Boolean          @default(true)
   postCategories PostCategories[]
 
-  @@index([createdAt])
+  @@index([published, createdAt])
 }
 
 model Categories {
